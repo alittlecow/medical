@@ -3,7 +3,7 @@
 
 <mapper namespace="com.jubo.modules.sys.dao.GoodsDao">
 
-	<!-- 可根据自己的需求，是否要使用 -->
+    <!-- 可根据自己的需求，是否要使用 -->
     <resultMap type="com.jubo.modules.sys.entity.GoodsEntity" id="goodsMap">
         <result property="id" column="id"/>
         <result property="name" column="name"/>
@@ -14,30 +14,38 @@
         <result property="status" column="status"/>
     </resultMap>
 
-	<select id="queryObject" resultType="com.jubo.modules.sys.entity.GoodsEntity">
+    <select id="queryObject" resultType="com.jubo.modules.sys.entity.GoodsEntity">
 		select * from goods where id = #{value}
 	</select>
 
-	<select id="queryList" resultType="com.jubo.modules.sys.entity.GoodsEntity">
-		select * from goods
+    <select id="queryList" resultType="com.jubo.modules.sys.entity.GoodsEntity">
+        select * from goods
+        <where>
+            <if test="type != null and type != '' ">
+                type = #{type}
+            </if>
+            <if test="name != null and name != '' ">
+                type = #{name}
+            </if>
+        </where>
         <choose>
             <when test="sidx != null and sidx.trim() != ''">
                 order by ${sidx} ${order}
             </when>
-			<otherwise>
+            <otherwise>
                 order by id desc
-			</otherwise>
+            </otherwise>
         </choose>
-		<if test="offset != null and limit != null">
-			limit #{offset}, #{limit}
-		</if>
-	</select>
-	
- 	<select id="queryTotal" resultType="int">
+        <if test="offset != null and limit != null">
+            limit #{offset}, #{limit}
+        </if>
+    </select>
+
+    <select id="queryTotal" resultType="int">
 		select count(*) from goods 
 	</select>
-	 
-	<insert id="save" parameterType="com.jubo.modules.sys.entity.GoodsEntity">
+
+    <insert id="save" parameterType="com.jubo.modules.sys.entity.GoodsEntity">
 		insert into goods
 		(
 			`id`, 
@@ -59,29 +67,29 @@
 			#{status}
 		)
 	</insert>
-	 
-	<update id="update" parameterType="com.jubo.modules.sys.entity.GoodsEntity">
-		update goods 
-		<set>
-			<if test="name != null">`name` = #{name}, </if>
-			<if test="type != null">`type` = #{type}, </if>
-			<if test="value != null">`value` = #{value}, </if>
-			<if test="money != null">`money` = #{money}, </if>
-			<if test="createTime != null">`create_time` = #{createTime}, </if>
-			<if test="status != null">`status` = #{status}</if>
-		</set>
-		where id = #{id}
-	</update>
-	
-	<delete id="delete">
+
+    <update id="update" parameterType="com.jubo.modules.sys.entity.GoodsEntity">
+        update goods
+        <set>
+            <if test="name != null">`name` = #{name},</if>
+            <if test="type != null">`type` = #{type},</if>
+            <if test="value != null">`value` = #{value},</if>
+            <if test="money != null">`money` = #{money},</if>
+            <if test="createTime != null">`create_time` = #{createTime},</if>
+            <if test="status != null">`status` = #{status}</if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <delete id="delete">
 		delete from goods where id = #{value}
 	</delete>
-	
-	<delete id="deleteBatch">
-		delete from goods where id in 
-		<foreach item="id" collection="array" open="(" separator="," close=")">
-			#{id}
-		</foreach>
-	</delete>
+
+    <delete id="deleteBatch">
+        delete from goods where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
 
 </mapper>

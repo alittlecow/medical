@@ -8,7 +8,7 @@ $(function () {
             {
                 label: '商品类型', name: 'type', index: 'type', width: 80, formatter: function (value, options, row) {
                 if (value === 1) {
-                    return '<span">设备使用次数</span>';
+                    return '<span">设备使用</span>';
                 }
                 if (value === 2) {
                     return '<span">账户充值</span>';
@@ -16,7 +16,7 @@ $(function () {
             }
             },
             {label: '商品值', name: 'value', index: 'value', width: 80},
-            {label: '商品价格', name: 'money', index: 'money', width: 80},
+            {label: '商品价格(元)', name: 'money', index: 'money', width: 80},
             {label: '创建时间', name: 'createTime', index: 'create_time', width: 80}
         ],
         viewrecords: true,
@@ -49,6 +49,9 @@ $(function () {
 var vm = new Vue({
     el: '#rrapp',
     data: {
+        q: {
+            name: null
+        },
         showList: true,
         title: null,
         goods: {}
@@ -123,6 +126,7 @@ var vm = new Vue({
             vm.showList = true;
             var page = $("#jqGrid").jqGrid('getGridParam', 'page');
             $("#jqGrid").jqGrid('setGridParam', {
+                postData: {'name': vm.q.name},
                 page: page
             }).trigger("reloadGrid");
         }
