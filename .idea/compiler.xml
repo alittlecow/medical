@@ -6,10 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="medcial" />
         <module name="renren-fast" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="medcial" target="1.8" />
       <module name="renren-fast" target="1.8" />
     </bytecodeTargetLevel>
   </component>

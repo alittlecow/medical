@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Implementation-Version: 1.0.0
+Built-By: pengxiao
+Implementation-Vendor-Id: com.jubo
+Created-By: IntelliJ IDEA
+Build-Jdk: 1.8.0_112
+Main-Class: ${start-class}
+
