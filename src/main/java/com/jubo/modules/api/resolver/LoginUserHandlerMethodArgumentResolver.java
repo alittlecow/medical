@@ -1,7 +1,6 @@
 package com.jubo.modules.api.resolver;
 
 import com.jubo.modules.api.annotation.LoginUser;
-import com.jubo.modules.api.entity.UserEntity;
 import com.jubo.modules.api.interceptor.AuthorizationInterceptor;
 import com.jubo.modules.sys.entity.SysUserEntity;
 import com.jubo.modules.sys.service.SysUserService;

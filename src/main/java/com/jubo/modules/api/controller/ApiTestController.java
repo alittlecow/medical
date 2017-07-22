@@ -1,10 +1,9 @@
 package com.jubo.modules.api.controller;
 
 
-import com.jubo.modules.api.annotation.LoginUser;
-import com.jubo.modules.api.entity.UserEntity;
 import com.jubo.common.utils.R;
 import com.jubo.modules.api.annotation.AuthIgnore;
+import com.jubo.modules.api.annotation.LoginUser;
 import com.jubo.modules.sys.entity.SysUserEntity;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
