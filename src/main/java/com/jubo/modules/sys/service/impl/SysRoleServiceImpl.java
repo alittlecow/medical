@@ -6,16 +6,14 @@ import com.jubo.modules.sys.dao.SysRoleDao;
 import com.jubo.modules.sys.entity.SysRoleEntity;
 import com.jubo.modules.sys.service.SysRoleMenuService;
 import com.jubo.modules.sys.service.SysRoleService;
-import com.jubo.modules.sys.service.SysUserRoleService;
 import com.jubo.modules.sys.service.SysUserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 
 
@@ -32,8 +30,6 @@ public class SysRoleServiceImpl implements SysRoleService {
 	private SysRoleDao sysRoleDao;
 	@Autowired
 	private SysRoleMenuService sysRoleMenuService;
-	@Autowired
-	private SysUserRoleService sysUserRoleService;
 	@Autowired
 	private SysUserService sysUserService;
 

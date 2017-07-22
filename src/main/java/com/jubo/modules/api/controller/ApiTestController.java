@@ -5,6 +5,7 @@ import com.jubo.modules.api.annotation.LoginUser;
 import com.jubo.modules.api.entity.UserEntity;
 import com.jubo.common.utils.R;
 import com.jubo.modules.api.annotation.AuthIgnore;
+import com.jubo.modules.sys.entity.SysUserEntity;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
@@ -30,7 +31,7 @@ public class ApiTestController {
     @GetMapping("userInfo")
     @ApiOperation(value = "获取用户信息")
     @ApiImplicitParam(paramType = "header", name = "token", value = "token", required = true)
-    public R userInfo(@LoginUser UserEntity user){
+    public R userInfo(@LoginUser SysUserEntity user){
         return R.ok().put("user", user);
     }
 
