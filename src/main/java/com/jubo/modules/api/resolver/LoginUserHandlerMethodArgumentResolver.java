@@ -3,7 +3,8 @@ package com.jubo.modules.api.resolver;
 import com.jubo.modules.api.annotation.LoginUser;
 import com.jubo.modules.api.entity.UserEntity;
 import com.jubo.modules.api.interceptor.AuthorizationInterceptor;
-import com.jubo.modules.api.service.UserService;
+import com.jubo.modules.sys.entity.SysUserEntity;
+import com.jubo.modules.sys.service.SysUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.MethodParameter;
 import org.springframework.stereotype.Component;
@@ -22,7 +23,7 @@ import org.springframework.web.method.support.ModelAndViewContainer;
 @Component
 public class LoginUserHandlerMethodArgumentResolver implements HandlerMethodArgumentResolver {
     @Autowired
-    private UserService userService;
+    private SysUserService sysUserService;
 
     @Override
     public boolean supportsParameter(MethodParameter parameter) {
@@ -39,7 +40,7 @@ public class LoginUserHandlerMethodArgumentResolver implements HandlerMethodArgu
         }
 
         //获取用户信息
-        UserEntity user = userService.queryObject((Long)object);
+        SysUserEntity user = sysUserService.queryObject((Long)object);
 
         return user;
     }

@@ -1,157 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="medcial:war" />
+      <artifact name="medcial:war exploded" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="a926d803-ce16-424f-814f-2c79e98b833e" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/renren-fast.iml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/common/utils/TokenUtils.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/jubo/modules/job/config/ScheduleConfig.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/jubo/modules/job/controller/ScheduleJobController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/jubo/modules/job/controller/ScheduleJobLogController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/jubo/modules/job/dao/ScheduleJobDao.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/jubo/modules/job/dao/ScheduleJobLogDao.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/jubo/modules/job/entity/ScheduleJobEntity.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/jubo/modules/job/entity/ScheduleJobLogEntity.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/jubo/modules/job/service/ScheduleJobLogService.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/jubo/modules/job/service/ScheduleJobService.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/jubo/modules/job/service/impl/ScheduleJobLogServiceImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/jubo/modules/job/service/impl/ScheduleJobServiceImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/jubo/modules/job/task/TestTask.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/jubo/modules/job/utils/ScheduleJob.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/jubo/modules/job/utils/ScheduleRunnable.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/jubo/modules/job/utils/ScheduleUtils.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/jubo/modules/oss/cloud/AliyunCloudStorageService.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/jubo/modules/oss/cloud/CloudStorageConfig.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/jubo/modules/oss/cloud/CloudStorageService.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/jubo/modules/oss/cloud/OSSFactory.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/jubo/modules/oss/cloud/QcloudCloudStorageService.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/jubo/modules/oss/cloud/QiniuCloudStorageService.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/jubo/modules/oss/controller/SysOssController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/jubo/modules/oss/dao/SysOssDao.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/jubo/modules/oss/entity/SysOssEntity.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/jubo/modules/oss/service/SysOssService.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/jubo/modules/oss/service/impl/SysOssServiceImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/mapper/job/ScheduleJobDao.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/mapper/job/ScheduleJobLogDao.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/mapper/oss/SysOssDao.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/static/js/modules/job/schedule.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/static/js/modules/job/schedule_log.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/static/js/modules/oss/oss.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/views/modules/job/schedule.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/views/modules/job/schedule_log.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/views/modules/oss/oss.html" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom-war.xml" afterPath="$PROJECT_DIR$/pom-war.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/api/CardDao.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/api/CardDao.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/api/TokenDao.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/api/TokenDao.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/api/UserDao.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/api/UserDao.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/job/ScheduleJobDao.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/job/ScheduleJobDao.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/job/ScheduleJobLogDao.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/job/ScheduleJobLogDao.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/oss/SysOssDao.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/oss/SysOssDao.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/sys/SysConfigDao.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/sys/SysConfigDao.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/sys/SysLogDao.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/sys/SysLogDao.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/sys/SysMenuDao.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/sys/SysMenuDao.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/sys/SysRoleDao.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/sys/SysRoleDao.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/sys/SysRoleMenuDao.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/sys/SysRoleMenuDao.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/sys/SysUserDao.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/sys/SysUserDao.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/sys/SysUserRoleDao.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/sys/SysUserRoleDao.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/sys/SysUserTokenDao.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/sys/SysUserTokenDao.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jubo/modules/api/interceptor/AuthorizationInterceptor.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/api/interceptor/AuthorizationInterceptor.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jubo/modules/api/resolver/LoginUserHandlerMethodArgumentResolver.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/api/resolver/LoginUserHandlerMethodArgumentResolver.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/controller/SysMenuController.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/controller/SysMenuController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/entity/SysUserEntity.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/entity/SysUserEntity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/views/index.html" afterPath="$PROJECT_DIR$/src/main/resources/views/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/views/login.html" afterPath="$PROJECT_DIR$/src/main/resources/views/login.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/views/main.html" afterPath="$PROJECT_DIR$/src/main/resources/views/main.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/Application.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/Application.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/common/annotation/SysLog.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/common/annotation/SysLog.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/common/aspect/SysLogAspect.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/common/aspect/SysLogAspect.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/common/exception/RRException.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/common/exception/RRException.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/common/exception/RRExceptionHandler.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/common/exception/RRExceptionHandler.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/common/utils/ConfigConstant.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/common/utils/ConfigConstant.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/common/utils/Constant.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/common/utils/Constant.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/common/utils/DateUtils.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/common/utils/DateUtils.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/common/utils/HttpContextUtils.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/common/utils/HttpContextUtils.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/common/utils/IPUtils.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/common/utils/IPUtils.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/common/utils/PageUtils.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/common/utils/PageUtils.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/common/utils/Query.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/common/utils/Query.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/common/utils/R.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/common/utils/R.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/common/utils/ShiroUtils.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/common/utils/ShiroUtils.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/common/utils/SpringContextUtils.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/common/utils/SpringContextUtils.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/common/validator/Assert.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/common/validator/Assert.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/common/validator/ValidatorUtils.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/common/validator/ValidatorUtils.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/common/validator/group/AddGroup.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/common/validator/group/AddGroup.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/common/validator/group/AliyunGroup.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/common/validator/group/AliyunGroup.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/common/validator/group/Group.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/common/validator/group/Group.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/common/validator/group/QcloudGroup.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/common/validator/group/QcloudGroup.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/common/validator/group/QiniuGroup.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/common/validator/group/QiniuGroup.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/common/validator/group/UpdateGroup.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/common/validator/group/UpdateGroup.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/common/xss/HTMLFilter.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/common/xss/HTMLFilter.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/common/xss/SQLFilter.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/common/xss/SQLFilter.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/common/xss/XssFilter.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/common/xss/XssFilter.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/common/xss/XssHttpServletRequestWrapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/common/xss/XssHttpServletRequestWrapper.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/config/DruidConfig.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/config/DruidConfig.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/config/FastDFSConfig.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/config/FastDFSConfig.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/config/FilterConfig.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/config/FilterConfig.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/config/KaptchaConfig.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/config/KaptchaConfig.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/config/ShiroConfig.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/config/ShiroConfig.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/api/annotation/AuthIgnore.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/api/annotation/AuthIgnore.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/api/annotation/LoginUser.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/api/annotation/LoginUser.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/api/config/WebMvcConfig.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/api/config/WebMvcConfig.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/api/controller/ApiLoginController.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/api/controller/ApiLoginController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/api/controller/ApiRegisterController.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/api/controller/ApiRegisterController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/api/controller/ApiTestController.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/api/controller/ApiTestController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/api/controller/CardController.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/api/controller/CardController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/api/dao/CardDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/api/dao/CardDao.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/api/dao/TokenDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/api/dao/TokenDao.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/api/dao/UserDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/api/dao/UserDao.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/api/entity/CardEntity.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/api/entity/CardEntity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/api/entity/TokenEntity.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/api/entity/TokenEntity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/api/entity/UserEntity.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/api/entity/UserEntity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/api/interceptor/AuthorizationInterceptor.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/api/interceptor/AuthorizationInterceptor.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/api/resolver/LoginUserHandlerMethodArgumentResolver.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/api/resolver/LoginUserHandlerMethodArgumentResolver.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/api/service/CardService.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/api/service/CardService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/api/service/TokenService.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/api/service/TokenService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/api/service/UserService.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/api/service/UserService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/api/service/impl/CardServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/api/service/impl/CardServiceImpl.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/api/service/impl/TokenServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/api/service/impl/TokenServiceImpl.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/api/service/impl/UserServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/api/service/impl/UserServiceImpl.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/job/config/ScheduleConfig.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/job/config/ScheduleConfig.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/job/controller/ScheduleJobController.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/job/controller/ScheduleJobController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/job/controller/ScheduleJobLogController.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/job/controller/ScheduleJobLogController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/job/dao/ScheduleJobDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/job/dao/ScheduleJobDao.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/job/dao/ScheduleJobLogDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/job/dao/ScheduleJobLogDao.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/job/entity/ScheduleJobEntity.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/job/entity/ScheduleJobEntity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/job/entity/ScheduleJobLogEntity.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/job/entity/ScheduleJobLogEntity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/job/service/ScheduleJobLogService.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/job/service/ScheduleJobLogService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/job/service/ScheduleJobService.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/job/service/ScheduleJobService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/job/service/impl/ScheduleJobLogServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/job/service/impl/ScheduleJobLogServiceImpl.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/job/service/impl/ScheduleJobServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/job/service/impl/ScheduleJobServiceImpl.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/job/task/TestTask.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/job/task/TestTask.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/job/utils/ScheduleJob.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/job/utils/ScheduleJob.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/job/utils/ScheduleRunnable.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/job/utils/ScheduleRunnable.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/job/utils/ScheduleUtils.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/job/utils/ScheduleUtils.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/oss/cloud/AliyunCloudStorageService.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/oss/cloud/AliyunCloudStorageService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/oss/cloud/CloudStorageConfig.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/oss/cloud/CloudStorageConfig.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/oss/cloud/CloudStorageService.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/oss/cloud/CloudStorageService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/oss/cloud/OSSFactory.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/oss/cloud/OSSFactory.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/oss/cloud/QcloudCloudStorageService.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/oss/cloud/QcloudCloudStorageService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/oss/cloud/QiniuCloudStorageService.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/oss/cloud/QiniuCloudStorageService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/oss/controller/SysOssController.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/oss/controller/SysOssController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/oss/dao/SysOssDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/oss/dao/SysOssDao.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/oss/entity/SysOssEntity.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/oss/entity/SysOssEntity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/oss/service/SysOssService.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/oss/service/SysOssService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/oss/service/impl/SysOssServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/oss/service/impl/SysOssServiceImpl.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/controller/AbstractController.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/controller/AbstractController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/controller/SysConfigController.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/controller/SysConfigController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/controller/SysLogController.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/controller/SysLogController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/controller/SysLoginController.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/controller/SysLoginController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/controller/SysMenuController.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/controller/SysMenuController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/controller/SysRoleController.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/controller/SysRoleController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/controller/SysUserController.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/controller/SysUserController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/dao/BaseDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/dao/BaseDao.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/dao/SysConfigDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/dao/SysConfigDao.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/dao/SysLogDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/dao/SysLogDao.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/dao/SysMenuDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/dao/SysMenuDao.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/dao/SysRoleDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/dao/SysRoleDao.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/dao/SysRoleMenuDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/dao/SysRoleMenuDao.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/dao/SysUserDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/dao/SysUserDao.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/dao/SysUserRoleDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/dao/SysUserRoleDao.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/dao/SysUserTokenDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/dao/SysUserTokenDao.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/entity/SysConfigEntity.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/entity/SysConfigEntity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/entity/SysLogEntity.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/entity/SysLogEntity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/entity/SysMenuEntity.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/entity/SysMenuEntity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/entity/SysRoleEntity.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/entity/SysRoleEntity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/entity/SysRoleMenuEntity.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/entity/SysRoleMenuEntity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/entity/SysUserEntity.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/entity/SysUserEntity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/entity/SysUserRoleEntity.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/entity/SysUserRoleEntity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/entity/SysUserTokenEntity.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/entity/SysUserTokenEntity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/oauth2/OAuth2Filter.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/oauth2/OAuth2Filter.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/oauth2/OAuth2Realm.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/oauth2/OAuth2Realm.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/oauth2/OAuth2Token.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/oauth2/OAuth2Token.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/oauth2/TokenGenerator.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/oauth2/TokenGenerator.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/service/ShiroService.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/service/ShiroService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/service/SysConfigService.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/service/SysConfigService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/service/SysLogService.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/service/SysLogService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/service/SysMenuService.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/service/SysMenuService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/service/SysRoleMenuService.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/service/SysRoleMenuService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/service/SysRoleService.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/service/SysRoleService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/service/SysUserRoleService.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/service/SysUserRoleService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/service/SysUserService.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/service/SysUserService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/service/SysUserTokenService.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/service/SysUserTokenService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/service/impl/ShiroServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/service/impl/ShiroServiceImpl.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/service/impl/SysConfigServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/service/impl/SysConfigServiceImpl.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/service/impl/SysLogServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/service/impl/SysLogServiceImpl.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/service/impl/SysMenuServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/service/impl/SysMenuServiceImpl.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/service/impl/SysRoleMenuServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/service/impl/SysRoleMenuServiceImpl.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/service/impl/SysRoleServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/service/impl/SysRoleServiceImpl.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/service/impl/SysUserRoleServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/service/impl/SysUserRoleServiceImpl.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/service/impl/SysUserServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/service/impl/SysUserServiceImpl.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/service/impl/SysUserTokenServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/service/impl/SysUserTokenServiceImpl.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/jubo/medical/RenrenApplicationTests.java" afterPath="$PROJECT_DIR$/src/test/java/com/jubo/RenrenApplicationTests.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/jubo/modules/api/controller/CardController.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/api/controller/web/CardController.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -164,21 +64,21 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
+      <file leaf-file-name="SysUserRoleService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/service/SysUserRoleService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="8" column="17" lean-forward="false" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="17" />
+            <state relative-caret-position="429">
+              <caret line="13" column="24" lean-forward="false" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom-war.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pom-war.xml">
+      <file leaf-file-name="SysRoleServiceImpl.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/service/impl/SysRoleServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="6" column="28" lean-forward="false" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
+            <state relative-caret-position="1062">
+              <caret line="60" column="18" lean-forward="false" selection-start-line="60" selection-start-column="10" selection-end-line="60" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -186,16 +86,15 @@
       </file>
     </leaf>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>io.renren.modules.job.utils.ScheduleJob</find>
-      <find>io.renren.m</find>
-      <find>io.renren.</find>
-      <find>io.renren</find>
-      <find>一个轻量级的Java快速开发平台，能快速开发项目并交付【接私活利器】</find>
-      <find>人人快速开发平台</find>
-      <find>钜柏健康</find>
-      <find>logo-lg</find>
       <find>zuo</find>
       <find>zu</find>
       <find>z</find>
@@ -208,11 +107,32 @@
       <find>编程教程</find>
       <find>renren-fast</find>
       <find>renren</find>
+      <find>token</find>
+      <find>use</find>
+      <find>user/list</find>
+      <find>b</find>
+      <find>tb_</find>
+      <find>tb_t</find>
+      <find>tb_to</find>
+      <find>tb_tok</find>
+      <find>tb_toke</find>
+      <find>deleteBatch</find>
+      <find>tb_token</find>
+      <find>t</find>
+      <find>rapp</find>
+      <find>rrapp</find>
+      <find>delete</find>
+      <find>tb_user</find>
+      <find>All Rights Reserved</find>
+      <find>LoginUser</find>
     </findStrings>
     <replaceStrings>
       <replace>钜柏健康管理平台</replace>
       <replace>jubo.medical</replace>
     </replaceStrings>
+    <dirStrings>
+      <dir>D:\sywl\medical\src\main\resources</dir>
+    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -233,10 +153,21 @@
         <option value="$MAVEN_REPOSITORY$/javax/validation/validation-api/1.1.0.Final/validation-api-1.1.0.Final.jar!/javax/validation/Validator.class" />
         <option value="$PROJECT_DIR$/src/main/resources/views/login.html" />
         <option value="$PROJECT_DIR$/src/main/resources/views/main.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/views/index.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/jubo/modules/oss/controller/SysOssController.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/pom-war.xml" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/controller/SysUserController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/sys/SysConfigDao.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jubo/modules/api/controller/web/CardController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jubo/modules/api/controller/ApiTestController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/controller/SysMenuController.java" />
+        <option value="$MAVEN_REPOSITORY$/commons-lang/commons-lang/2.6/commons-lang-2.6.jar!/org/apache/commons/lang/ArrayUtils.class" />
+        <option value="$PROJECT_DIR$/src/main/resources/views/index.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jubo/modules/api/resolver/LoginUserHandlerMethodArgumentResolver.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jubo/modules/api/interceptor/AuthorizationInterceptor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/entity/SysUserEntity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jubo/common/utils/TokenUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/controller/SysRoleController.java" />
       </list>
     </option>
   </component>
@@ -318,10 +249,10 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-11" />
-    <option name="y" value="-1631" />
+    <option name="x" value="3" />
+    <option name="y" value="-1620" />
     <option name="width" value="2894" />
-    <option name="height" value="1582" />
+    <option name="height" value="1577" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -431,7 +362,365 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="medical" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="medical" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="medical" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="medical" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="medical" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="medical" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="medical" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="medical" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="csource" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="medical" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="medical" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jubo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="medical" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="medical" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jubo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sys" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="medical" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="medical" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jubo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sys" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="medical" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="medical" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jubo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sys" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="medical" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="medical" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jubo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="medical" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="medical" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jubo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="medical" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="medical" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jubo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="utils" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -445,7 +734,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.31570882" />
@@ -1111,15 +1400,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1500699271531</updated>
-      <workItem from="1500699275199" duration="2957000" />
+      <workItem from="1500699275199" duration="10588000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2957000" />
+    <option name="totallyTimeSpent" value="10588000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-11" y="-1631" width="2894" height="1582" extended-state="0" />
+    <frame x="3" y="-1620" width="2894" height="1577" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1134,9 +1424,9 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40564635" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40715882" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32986626" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960477" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32986626" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -1148,7 +1438,7 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27068475" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32986626" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960477" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1167,7 +1457,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="2" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1176,155 +1466,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="891">
-          <caret line="27" column="5" lean-forward="false" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/module_renren-fast.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LICENSE">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/renren-fast.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/renren-fast.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="4" lean-forward="false" selection-start-line="0" selection-start-column="4" selection-end-line="0" selection-end-column="4" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/logback-spring.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/banner.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application-test.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application-pro.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jubo/common/validator/ValidatorUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="404">
-          <caret line="33" column="78" lean-forward="true" selection-start-line="33" selection-start-column="78" selection-end-line="33" selection-end-column="78" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/javax/validation/validation-api/1.1.0.Final/validation-api-1.1.0.Final.jar!/javax/validation/Validator.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="12" column="36" lean-forward="false" selection-start-line="12" selection-start-column="36" selection-end-line="12" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jubo/Application.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="9" column="24" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application-dev.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jubo/modules/job/utils/ScheduleUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="42" column="0" lean-forward="true" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/modules/sys/generator.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jubo/modules/job/controller/ScheduleJobController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="27" column="18" lean-forward="false" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jubo/modules/job/service/ScheduleJobService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="239">
@@ -1337,9 +1478,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="437">
           <caret line="34" column="57" lean-forward="false" selection-start-line="34" selection-start-column="57" selection-end-line="34" selection-end-column="57" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1385,34 +1524,385 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/views/index.html">
+    <entry file="file://$PROJECT_DIR$/pom-war.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="32" column="39" lean-forward="false" selection-start-line="32" selection-start-column="31" selection-end-line="32" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/views/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="438">
-          <caret line="37" column="12" lean-forward="false" selection-start-line="37" selection-start-column="12" selection-end-line="37" selection-end-column="12" />
+        <state relative-caret-position="198">
+          <caret line="6" column="28" lean-forward="false" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="8" column="17" lean-forward="false" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="17" />
+        <state relative-caret-position="528">
+          <caret line="82" column="21" lean-forward="false" selection-start-line="82" selection-start-column="21" selection-end-line="82" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom-war.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jubo/modules/api/dao/UserDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="14" column="17" lean-forward="false" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jubo/common/exception/RRException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="15" column="11" lean-forward="false" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jubo/modules/api/service/impl/UserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="864">
+          <caret line="75" column="26" lean-forward="false" selection-start-line="75" selection-start-column="26" selection-end-line="75" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jubo/common/utils/Constant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="11" column="39" lean-forward="false" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/sys/SysUserDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="8" column="25" lean-forward="false" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jubo/common/validator/Assert.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="16" column="9" lean-forward="true" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jubo/common/annotation/SysLog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="18" column="18" lean-forward="false" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jubo/common/aspect/SysLogAspect.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="42" column="39" lean-forward="false" selection-start-line="42" selection-start-column="39" selection-end-line="42" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/sys/SysConfigDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="381">
+          <caret line="13" column="37" lean-forward="true" selection-start-line="13" selection-start-column="37" selection-end-line="13" selection-end-column="37" />
+          <folding>
+            <marker date="1500714325709" expanded="true" signature="298:339" ph="select * fro... sys_config" />
+            <marker date="1500714325709" expanded="true" signature="1000:1083" ph="insert into sys_config... " />
+            <marker date="1500714325709" expanded="true" signature="1181:1279" ph="update sys_c... " />
+            <marker date="1500714325709" expanded="true" signature="1371:1432" ph="update sys_c... " />
+            <marker date="1500714325709" expanded="true" signature="1541:1590" ph="select value... sys_config" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/sys/SysUserTokenDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="726">
+          <caret line="22" column="9" lean-forward="true" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
+          <folding>
+            <marker date="1500700892407" expanded="true" signature="302:355" ph="select * fro... sys_user_token" />
+            <marker date="1500700892407" expanded="true" signature="458:509" ph="select * fro... sys_user_token" />
+            <marker date="1500700892407" expanded="true" signature="609:789" ph="insert into sys_user_token... " />
+            <marker date="1500700892407" expanded="true" signature="891:1149" ph="update sys_u... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/api/UserDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="759">
+          <caret line="23" column="22" lean-forward="false" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jubo/modules/api/controller/web/CardController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="30" column="23" lean-forward="false" selection-start-line="30" selection-start-column="12" selection-end-line="30" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jubo/modules/api/service/impl/TokenServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" column="23" lean-forward="false" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
+          <folding>
+            <element signature="e#735#736#0" expanded="false" />
+            <element signature="e#777#778#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/api/TokenDao.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
-          <caret line="6" column="28" lean-forward="false" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
+          <caret line="6" column="22" lean-forward="false" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
+          <folding>
+            <marker date="1500714787722" expanded="true" signature="288:335" ph="select * fro... tb_token" />
+            <marker date="1500714787722" expanded="true" signature="431:476" ph="select * fro... tb_token" />
+            <marker date="1500714787722" expanded="true" signature="513:687" ph="insert into tb_token... " />
+            <marker date="1500714787722" expanded="true" signature="726:979" ph="update tb_to... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jubo/modules/api/entity/UserEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="24" column="37" lean-forward="false" selection-start-line="24" selection-start-column="29" selection-end-line="24" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="99">
+          <caret line="3" column="37" lean-forward="false" selection-start-line="3" selection-start-column="37" selection-end-line="3" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/views/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="567">
+          <caret line="98" column="41" lean-forward="false" selection-start-line="98" selection-start-column="36" selection-end-line="98" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/controller/SysLogController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-44">
+          <caret line="27" column="13" lean-forward="false" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/commons-lang/commons-lang/2.6/commons-lang-2.6.jar!/org/apache/commons/lang/ArrayUtils.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jubo/common/validator/group/AddGroup.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="8" column="17" lean-forward="false" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/views/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="90" column="3" lean-forward="false" selection-start-line="90" selection-start-column="3" selection-end-line="90" selection-end-column="110" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/service/impl/SysUserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="55">
+          <caret line="72" column="16" lean-forward="false" selection-start-line="72" selection-start-column="16" selection-end-line="72" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-core/1.3.2/shiro-core-1.3.2.jar!/org/apache/shiro/SecurityUtils.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="18" column="26" lean-forward="false" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/controller/AbstractController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="23" column="5" lean-forward="true" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+          <folding>
+            <element signature="e#546#547#0" expanded="true" />
+            <element signature="e#581#582#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/service/SysUserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="38" column="17" lean-forward="false" selection-start-line="38" selection-start-column="4" selection-end-line="38" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jubo/modules/api/resolver/LoginUserHandlerMethodArgumentResolver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="921">
+          <caret line="42" column="43" lean-forward="false" selection-start-line="42" selection-start-column="29" selection-end-line="42" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/service/SysUserTokenService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="16" column="22" lean-forward="false" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/controller/SysUserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2898">
+          <caret line="32" column="13" lean-forward="false" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jubo/modules/api/controller/ApiLoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="909">
+          <caret line="53" column="50" lean-forward="true" selection-start-line="53" selection-start-column="50" selection-end-line="53" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jubo/modules/api/controller/ApiRegisterController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="942">
+          <caret line="43" column="23" lean-forward="false" selection-start-line="43" selection-start-column="23" selection-end-line="43" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jubo/modules/api/controller/ApiTestController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="963">
+          <caret line="41" column="38" lean-forward="false" selection-start-line="41" selection-start-column="27" selection-end-line="41" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/controller/SysMenuController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4647">
+          <caret line="29" column="21" lean-forward="false" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/service/impl/SysUserTokenServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1491">
+          <caret line="70" column="31" lean-forward="false" selection-start-line="70" selection-start-column="26" selection-end-line="70" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jubo/modules/api/interceptor/AuthorizationInterceptor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="798">
+          <caret line="59" column="10" lean-forward="false" selection-start-line="59" selection-start-column="10" selection-end-line="62" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/dao/SysUserDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="16" column="17" lean-forward="false" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/entity/SysUserEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="825">
+          <caret line="88" column="6" lean-forward="false" selection-start-line="88" selection-start-column="6" selection-end-line="88" selection-end-column="6" />
+          <folding>
+            <element signature="e#1705#1706#0" expanded="true" />
+            <element signature="e#1734#1735#0" expanded="true" />
+            <element signature="e#1776#1777#0" expanded="true" />
+            <element signature="e#1812#1813#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jubo/common/utils/TokenUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="732">
+          <caret line="30" column="44" lean-forward="false" selection-start-line="30" selection-start-column="38" selection-end-line="30" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/controller/SysLoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1353">
+          <caret line="82" column="38" lean-forward="true" selection-start-line="82" selection-start-column="38" selection-end-line="82" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/service/SysRoleService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="15" column="25" lean-forward="false" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/controller/SysRoleController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="35" column="11" lean-forward="true" selection-start-line="35" selection-start-column="11" selection-end-line="35" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/service/SysUserRoleService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="429">
+          <caret line="13" column="24" lean-forward="false" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/service/impl/SysRoleServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1062">
+          <caret line="60" column="18" lean-forward="false" selection-start-line="60" selection-start-column="10" selection-end-line="60" selection-end-column="18" />
           <folding />
         </state>
       </provider>

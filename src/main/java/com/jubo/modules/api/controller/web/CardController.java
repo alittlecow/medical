@@ -1,4 +1,4 @@
-package com.jubo.modules.api.controller;
+package com.jubo.modules.api.controller.web;
 
 import java.util.List;
 import java.util.Map;
