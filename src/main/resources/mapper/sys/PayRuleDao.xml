@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jubo.modules.sys.dao.PayRuleDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.jubo.modules.sys.entity.PayRuleEntity" id="payRuleMap">
+        <result property="id" column="id"/>
+        <result property="fee" column="fee"/>
+    </resultMap>
+
+	<select id="queryObject" resultType="com.jubo.modules.sys.entity.PayRuleEntity">
+		select * from pay_rule where id = #{value}
+	</select>
+
+	<select id="queryList" resultType="com.jubo.modules.sys.entity.PayRuleEntity">
+		select * from pay_rule
+        <choose>
+            <when test="sidx != null and sidx.trim() != ''">
+                order by ${sidx} ${order}
+            </when>
+			<otherwise>
+                order by id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="queryTotal" resultType="int">
+		select count(*) from pay_rule 
+	</select>
+	 
+	<insert id="save" parameterType="com.jubo.modules.sys.entity.PayRuleEntity">
+		insert into pay_rule
+		(
+			`id`, 
+			`fee`
+		)
+		values
+		(
+			#{id}, 
+			#{fee}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.jubo.modules.sys.entity.PayRuleEntity">
+		update pay_rule 
+		<set>
+			<if test="fee != null">`fee` = #{fee}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="delete">
+		delete from pay_rule where id = #{value}
+	</delete>
+	
+	<delete id="deleteBatch">
+		delete from pay_rule where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

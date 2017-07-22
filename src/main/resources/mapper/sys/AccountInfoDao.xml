@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jubo.modules.sys.dao.AccountInfoDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.jubo.modules.sys.entity.AccountInfoEntity" id="accountInfoMap">
+        <result property="id" column="id"/>
+        <result property="userId" column="user_id"/>
+        <result property="balance" column="balance"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+    </resultMap>
+
+	<select id="queryObject" resultType="com.jubo.modules.sys.entity.AccountInfoEntity">
+		select * from account_info where id = #{value}
+	</select>
+
+	<select id="queryList" resultType="com.jubo.modules.sys.entity.AccountInfoEntity">
+		select * from account_info
+        <choose>
+            <when test="sidx != null and sidx.trim() != ''">
+                order by ${sidx} ${order}
+            </when>
+			<otherwise>
+                order by id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="queryTotal" resultType="int">
+		select count(*) from account_info 
+	</select>
+	 
+	<insert id="save" parameterType="com.jubo.modules.sys.entity.AccountInfoEntity">
+		insert into account_info
+		(
+			`id`, 
+			`user_id`, 
+			`balance`, 
+			`create_time`, 
+			`update_time`
+		)
+		values
+		(
+			#{id}, 
+			#{userId}, 
+			#{balance}, 
+			#{createTime}, 
+			#{updateTime}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.jubo.modules.sys.entity.AccountInfoEntity">
+		update account_info 
+		<set>
+			<if test="userId != null">`user_id` = #{userId}, </if>
+			<if test="balance != null">`balance` = #{balance}, </if>
+			<if test="createTime != null">`create_time` = #{createTime}, </if>
+			<if test="updateTime != null">`update_time` = #{updateTime}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="delete">
+		delete from account_info where id = #{value}
+	</delete>
+	
+	<delete id="deleteBatch">
+		delete from account_info where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

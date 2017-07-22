@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jubo.modules.sys.dao.RefundOrderDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.jubo.modules.sys.entity.RefundOrderEntity" id="refundOrderMap">
+        <result property="id" column="id"/>
+        <result property="applyTime" column="apply_time"/>
+        <result property="applyMemo" column="apply_memo"/>
+        <result property="applyReason" column="apply_reason"/>
+        <result property="status" column="status"/>
+        <result property="refundTime" column="refund_time"/>
+        <result property="refuseReason" column="refuse_reason"/>
+        <result property="refuseMemo" column="refuse_memo"/>
+        <result property="isCancel" column="is_cancel"/>
+    </resultMap>
+
+	<select id="queryObject" resultType="com.jubo.modules.sys.entity.RefundOrderEntity">
+		select * from refund_order where id = #{value}
+	</select>
+
+	<select id="queryList" resultType="com.jubo.modules.sys.entity.RefundOrderEntity">
+		select * from refund_order
+        <choose>
+            <when test="sidx != null and sidx.trim() != ''">
+                order by ${sidx} ${order}
+            </when>
+			<otherwise>
+                order by id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="queryTotal" resultType="int">
+		select count(*) from refund_order 
+	</select>
+	 
+	<insert id="save" parameterType="com.jubo.modules.sys.entity.RefundOrderEntity">
+		insert into refund_order
+		(
+			`id`, 
+			`apply_time`, 
+			`apply_memo`, 
+			`apply_reason`, 
+			`status`, 
+			`refund_time`, 
+			`refuse_reason`, 
+			`refuse_memo`, 
+			`is_cancel`
+		)
+		values
+		(
+			#{id}, 
+			#{applyTime}, 
+			#{applyMemo}, 
+			#{applyReason}, 
+			#{status}, 
+			#{refundTime}, 
+			#{refuseReason}, 
+			#{refuseMemo}, 
+			#{isCancel}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.jubo.modules.sys.entity.RefundOrderEntity">
+		update refund_order 
+		<set>
+			<if test="applyTime != null">`apply_time` = #{applyTime}, </if>
+			<if test="applyMemo != null">`apply_memo` = #{applyMemo}, </if>
+			<if test="applyReason != null">`apply_reason` = #{applyReason}, </if>
+			<if test="status != null">`status` = #{status}, </if>
+			<if test="refundTime != null">`refund_time` = #{refundTime}, </if>
+			<if test="refuseReason != null">`refuse_reason` = #{refuseReason}, </if>
+			<if test="refuseMemo != null">`refuse_memo` = #{refuseMemo}, </if>
+			<if test="isCancel != null">`is_cancel` = #{isCancel}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="delete">
+		delete from refund_order where id = #{value}
+	</delete>
+	
+	<delete id="deleteBatch">
+		delete from refund_order where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

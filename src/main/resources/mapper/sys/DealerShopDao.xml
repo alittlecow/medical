@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jubo.modules.sys.dao.DealerShopDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.jubo.modules.sys.entity.DealerShopEntity" id="dealerShopMap">
+        <result property="id" column="id"/>
+        <result property="parentId" column="parent_id"/>
+        <result property="userId" column="user_id"/>
+        <result property="rate" column="rate"/>
+        <result property="name" column="name"/>
+        <result property="isWithdraw" column="is_withdraw"/>
+        <result property="address" column="address"/>
+    </resultMap>
+
+	<select id="queryObject" resultType="com.jubo.modules.sys.entity.DealerShopEntity">
+		select * from dealer_shop where id = #{value}
+	</select>
+
+	<select id="queryList" resultType="com.jubo.modules.sys.entity.DealerShopEntity">
+		select * from dealer_shop
+        <choose>
+            <when test="sidx != null and sidx.trim() != ''">
+                order by ${sidx} ${order}
+            </when>
+			<otherwise>
+                order by id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="queryTotal" resultType="int">
+		select count(*) from dealer_shop 
+	</select>
+	 
+	<insert id="save" parameterType="com.jubo.modules.sys.entity.DealerShopEntity">
+		insert into dealer_shop
+		(
+			`id`, 
+			`parent_id`, 
+			`user_id`, 
+			`rate`, 
+			`name`, 
+			`is_withdraw`, 
+			`address`
+		)
+		values
+		(
+			#{id}, 
+			#{parentId}, 
+			#{userId}, 
+			#{rate}, 
+			#{name}, 
+			#{isWithdraw}, 
+			#{address}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.jubo.modules.sys.entity.DealerShopEntity">
+		update dealer_shop 
+		<set>
+			<if test="parentId != null">`parent_id` = #{parentId}, </if>
+			<if test="userId != null">`user_id` = #{userId}, </if>
+			<if test="rate != null">`rate` = #{rate}, </if>
+			<if test="name != null">`name` = #{name}, </if>
+			<if test="isWithdraw != null">`is_withdraw` = #{isWithdraw}, </if>
+			<if test="address != null">`address` = #{address}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="delete">
+		delete from dealer_shop where id = #{value}
+	</delete>
+	
+	<delete id="deleteBatch">
+		delete from dealer_shop where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

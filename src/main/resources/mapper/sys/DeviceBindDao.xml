@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jubo.modules.sys.dao.DeviceBindDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.jubo.modules.sys.entity.DeviceBindEntity" id="deviceBindMap">
+        <result property="id" column="id"/>
+        <result property="deviceId" column="device_id"/>
+        <result property="dealerId" column="dealer_id"/>
+        <result property="bindTime" column="bind_time"/>
+    </resultMap>
+
+	<select id="queryObject" resultType="com.jubo.modules.sys.entity.DeviceBindEntity">
+		select * from device_bind where id = #{value}
+	</select>
+
+	<select id="queryList" resultType="com.jubo.modules.sys.entity.DeviceBindEntity">
+		select * from device_bind
+        <choose>
+            <when test="sidx != null and sidx.trim() != ''">
+                order by ${sidx} ${order}
+            </when>
+			<otherwise>
+                order by id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="queryTotal" resultType="int">
+		select count(*) from device_bind 
+	</select>
+	 
+	<insert id="save" parameterType="com.jubo.modules.sys.entity.DeviceBindEntity">
+		insert into device_bind
+		(
+			`id`, 
+			`device_id`, 
+			`dealer_id`, 
+			`bind_time`
+		)
+		values
+		(
+			#{id}, 
+			#{deviceId}, 
+			#{dealerId}, 
+			#{bindTime}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.jubo.modules.sys.entity.DeviceBindEntity">
+		update device_bind 
+		<set>
+			<if test="deviceId != null">`device_id` = #{deviceId}, </if>
+			<if test="dealerId != null">`dealer_id` = #{dealerId}, </if>
+			<if test="bindTime != null">`bind_time` = #{bindTime}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="delete">
+		delete from device_bind where id = #{value}
+	</delete>
+	
+	<delete id="deleteBatch">
+		delete from device_bind where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

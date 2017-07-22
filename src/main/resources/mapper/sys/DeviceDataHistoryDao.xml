@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jubo.modules.sys.dao.DeviceDataHistoryDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.jubo.modules.sys.entity.DeviceDataHistoryEntity" id="deviceDataHistoryMap">
+        <result property="id" column="id"/>
+        <result property="userType" column="user_type"/>
+        <result property="userId" column="user_id"/>
+        <result property="deviceId" column="device_id"/>
+        <result property="reportTime" column="report_time"/>
+        <result property="value" column="value"/>
+        <result property="createTime" column="create_time"/>
+    </resultMap>
+
+	<select id="queryObject" resultType="com.jubo.modules.sys.entity.DeviceDataHistoryEntity">
+		select * from device_data_history where id = #{value}
+	</select>
+
+	<select id="queryList" resultType="com.jubo.modules.sys.entity.DeviceDataHistoryEntity">
+		select * from device_data_history
+        <choose>
+            <when test="sidx != null and sidx.trim() != ''">
+                order by ${sidx} ${order}
+            </when>
+			<otherwise>
+                order by id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="queryTotal" resultType="int">
+		select count(*) from device_data_history 
+	</select>
+	 
+	<insert id="save" parameterType="com.jubo.modules.sys.entity.DeviceDataHistoryEntity">
+		insert into device_data_history
+		(
+			`id`, 
+			`user_type`, 
+			`user_id`, 
+			`device_id`, 
+			`report_time`, 
+			`value`, 
+			`create_time`
+		)
+		values
+		(
+			#{id}, 
+			#{userType}, 
+			#{userId}, 
+			#{deviceId}, 
+			#{reportTime}, 
+			#{value}, 
+			#{createTime}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.jubo.modules.sys.entity.DeviceDataHistoryEntity">
+		update device_data_history 
+		<set>
+			<if test="userType != null">`user_type` = #{userType}, </if>
+			<if test="userId != null">`user_id` = #{userId}, </if>
+			<if test="deviceId != null">`device_id` = #{deviceId}, </if>
+			<if test="reportTime != null">`report_time` = #{reportTime}, </if>
+			<if test="value != null">`value` = #{value}, </if>
+			<if test="createTime != null">`create_time` = #{createTime}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="delete">
+		delete from device_data_history where id = #{value}
+	</delete>
+	
+	<delete id="deleteBatch">
+		delete from device_data_history where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

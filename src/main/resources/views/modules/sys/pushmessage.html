@@ -23,9 +23,9 @@
 <div id="rrapp" v-cloak>
 	<div v-show="showList">
 		<div class="grid-btn">
-			<a v-if="hasPermission('card:save')" class="btn btn-primary" @click="add"><i class="fa fa-plus"></i>&nbsp;新增</a>
-			<a v-if="hasPermission('card:update')" class="btn btn-primary" @click="update"><i class="fa fa-pencil-square-o"></i>&nbsp;修改</a>
-			<a v-if="hasPermission('card:delete')" class="btn btn-primary" @click="del"><i class="fa fa-trash-o"></i>&nbsp;删除</a>
+			<a v-if="hasPermission('pushmessage:save')" class="btn btn-primary" @click="add"><i class="fa fa-plus"></i>&nbsp;新增</a>
+			<a v-if="hasPermission('pushmessage:update')" class="btn btn-primary" @click="update"><i class="fa fa-pencil-square-o"></i>&nbsp;修改</a>
+			<a v-if="hasPermission('pushmessage:delete')" class="btn btn-primary" @click="del"><i class="fa fa-trash-o"></i>&nbsp;删除</a>
 		</div>
 	    <table id="jqGrid"></table>
 	    <div id="jqGridPager"></div>
@@ -35,33 +35,21 @@
 		<div class="panel-heading">{{title}}</div>
 		<form class="form-horizontal">
 											<div class="form-group">
-			   	<div class="col-sm-2 control-label">用户id</div>
+			   	<div class="col-sm-2 control-label">类别（0健康文章 1充值优惠活动 2广告）</div>
 			   	<div class="col-sm-10">
-			      <input type="text" class="form-control" v-model="card.userId" placeholder="用户id"/>
+			      <input type="text" class="form-control" v-model="pushMessage.type" placeholder="类别（0健康文章 1充值优惠活动 2广告）"/>
 			    </div>
 			</div>
 									<div class="form-group">
-			   	<div class="col-sm-2 control-label">设备编码</div>
+			   	<div class="col-sm-2 control-label">标题</div>
 			   	<div class="col-sm-10">
-			      <input type="text" class="form-control" v-model="card.code" placeholder="设备编码"/>
+			      <input type="text" class="form-control" v-model="pushMessage.title" placeholder="标题"/>
 			    </div>
 			</div>
 									<div class="form-group">
-			   	<div class="col-sm-2 control-label">剩余使用次数</div>
+			   	<div class="col-sm-2 control-label">内容</div>
 			   	<div class="col-sm-10">
-			      <input type="text" class="form-control" v-model="card.count" placeholder="剩余使用次数"/>
-			    </div>
-			</div>
-									<div class="form-group">
-			   	<div class="col-sm-2 control-label">创建时间</div>
-			   	<div class="col-sm-10">
-			      <input type="text" class="form-control" v-model="card.createTime" placeholder="创建时间"/>
-			    </div>
-			</div>
-									<div class="form-group">
-			   	<div class="col-sm-2 control-label">上次使用时间</div>
-			   	<div class="col-sm-10">
-			      <input type="text" class="form-control" v-model="card.lastUseTime" placeholder="上次使用时间"/>
+			      <input type="text" class="form-control" v-model="pushMessage.content" placeholder="内容"/>
 			    </div>
 			</div>
 							<div class="form-group">
@@ -73,6 +61,6 @@
 	</div>
 </div>
 
-<script src="../../js/modules/card/card.js"></script>
+<script src="../../js/modules/generator/pushmessage.js"></script>
 </body>
 </html>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jubo.modules.sys.dao.AccountEnchashmentDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.jubo.modules.sys.entity.AccountEnchashmentEntity" id="accountEnchashmentMap">
+        <result property="id" column="id"/>
+        <result property="userId" column="user_id"/>
+        <result property="payAt" column="pay_at"/>
+        <result property="totalFee" column="total_fee"/>
+        <result property="bankFullName" column="bank_full_name"/>
+        <result property="accountType" column="account_type"/>
+        <result property="accountNo" column="account_no"/>
+        <result property="accountName" column="account_name"/>
+        <result property="status" column="status"/>
+        <result property="createAt" column="create_at"/>
+        <result property="cardType" column="card_type"/>
+    </resultMap>
+
+	<select id="queryObject" resultType="com.jubo.modules.sys.entity.AccountEnchashmentEntity">
+		select * from account_enchashment where id = #{value}
+	</select>
+
+	<select id="queryList" resultType="com.jubo.modules.sys.entity.AccountEnchashmentEntity">
+		select * from account_enchashment
+        <choose>
+            <when test="sidx != null and sidx.trim() != ''">
+                order by ${sidx} ${order}
+            </when>
+			<otherwise>
+                order by id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="queryTotal" resultType="int">
+		select count(*) from account_enchashment 
+	</select>
+	 
+	<insert id="save" parameterType="com.jubo.modules.sys.entity.AccountEnchashmentEntity">
+		insert into account_enchashment
+		(
+			`id`, 
+			`user_id`, 
+			`pay_at`, 
+			`total_fee`, 
+			`bank_full_name`, 
+			`account_type`, 
+			`account_no`, 
+			`account_name`, 
+			`status`, 
+			`create_at`, 
+			`card_type`
+		)
+		values
+		(
+			#{id}, 
+			#{userId}, 
+			#{payAt}, 
+			#{totalFee}, 
+			#{bankFullName}, 
+			#{accountType}, 
+			#{accountNo}, 
+			#{accountName}, 
+			#{status}, 
+			#{createAt}, 
+			#{cardType}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.jubo.modules.sys.entity.AccountEnchashmentEntity">
+		update account_enchashment 
+		<set>
+			<if test="userId != null">`user_id` = #{userId}, </if>
+			<if test="payAt != null">`pay_at` = #{payAt}, </if>
+			<if test="totalFee != null">`total_fee` = #{totalFee}, </if>
+			<if test="bankFullName != null">`bank_full_name` = #{bankFullName}, </if>
+			<if test="accountType != null">`account_type` = #{accountType}, </if>
+			<if test="accountNo != null">`account_no` = #{accountNo}, </if>
+			<if test="accountName != null">`account_name` = #{accountName}, </if>
+			<if test="status != null">`status` = #{status}, </if>
+			<if test="createAt != null">`create_at` = #{createAt}, </if>
+			<if test="cardType != null">`card_type` = #{cardType}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="delete">
+		delete from account_enchashment where id = #{value}
+	</delete>
+	
+	<delete id="deleteBatch">
+		delete from account_enchashment where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>
