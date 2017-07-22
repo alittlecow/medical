@@ -2,9 +2,7 @@ package com.jubo.modules.api.interceptor;
 
 
 import com.jubo.common.exception.RRException;
-import com.jubo.modules.api.service.TokenService;
 import com.jubo.modules.api.annotation.AuthIgnore;
-import com.jubo.modules.api.entity.TokenEntity;
 import com.jubo.modules.sys.entity.SysUserTokenEntity;
 import com.jubo.modules.sys.service.SysUserTokenService;
 import org.apache.commons.lang.StringUtils;
