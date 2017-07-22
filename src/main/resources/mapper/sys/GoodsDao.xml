@@ -22,10 +22,10 @@
         select * from goods
         <where>
             <if test="type != null and type != '' ">
-                type = #{type}
+                AND type = #{type}
             </if>
             <if test="name != null and name != '' ">
-                type = #{name}
+                ANDs type = #{name}
             </if>
         </where>
         <choose>
@@ -42,8 +42,16 @@
     </select>
 
     <select id="queryTotal" resultType="int">
-		select count(*) from goods 
-	</select>
+        select count(*) from goods
+        <where>
+            <if test="type != null and type != '' ">
+                AND type = #{type}
+            </if>
+            <if test="name != null and name != '' ">
+                AND type = #{name}
+            </if>
+        </where>
+    </select>
 
     <insert id="save" parameterType="com.jubo.modules.sys.entity.GoodsEntity">
 		insert into goods
