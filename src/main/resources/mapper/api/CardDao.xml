@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="io.renren.modules.api.dao.CardDao">
+<mapper namespace="jubo.medical.modules.api.dao.CardDao">
 
     <!-- 可根据自己的需求，是否要使用 -->
-    <resultMap type="io.renren.modules.api.entity.CardEntity" id="cardMap">
+    <resultMap type="jubo.medical.modules.api.entity.CardEntity" id="cardMap">
         <result property="id" column="id"/>
         <result property="userId" column="user_id"/>
         <result property="code" column="code"/>
@@ -13,11 +13,11 @@
         <result property="lastUseTime" column="last_use_time"/>
     </resultMap>
 
-    <select id="queryObject" resultType="io.renren.modules.api.entity.CardEntity">
+    <select id="queryObject" resultType="jubo.medical.modules.api.entity.CardEntity">
 		select * from card where id = #{value}
 	</select>
 
-    <select id="queryList" resultType="io.renren.modules.api.entity.CardEntity">
+    <select id="queryList" resultType="jubo.medical.modules.api.entity.CardEntity">
         select * from card
         <choose>
             <when test="sidx != null and sidx.trim() != ''">
@@ -36,7 +36,7 @@
 		select count(*) from card 
 	</select>
 
-    <insert id="save" parameterType="io.renren.modules.api.entity.CardEntity">
+    <insert id="save" parameterType="jubo.medical.modules.api.entity.CardEntity">
 		insert into card
 		(
 			`id`, 
@@ -57,7 +57,7 @@
 		)
 	</insert>
 
-    <update id="update" parameterType="io.renren.modules.api.entity.CardEntity">
+    <update id="update" parameterType="jubo.medical.modules.api.entity.CardEntity">
         update card
         <set>
             <if test="userId != null">`user_id` = #{userId},</if>

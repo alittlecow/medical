@@ -1,15 +1,435 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="17503fe1-7f8b-4abb-b1a4-3dee32875972" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/io/renren/modules/api/controller/CardController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/io/renren/modules/api/dao/CardDao.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/io/renren/modules/api/entity/CardEntity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/io/renren/modules/api/service/CardService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/io/renren/modules/api/service/impl/CardServiceImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/mapper/api/CardDao.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/static/js/modules/card/card.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/application-dev.yml" afterPath="$PROJECT_DIR$/src/main/resources/application-dev.yml" />
+    <list default="true" id="a926d803-ce16-424f-814f-2c79e98b833e" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/kotlinc.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/db.sql" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/banner.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/application-dev.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/application-pro.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/application-test.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/application.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/banner.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/RenrenApplication.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/common/annotation/SysLog.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/common/aspect/SysLogAspect.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/common/exception/RRException.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/common/exception/RRExceptionHandler.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/common/utils/ConfigConstant.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/common/utils/Constant$CloudService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/common/utils/Constant$MenuType.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/common/utils/Constant$ScheduleStatus.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/common/utils/Constant.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/common/utils/DateUtils.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/common/utils/HttpContextUtils.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/common/utils/IPUtils.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/common/utils/PageUtils.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/common/utils/Query.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/common/utils/R.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/common/utils/ShiroUtils.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/common/utils/SpringContextUtils.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/common/validator/Assert.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/common/validator/ValidatorUtils.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/common/validator/group/AddGroup.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/common/validator/group/AliyunGroup.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/common/validator/group/Group.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/common/validator/group/QcloudGroup.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/common/validator/group/QiniuGroup.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/common/validator/group/UpdateGroup.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/common/xss/HTMLFilter.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/common/xss/SQLFilter.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/common/xss/XssFilter.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/common/xss/XssHttpServletRequestWrapper$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/common/xss/XssHttpServletRequestWrapper.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/config/DruidConfig.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/config/FastDFSConfig.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/config/FilterConfig.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/config/KaptchaConfig.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/config/ShiroConfig.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/api/annotation/AuthIgnore.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/api/annotation/LoginUser.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/api/config/WebMvcConfig.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/api/controller/ApiLoginController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/api/controller/ApiRegisterController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/api/controller/ApiTestController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/api/controller/CardController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/api/dao/CardDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/api/dao/TokenDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/api/dao/UserDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/api/entity/CardEntity.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/api/entity/TokenEntity.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/api/entity/UserEntity.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/api/interceptor/AuthorizationInterceptor.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/api/resolver/LoginUserHandlerMethodArgumentResolver.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/api/service/CardService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/api/service/TokenService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/api/service/UserService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/api/service/impl/CardServiceImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/api/service/impl/TokenServiceImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/api/service/impl/UserServiceImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/job/config/ScheduleConfig.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/job/controller/ScheduleJobController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/job/controller/ScheduleJobLogController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/job/dao/ScheduleJobDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/job/dao/ScheduleJobLogDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/job/entity/ScheduleJobEntity.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/job/entity/ScheduleJobLogEntity.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/job/service/ScheduleJobLogService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/job/service/ScheduleJobService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/job/service/impl/ScheduleJobLogServiceImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/job/service/impl/ScheduleJobServiceImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/job/task/TestTask.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/job/utils/ScheduleJob.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/job/utils/ScheduleRunnable.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/job/utils/ScheduleUtils.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/oss/cloud/AliyunCloudStorageService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/oss/cloud/CloudStorageConfig.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/oss/cloud/CloudStorageService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/oss/cloud/OSSFactory.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/oss/cloud/QcloudCloudStorageService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/oss/cloud/QiniuCloudStorageService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/oss/controller/SysOssController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/oss/dao/SysOssDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/oss/entity/SysOssEntity.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/oss/service/SysOssService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/oss/service/impl/SysOssServiceImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/sys/controller/AbstractController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/sys/controller/SysConfigController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/sys/controller/SysLogController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/sys/controller/SysLoginController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/sys/controller/SysMenuController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/sys/controller/SysRoleController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/sys/controller/SysUserController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/sys/dao/BaseDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/sys/dao/SysConfigDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/sys/dao/SysLogDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/sys/dao/SysMenuDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/sys/dao/SysRoleDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/sys/dao/SysRoleMenuDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/sys/dao/SysUserDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/sys/dao/SysUserRoleDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/sys/dao/SysUserTokenDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/sys/entity/SysConfigEntity.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/sys/entity/SysLogEntity.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/sys/entity/SysMenuEntity.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/sys/entity/SysRoleEntity.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/sys/entity/SysRoleMenuEntity.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/sys/entity/SysUserEntity.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/sys/entity/SysUserRoleEntity.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/sys/entity/SysUserTokenEntity.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/sys/oauth2/OAuth2Filter.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/sys/oauth2/OAuth2Realm.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/sys/oauth2/OAuth2Token.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/sys/oauth2/TokenGenerator.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/sys/service/ShiroService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/sys/service/SysConfigService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/sys/service/SysLogService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/sys/service/SysMenuService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/sys/service/SysRoleMenuService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/sys/service/SysRoleService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/sys/service/SysUserRoleService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/sys/service/SysUserService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/sys/service/SysUserTokenService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/sys/service/impl/ShiroServiceImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/sys/service/impl/SysConfigServiceImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/sys/service/impl/SysLogServiceImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/sys/service/impl/SysMenuServiceImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/sys/service/impl/SysRoleMenuServiceImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/sys/service/impl/SysRoleServiceImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/sys/service/impl/SysUserRoleServiceImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/sys/service/impl/SysUserServiceImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/io/renren/modules/sys/service/impl/SysUserTokenServiceImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/logback-spring.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/mapper/api/CardDao.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/mapper/api/TokenDao.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/mapper/api/UserDao.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/mapper/job/ScheduleJobDao.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/mapper/job/ScheduleJobLogDao.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/mapper/oss/SysOssDao.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/mapper/sys/SysConfigDao.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/mapper/sys/SysLogDao.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/mapper/sys/SysMenuDao.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/mapper/sys/SysRoleDao.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/mapper/sys/SysRoleMenuDao.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/mapper/sys/SysUserDao.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/mapper/sys/SysUserRoleDao.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/mapper/sys/SysUserTokenDao.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/mybatis.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/csource/common/Base64.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/csource/common/IniFileReader.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/csource/common/MyException.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/csource/common/NameValuePair.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/csource/fastdfs/ClientGlobal.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/csource/fastdfs/DownloadCallback.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/csource/fastdfs/DownloadStream.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/csource/fastdfs/FileInfo.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/csource/fastdfs/ProtoCommon$RecvHeaderInfo.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/csource/fastdfs/ProtoCommon$RecvPackageInfo.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/csource/fastdfs/ProtoCommon.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/csource/fastdfs/ProtoStructDecoder.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/csource/fastdfs/ServerInfo.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/csource/fastdfs/StorageClient$UploadBuff.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/csource/fastdfs/StorageClient.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/csource/fastdfs/StorageClient1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/csource/fastdfs/StorageServer.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/csource/fastdfs/StructBase$FieldInfo.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/csource/fastdfs/StructBase.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/csource/fastdfs/StructGroupStat.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/csource/fastdfs/StructStorageStat.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/csource/fastdfs/TrackerClient.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/csource/fastdfs/TrackerGroup.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/csource/fastdfs/TrackerServer.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/csource/fastdfs/UploadCallback.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/csource/fastdfs/UploadStream.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/css/AdminLTE.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/css/all-skins.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/css/bootstrap-table.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/css/bootstrap.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/css/font-awesome.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/css/main.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/favicon.ico" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/fonts/FontAwesome.otf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/fonts/fontawesome-webfont.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/fonts/fontawesome-webfont.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/fonts/fontawesome-webfont.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/fonts/fontawesome-webfont.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/fonts/fontawesome-webfont.woff2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/fonts/glyphicons-halflings-regular.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/fonts/glyphicons-halflings-regular.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/fonts/glyphicons-halflings-regular.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/fonts/glyphicons-halflings-regular.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/fonts/glyphicons-halflings-regular.woff2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/js/common.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/js/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/js/modules/card/card.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/js/modules/job/schedule.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/js/modules/job/schedule_log.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/js/modules/oss/oss.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/js/modules/sys/config.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/js/modules/sys/generator.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/js/modules/sys/log.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/js/modules/sys/menu.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/js/modules/sys/role.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/js/modules/sys/user.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/libs/ajaxupload.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/libs/app.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/libs/bootstrap-table.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/libs/bootstrap.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/libs/jquery.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/libs/router.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/libs/vue.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/plugins/jqgrid/grid.locale-cn.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/plugins/jqgrid/jquery.jqGrid.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/plugins/jqgrid/ui.jqgrid-bootstrap-ui.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/plugins/jqgrid/ui.jqgrid-bootstrap.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/plugins/jqgrid/ui.jqgrid.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/plugins/layer/layer.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/plugins/layer/mobile/layer.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/plugins/layer/mobile/need/layer.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/plugins/layer/skin/default/icon-ext.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/plugins/layer/skin/default/icon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/plugins/layer/skin/default/layer.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/plugins/layer/skin/default/loading-0.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/plugins/layer/skin/default/loading-1.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/plugins/layer/skin/default/loading-2.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/plugins/layer/skin/moon/default.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/plugins/layer/skin/moon/style.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/plugins/treegrid/img/collapse.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/plugins/treegrid/img/expand.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/plugins/treegrid/img/file.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/plugins/treegrid/img/folder.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/plugins/treegrid/jquery.treegrid.bootstrap3.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/plugins/treegrid/jquery.treegrid.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/plugins/treegrid/jquery.treegrid.extension.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/plugins/treegrid/jquery.treegrid.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/plugins/treegrid/tree.table.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/plugins/ztree/css/awesomeStyle/awesome.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/plugins/ztree/css/awesomeStyle/awesome.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/plugins/ztree/css/awesomeStyle/fa.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/plugins/ztree/css/awesomeStyle/img/loading.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/plugins/ztree/css/metroStyle/img/line_conn.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/plugins/ztree/css/metroStyle/img/loading.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/plugins/ztree/css/metroStyle/img/metro.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/plugins/ztree/css/metroStyle/img/metro.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/plugins/ztree/css/metroStyle/metroStyle.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/plugins/ztree/css/zTreeStyle/img/diy/1_close.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/plugins/ztree/css/zTreeStyle/img/diy/1_open.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/plugins/ztree/css/zTreeStyle/img/diy/2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/plugins/ztree/css/zTreeStyle/img/diy/3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/plugins/ztree/css/zTreeStyle/img/diy/4.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/plugins/ztree/css/zTreeStyle/img/diy/5.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/plugins/ztree/css/zTreeStyle/img/diy/6.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/plugins/ztree/css/zTreeStyle/img/diy/7.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/plugins/ztree/css/zTreeStyle/img/diy/8.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/plugins/ztree/css/zTreeStyle/img/diy/9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/plugins/ztree/css/zTreeStyle/img/line_conn.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/plugins/ztree/css/zTreeStyle/img/loading.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/plugins/ztree/css/zTreeStyle/img/zTreeStandard.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/plugins/ztree/css/zTreeStyle/img/zTreeStandard.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/plugins/ztree/css/zTreeStyle/zTreeStyle.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/static/plugins/ztree/jquery.ztree.all.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/views/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/views/login.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/views/main.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/views/modules/card/card.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/views/modules/job/schedule.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/views/modules/job/schedule_log.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/views/modules/oss/oss.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/views/modules/sys/config.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/views/modules/sys/log.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/views/modules/sys/menu.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/views/modules/sys/role.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/views/modules/sys/user.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/test-classes/io/renren/RenrenApplicationTests.class" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/api/CardDao.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/api/CardDao.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/api/TokenDao.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/api/TokenDao.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/api/UserDao.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/api/UserDao.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/job/ScheduleJobDao.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/job/ScheduleJobDao.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/job/ScheduleJobLogDao.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/job/ScheduleJobLogDao.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/oss/SysOssDao.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/oss/SysOssDao.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/sys/SysConfigDao.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/sys/SysConfigDao.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/sys/SysLogDao.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/sys/SysLogDao.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/sys/SysMenuDao.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/sys/SysMenuDao.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/sys/SysRoleDao.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/sys/SysRoleDao.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/sys/SysRoleMenuDao.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/sys/SysRoleMenuDao.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/sys/SysUserDao.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/sys/SysUserDao.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/sys/SysUserRoleDao.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/sys/SysUserRoleDao.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/sys/SysUserTokenDao.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/sys/SysUserTokenDao.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/RenrenApplication.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/Application.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/common/annotation/SysLog.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/common/annotation/SysLog.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/common/aspect/SysLogAspect.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/common/aspect/SysLogAspect.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/common/exception/RRException.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/common/exception/RRException.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/common/exception/RRExceptionHandler.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/common/exception/RRExceptionHandler.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/common/utils/ConfigConstant.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/common/utils/ConfigConstant.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/common/utils/Constant.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/common/utils/Constant.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/common/utils/DateUtils.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/common/utils/DateUtils.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/common/utils/HttpContextUtils.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/common/utils/HttpContextUtils.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/common/utils/IPUtils.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/common/utils/IPUtils.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/common/utils/PageUtils.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/common/utils/PageUtils.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/common/utils/Query.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/common/utils/Query.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/common/utils/R.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/common/utils/R.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/common/utils/ShiroUtils.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/common/utils/ShiroUtils.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/common/utils/SpringContextUtils.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/common/utils/SpringContextUtils.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/common/validator/Assert.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/common/validator/Assert.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/common/validator/ValidatorUtils.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/common/validator/ValidatorUtils.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/common/validator/group/AddGroup.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/common/validator/group/AddGroup.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/common/validator/group/AliyunGroup.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/common/validator/group/AliyunGroup.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/common/validator/group/Group.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/common/validator/group/Group.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/common/validator/group/QcloudGroup.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/common/validator/group/QcloudGroup.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/common/validator/group/QiniuGroup.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/common/validator/group/QiniuGroup.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/common/validator/group/UpdateGroup.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/common/validator/group/UpdateGroup.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/common/xss/HTMLFilter.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/common/xss/HTMLFilter.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/common/xss/SQLFilter.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/common/xss/SQLFilter.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/common/xss/XssFilter.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/common/xss/XssFilter.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/common/xss/XssHttpServletRequestWrapper.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/common/xss/XssHttpServletRequestWrapper.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/config/DruidConfig.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/config/DruidConfig.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/config/FastDFSConfig.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/config/FastDFSConfig.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/config/FilterConfig.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/config/FilterConfig.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/config/KaptchaConfig.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/config/KaptchaConfig.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/config/ShiroConfig.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/config/ShiroConfig.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/api/annotation/AuthIgnore.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/api/annotation/AuthIgnore.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/api/annotation/LoginUser.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/api/annotation/LoginUser.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/api/config/WebMvcConfig.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/api/config/WebMvcConfig.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/api/controller/ApiLoginController.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/api/controller/ApiLoginController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/api/controller/ApiRegisterController.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/api/controller/ApiRegisterController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/api/controller/ApiTestController.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/api/controller/ApiTestController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/api/controller/CardController.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/api/controller/CardController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/api/dao/CardDao.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/api/dao/CardDao.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/api/dao/TokenDao.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/api/dao/TokenDao.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/api/dao/UserDao.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/api/dao/UserDao.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/api/entity/CardEntity.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/api/entity/CardEntity.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/api/entity/TokenEntity.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/api/entity/TokenEntity.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/api/entity/UserEntity.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/api/entity/UserEntity.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/api/interceptor/AuthorizationInterceptor.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/api/interceptor/AuthorizationInterceptor.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/api/resolver/LoginUserHandlerMethodArgumentResolver.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/api/resolver/LoginUserHandlerMethodArgumentResolver.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/api/service/CardService.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/api/service/CardService.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/api/service/TokenService.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/api/service/TokenService.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/api/service/UserService.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/api/service/UserService.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/api/service/impl/CardServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/api/service/impl/CardServiceImpl.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/api/service/impl/TokenServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/api/service/impl/TokenServiceImpl.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/api/service/impl/UserServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/api/service/impl/UserServiceImpl.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/job/config/ScheduleConfig.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/job/config/ScheduleConfig.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/job/controller/ScheduleJobController.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/job/controller/ScheduleJobController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/job/controller/ScheduleJobLogController.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/job/controller/ScheduleJobLogController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/job/dao/ScheduleJobDao.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/job/dao/ScheduleJobDao.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/job/dao/ScheduleJobLogDao.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/job/dao/ScheduleJobLogDao.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/job/entity/ScheduleJobEntity.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/job/entity/ScheduleJobEntity.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/job/entity/ScheduleJobLogEntity.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/job/entity/ScheduleJobLogEntity.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/job/service/ScheduleJobLogService.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/job/service/ScheduleJobLogService.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/job/service/ScheduleJobService.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/job/service/ScheduleJobService.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/job/service/impl/ScheduleJobLogServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/job/service/impl/ScheduleJobLogServiceImpl.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/job/service/impl/ScheduleJobServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/job/service/impl/ScheduleJobServiceImpl.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/job/task/TestTask.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/job/task/TestTask.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/job/utils/ScheduleJob.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/job/utils/ScheduleJob.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/job/utils/ScheduleRunnable.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/job/utils/ScheduleRunnable.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/job/utils/ScheduleUtils.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/job/utils/ScheduleUtils.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/oss/cloud/AliyunCloudStorageService.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/oss/cloud/AliyunCloudStorageService.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/oss/cloud/CloudStorageConfig.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/oss/cloud/CloudStorageConfig.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/oss/cloud/CloudStorageService.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/oss/cloud/CloudStorageService.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/oss/cloud/OSSFactory.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/oss/cloud/OSSFactory.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/oss/cloud/QcloudCloudStorageService.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/oss/cloud/QcloudCloudStorageService.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/oss/cloud/QiniuCloudStorageService.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/oss/cloud/QiniuCloudStorageService.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/oss/controller/SysOssController.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/oss/controller/SysOssController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/oss/dao/SysOssDao.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/oss/dao/SysOssDao.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/oss/entity/SysOssEntity.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/oss/entity/SysOssEntity.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/oss/service/SysOssService.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/oss/service/SysOssService.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/oss/service/impl/SysOssServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/oss/service/impl/SysOssServiceImpl.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/sys/controller/AbstractController.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/controller/AbstractController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/sys/controller/SysConfigController.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/controller/SysConfigController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/sys/controller/SysLogController.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/controller/SysLogController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/sys/controller/SysLoginController.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/controller/SysLoginController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/sys/controller/SysMenuController.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/controller/SysMenuController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/sys/controller/SysRoleController.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/controller/SysRoleController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/sys/controller/SysUserController.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/controller/SysUserController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/sys/dao/BaseDao.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/dao/BaseDao.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/sys/dao/SysConfigDao.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/dao/SysConfigDao.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/sys/dao/SysLogDao.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/dao/SysLogDao.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/sys/dao/SysMenuDao.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/dao/SysMenuDao.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/sys/dao/SysRoleDao.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/dao/SysRoleDao.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/sys/dao/SysRoleMenuDao.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/dao/SysRoleMenuDao.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/sys/dao/SysUserDao.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/dao/SysUserDao.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/sys/dao/SysUserRoleDao.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/dao/SysUserRoleDao.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/sys/dao/SysUserTokenDao.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/dao/SysUserTokenDao.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/sys/entity/SysConfigEntity.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/entity/SysConfigEntity.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/sys/entity/SysLogEntity.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/entity/SysLogEntity.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/sys/entity/SysMenuEntity.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/entity/SysMenuEntity.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/sys/entity/SysRoleEntity.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/entity/SysRoleEntity.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/sys/entity/SysRoleMenuEntity.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/entity/SysRoleMenuEntity.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/sys/entity/SysUserEntity.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/entity/SysUserEntity.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/sys/entity/SysUserRoleEntity.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/entity/SysUserRoleEntity.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/sys/entity/SysUserTokenEntity.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/entity/SysUserTokenEntity.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/sys/oauth2/OAuth2Filter.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/oauth2/OAuth2Filter.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/sys/oauth2/OAuth2Realm.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/oauth2/OAuth2Realm.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/sys/oauth2/OAuth2Token.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/oauth2/OAuth2Token.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/sys/oauth2/TokenGenerator.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/oauth2/TokenGenerator.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/sys/service/ShiroService.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/service/ShiroService.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/sys/service/SysConfigService.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/service/SysConfigService.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/sys/service/SysLogService.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/service/SysLogService.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/sys/service/SysMenuService.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/service/SysMenuService.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/sys/service/SysRoleMenuService.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/service/SysRoleMenuService.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/sys/service/SysRoleService.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/service/SysRoleService.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/sys/service/SysUserRoleService.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/service/SysUserRoleService.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/sys/service/SysUserService.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/service/SysUserService.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/sys/service/SysUserTokenService.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/service/SysUserTokenService.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/sys/service/impl/ShiroServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/service/impl/ShiroServiceImpl.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/sys/service/impl/SysConfigServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/service/impl/SysConfigServiceImpl.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/sys/service/impl/SysLogServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/service/impl/SysLogServiceImpl.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/sys/service/impl/SysMenuServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/service/impl/SysMenuServiceImpl.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/sys/service/impl/SysRoleMenuServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/service/impl/SysRoleMenuServiceImpl.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/sys/service/impl/SysRoleServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/service/impl/SysRoleServiceImpl.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/sys/service/impl/SysUserRoleServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/service/impl/SysUserRoleServiceImpl.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/sys/service/impl/SysUserServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/service/impl/SysUserServiceImpl.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/io/renren/modules/sys/service/impl/SysUserTokenServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/jubo/medical/modules/sys/service/impl/SysUserTokenServiceImpl.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/io/renren/RenrenApplicationTests.java" afterPath="$PROJECT_DIR$/src/test/java/jubo/medical/RenrenApplicationTests.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,12 +441,35 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="KaptchaConfig.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/io/renren/config/KaptchaConfig.java">
+    <leaf>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="FIRST">
+              <first_editor relative-caret-position="0">
+                <caret line="0" column="4" lean-forward="false" selection-start-line="0" selection-start-column="4" selection-end-line="0" selection-end-column="4" />
+                <folding />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom-war.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom-war.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="317">
-              <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+            <state relative-caret-position="132">
+              <caret line="4" column="15" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="15" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Application.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/jubo/medical/Application.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="297">
+              <caret line="9" column="24" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -34,112 +477,77 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FastDFSConfig.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/io/renren/config/FastDFSConfig.java">
+      <file leaf-file-name="mybatis.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="16" column="2" lean-forward="true" selection-start-line="16" selection-start-column="2" selection-end-line="17" selection-end-column="3" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SysOssController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/io/renren/modules/oss/controller/SysOssController.java">
+      <file leaf-file-name="logback-spring.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/logback-spring.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="581">
-              <caret line="48" column="28" lean-forward="true" selection-start-line="48" selection-start-column="28" selection-end-line="48" selection-end-column="28" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ApiLoginController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/io/renren/modules/api/controller/ApiLoginController.java">
+      <file leaf-file-name="application-dev.yml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/application-dev.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="609">
-              <caret line="56" column="5" lean-forward="true" selection-start-line="56" selection-start-column="5" selection-end-line="56" selection-end-column="5" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ApiRegisterController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/io/renren/modules/api/controller/ApiRegisterController.java">
+      <file leaf-file-name="application-pro.yml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/application-pro.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="515">
-              <caret line="40" column="19" lean-forward="true" selection-start-line="40" selection-start-column="19" selection-end-line="40" selection-end-column="19" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Assert.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/io/renren/common/validator/Assert.java">
+      <file leaf-file-name="application-test.yml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/application-test.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="13" column="23" lean-forward="false" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ApiTestController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/io/renren/modules/api/controller/ApiTestController.java">
+      <file leaf-file-name="application.yml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="429">
-              <caret line="32" column="39" lean-forward="false" selection-start-line="32" selection-start-column="39" selection-end-line="32" selection-end-column="39" />
-              <folding>
-                <element signature="e#964#965#0" expanded="true" />
-                <element signature="e#1011#1012#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserEntity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/io/renren/modules/api/entity/UserEntity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="302">
-              <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+              <caret line="13" column="16" lean-forward="false" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="19" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ShiroConfig.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/io/renren/config/ShiroConfig.java">
+      <file leaf-file-name="renren-fast.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/renren-fast.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="93">
-              <caret line="65" column="30" lean-forward="false" selection-start-line="65" selection-start-column="27" selection-end-line="65" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FilterConfig.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/io/renren/config/FilterConfig.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-18">
-              <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>kaptcha.border</find>
-      <find>LoginUser</find>
-      <find>s</find>
-      <find>swagger</find>
-      <find>io.renren.modules.generator.entity.CardEntity</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>io.renren.modules.api.entity.CardEntity</replace>
-    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -152,15 +560,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/LICENSE" />
+        <option value="$PROJECT_DIR$/src/main/java/jubo/medical/Application.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.yml" />
-        <option value="$PROJECT_DIR$/src/main/resources/application-dev.yml" />
-        <option value="$PROJECT_DIR$/src/main/java/io/renren/modules/api/entity/CardEntity.java" />
-        <option value="$PROJECT_DIR$/src/main/java/io/renren/modules/api/dao/CardDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/io/renren/modules/api/service/CardService.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/api/CardDao.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/views/modules/card/card.html" />
-        <option value="$PROJECT_DIR$/src/main/java/io/renren/modules/api/controller/CardController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/io/renren/modules/api/service/impl/CardServiceImpl.java" />
       </list>
     </option>
   </component>
@@ -172,9 +575,9 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-11" />
-    <option name="y" value="-11" />
-    <option name="width" value="1942" />
-    <option name="height" value="1042" />
+    <option name="y" value="-1631" />
+    <option name="width" value="2894" />
+    <option name="height" value="1582" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -192,9 +595,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -203,7 +603,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="renren-fast" />
+              <option name="myItemId" value="medical" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -213,7 +613,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="renren-fast" />
+              <option name="myItemId" value="medical" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -227,29 +627,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="renren-fast" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="renren-fast" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="renren-fast" />
+              <option name="myItemId" value="medical" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -264,10 +642,6 @@
               <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -275,63 +649,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="renren-fast" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mapper" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="renren-fast" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="renren-fast" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mapper" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="renren-fast" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="renren-fast" />
+              <option name="myItemId" value="medical" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -353,7 +671,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="renren-fast" />
+              <option name="myItemId" value="medical" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -369,176 +687,25 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="renren" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="renren-fast" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="renren-fast" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="renren" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="renren-fast" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="renren-fast" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="renren" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="renren-fast" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="renren-fast" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="renren" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controller" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="renren-fast" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="renren-fast" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="renren" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="renren-fast" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="renren-fast" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="doc" />
+              <option name="myItemId" value="medical" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../renren-generator/pom.xml" />
-    <property name="GenerateAntBuildDialog.enableUiFormCompile" value="true" />
-    <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
-    <property name="GenerateAntBuildDialog.backupFiles" value="true" />
-    <property name="GenerateAntBuildDialog.outputFileNameProperty" value="renren-fast" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\workspace\renren-fast\src\main\java\io\renren\modules\api\controller" />
-      <recent name="D:\workspace\renren-fast\src\main\java\io\renren\modules\api\dao" />
-      <recent name="D:\workspace\renren-fast\src\main\java\io\renren\modules\api\entity" />
-      <recent name="D:\workspace\renren-fast\src\main\java\io\renren\modules\api\service\impl" />
-      <recent name="D:\workspace\renren-fast\src\main\java\io\renren\modules\api\service" />
+      <recent name="D:\sywl\medical" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -554,17 +721,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.RenrenApplication">
-    <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" ALTERNATIVE_JRE_ENABLED="false">
-      <deployment />
-      <server-settings />
-      <predefined_log_file id="Tomcat" enabled="true" />
-      <predefined_log_file id="Tomcat Catalina" enabled="true" />
-      <predefined_log_file id="Tomcat Manager" enabled="false" />
-      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
-      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <method />
-    </configuration>
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
@@ -812,7 +968,6 @@
       <setting name="passParentEnv" value="true" />
       <setting name="launchBrowser" value="true" />
       <setting name="launchBrowserUrl" value="" />
-      <setting name="depsClasspath" value="false" />
       <method />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
@@ -979,12 +1134,6 @@
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <gulpfile />
-      <tasks />
-      <arguments />
-      <envs />
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
@@ -1040,22 +1189,20 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="17503fe1-7f8b-4abb-b1a4-3dee32875972" name="Default" comment="" />
-      <created>1500603235090</created>
+      <changelist id="a926d803-ce16-424f-814f-2c79e98b833e" name="Default" comment="" />
+      <created>1500699271531</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1500603235090</updated>
-      <workItem from="1500603244306" duration="8439000" />
-      <workItem from="1500642923725" duration="5692000" />
+      <updated>1500699271531</updated>
+      <workItem from="1500699275199" duration="424000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14131000" />
+    <option name="totallyTimeSpent" value="424000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
-    <editor active="true" />
+    <frame x="-11" y="-1631" width="2894" height="1582" extended-state="0" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1069,18 +1216,18 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.44540942" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40564635" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32986626" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32986626" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32986626" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32986626" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.41684666" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27068475" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1108,126 +1255,87 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/renren/common/validator/group/QcloudGroup.java">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="8" column="17" lean-forward="false" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/renren/common/validator/group/QiniuGroup.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="8" column="17" lean-forward="false" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/renren/common/xss/XssHttpServletRequestWrapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="22" column="13" lean-forward="false" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/renren/common/xss/XssFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/renren/common/xss/SQLFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/renren/common/xss/HTMLFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1940">
-          <caret line="42" column="19" lean-forward="false" selection-start-line="42" selection-start-column="19" selection-end-line="42" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/renren/common/utils/PageUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-132">
-          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        <state relative-caret-position="891">
+          <caret line="27" column="5" lean-forward="false" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/renren/common/utils/Constant.java">
+    <entry file="file://$PROJECT_DIR$/module_renren-fast.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="572">
-          <caret line="83" column="11" lean-forward="false" selection-start-line="83" selection-start-column="9" selection-end-line="83" selection-end-column="11" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/renren/common/utils/SpringContextUtils.java">
+    <entry file="file://$PROJECT_DIR$/LICENSE">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="11" column="30" lean-forward="true" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/renren/common/utils/ShiroUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="15" column="17" lean-forward="false" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/github/axet/kaptcha/0.0.9/kaptcha-0.0.9.jar!/com/google/code/kaptcha/Producer.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/renren/modules/sys/controller/SysLoginController.java">
+    <entry file="file://$PROJECT_DIR$/renren-fast.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="36" column="41" lean-forward="false" selection-start-line="36" selection-start-column="27" selection-end-line="36" selection-end-column="41" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/renren/common/validator/ValidatorUtils.java">
+    <entry file="file://$PROJECT_DIR$/renren-fast.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="429">
-          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="0">
+            <caret line="0" column="4" lean-forward="false" selection-start-line="0" selection-start-column="4" selection-end-line="0" selection-end-column="4" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom-war.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="4" column="15" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/jubo/medical/Application.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="9" column="24" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="24" />
           <folding>
-            <element signature="imports" expanded="false" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/renren/modules/api/resolver/LoginUserHandlerMethodArgumentResolver.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="28" column="124" lean-forward="false" selection-start-line="28" selection-start-column="115" selection-end-line="28" selection-end-column="124" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/renren/modules/api/interceptor/AuthorizationInterceptor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="659">
-          <caret line="61" column="45" lean-forward="false" selection-start-line="61" selection-start-column="8" selection-end-line="61" selection-end-column="45" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/renren/common/utils/IPUtils.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/logback-spring.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="54" column="14" lean-forward="false" selection-start-line="54" selection-start-column="8" selection-end-line="54" selection-end-column="14" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1240,301 +1348,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/views/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="20" column="60" lean-forward="true" selection-start-line="20" selection-start-column="60" selection-end-line="20" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/doc/db.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="76" column="21" lean-forward="false" selection-start-line="76" selection-start-column="14" selection-end-line="76" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/application-dev.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="2" column="35" lean-forward="false" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="35" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application-pro.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application-test.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="15" column="52" lean-forward="false" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/renren/modules/sys/dao/BaseDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="11" column="30" lean-forward="false" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/api/CardDao.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="627">
-          <caret line="64" column="35" lean-forward="false" selection-start-line="64" selection-start-column="31" selection-end-line="64" selection-end-column="35" />
-          <folding>
-            <marker date="1500646909618" expanded="true" signature="731:769" ph="select * fro... card" />
-            <marker date="1500646909618" expanded="true" signature="1298:1323" ph="select count... card" />
-            <marker date="1500646909618" expanded="true" signature="1418:1637" ph="insert into card... " />
-            <marker date="1500646909618" expanded="true" signature="1739:2150" ph="update card " />
-            <marker date="1500646909618" expanded="true" signature="2193:2229" ph="delete from " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/common.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="22" column="18" lean-forward="false" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="429">
-          <caret line="52" column="60" lean-forward="false" selection-start-line="52" selection-start-column="60" selection-end-line="52" selection-end-column="60" />
+          <caret line="13" column="16" lean-forward="false" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="19" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/modules/card/card.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1122">
-          <caret line="2" column="33" lean-forward="false" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/views/modules/card/card.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="27" column="47" lean-forward="false" selection-start-line="27" selection-start-column="41" selection-end-line="27" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/renren/modules/api/service/CardService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="444">
-          <caret line="23" column="9" lean-forward="false" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/renren/modules/api/service/impl/CardServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="22" column="4" lean-forward="true" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpcore/4.4.6/httpcore-4.4.6.jar!/org/apache/http/HttpStatus.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="489">
-          <caret line="49" column="8" lean-forward="false" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpcore/4.4.6/httpcore-4.4.6-sources.jar!/org/apache/http/HttpStatus.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="33" column="2" lean-forward="false" selection-start-line="33" selection-start-column="1" selection-end-line="33" selection-end-column="2" />
-          <folding>
-            <element signature="e#0#7768#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/renren/common/utils/R.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="12" column="20" lean-forward="false" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="20" />
-          <folding>
-            <element signature="e#333#334#0" expanded="true" />
-            <element signature="e#354#355#0" expanded="true" />
-            <element signature="e#891#892#0" expanded="true" />
-            <element signature="e#912#913#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/renren/modules/api/controller/CardController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="444">
-          <caret line="42" column="10" lean-forward="false" selection-start-line="42" selection-start-column="10" selection-end-line="42" selection-end-column="10" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/renren/common/utils/Query.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-183">
-          <caret line="26" column="36" lean-forward="false" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/renren/modules/api/dao/TokenDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="13" column="7" lean-forward="false" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/renren/modules/api/dao/UserDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="14" column="17" lean-forward="false" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/renren/modules/api/dao/CardDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="13" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/renren/RenrenApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/renren/config/DruidConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="33" column="40" lean-forward="false" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/renren/modules/api/entity/CardEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="31" column="10" lean-forward="true" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/renren/modules/api/entity/TokenEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-409">
-          <caret line="22" column="11" lean-forward="false" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/renren/config/ShiroConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="93">
-          <caret line="65" column="30" lean-forward="false" selection-start-line="65" selection-start-column="27" selection-end-line="65" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/renren/config/KaptchaConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/renren/config/FilterConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-18">
-          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/renren/config/FastDFSConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="16" column="2" lean-forward="true" selection-start-line="16" selection-start-column="2" selection-end-line="17" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/renren/modules/oss/controller/SysOssController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="581">
-          <caret line="48" column="28" lean-forward="true" selection-start-line="48" selection-start-column="28" selection-end-line="48" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/renren/modules/api/controller/ApiLoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="609">
-          <caret line="56" column="5" lean-forward="true" selection-start-line="56" selection-start-column="5" selection-end-line="56" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/renren/common/validator/Assert.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="13" column="23" lean-forward="false" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/renren/modules/api/controller/ApiRegisterController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="515">
-          <caret line="40" column="19" lean-forward="true" selection-start-line="40" selection-start-column="19" selection-end-line="40" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/renren/modules/api/entity/UserEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/renren/modules/api/controller/ApiTestController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="429">
-          <caret line="32" column="39" lean-forward="false" selection-start-line="32" selection-start-column="39" selection-end-line="32" selection-end-column="39" />
-          <folding>
-            <element signature="e#964#965#0" expanded="true" />
-            <element signature="e#1011#1012#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
