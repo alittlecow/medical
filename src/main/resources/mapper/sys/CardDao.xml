@@ -3,7 +3,7 @@
 
 <mapper namespace="com.jubo.modules.sys.dao.CardDao">
 
-	<!-- 可根据自己的需求，是否要使用 -->
+    <!-- 可根据自己的需求，是否要使用 -->
     <resultMap type="com.jubo.modules.sys.entity.CardEntity" id="cardMap">
         <result property="id" column="id"/>
         <result property="userId" column="user_id"/>
@@ -13,30 +13,40 @@
         <result property="lastUseTime" column="last_use_time"/>
     </resultMap>
 
-	<select id="queryObject" resultType="com.jubo.modules.sys.entity.CardEntity">
+    <select id="queryObject" resultType="com.jubo.modules.sys.entity.CardEntity">
 		select * from card where id = #{value}
 	</select>
 
-	<select id="queryList" resultType="com.jubo.modules.sys.entity.CardEntity">
-		select * from card
+    <select id="queryList" resultType="com.jubo.modules.sys.entity.CardEntity">
+        select * from card
+        <where>
+            <if test="userId != null and userId != '' ">
+                AND user_id = #{userId}
+            </if>
+        </where>
         <choose>
             <when test="sidx != null and sidx.trim() != ''">
                 order by ${sidx} ${order}
             </when>
-			<otherwise>
+            <otherwise>
                 order by id desc
-			</otherwise>
+            </otherwise>
         </choose>
-		<if test="offset != null and limit != null">
-			limit #{offset}, #{limit}
-		</if>
-	</select>
-	
- 	<select id="queryTotal" resultType="int">
-		select count(*) from card 
-	</select>
-	 
-	<insert id="save" parameterType="com.jubo.modules.sys.entity.CardEntity">
+        <if test="offset != null and limit != null">
+            limit #{offset}, #{limit}
+        </if>
+    </select>
+
+    <select id="queryTotal" resultType="int">
+        select count(*) from card
+        <where>
+            <if test="userId != null and userId != '' ">
+                AND user_id = #{userId}
+            </if>
+        </where>
+    </select>
+
+    <insert id="save" parameterType="com.jubo.modules.sys.entity.CardEntity">
 		insert into card
 		(
 			`id`, 
@@ -56,28 +66,27 @@
 			#{lastUseTime}
 		)
 	</insert>
-	 
-	<update id="update" parameterType="com.jubo.modules.sys.entity.CardEntity">
-		update card 
-		<set>
-			<if test="userId != null">`user_id` = #{userId}, </if>
-			<if test="code != null">`code` = #{code}, </if>
-			<if test="count != null">`count` = #{count}, </if>
-			<if test="createTime != null">`create_time` = #{createTime}, </if>
-			<if test="lastUseTime != null">`last_use_time` = #{lastUseTime}</if>
-		</set>
-		where id = #{id}
-	</update>
-	
-	<delete id="delete">
+
+    <update id="update" parameterType="com.jubo.modules.sys.entity.CardEntity">
+        update card
+        <set>
+            <if test="userId != null">`user_id` = #{userId},</if>
+            <if test="code != null">`code` = #{code},</if>
+            <if test="count != null">`count` = #{count},</if>
+            <if test="lastUseTime != null">`last_use_time` = #{lastUseTime}</if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <delete id="delete">
 		delete from card where id = #{value}
 	</delete>
-	
-	<delete id="deleteBatch">
-		delete from card where id in 
-		<foreach item="id" collection="array" open="(" separator="," close=")">
-			#{id}
-		</foreach>
-	</delete>
+
+    <delete id="deleteBatch">
+        delete from card where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
 
 </mapper>
