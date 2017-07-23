@@ -62,7 +62,7 @@ public class AccountInfoServiceImpl implements AccountInfoService {
         }
 
 
-        
+
 
         //账户更新 生成流水
         accountMoneyChangeRec(orderId, orderMoney, account, oldBalance, newBalance,
