@@ -61,6 +61,9 @@ public class AccountInfoServiceImpl implements AccountInfoService {
             return R.error(ErrorMessage.MONEY_NOT_ENOUGH);
         }
 
+
+        
+
         //账户更新 生成流水
         accountMoneyChangeRec(orderId, orderMoney, account, oldBalance, newBalance,
                 Constant.AccountAdjustType.USER_CONSUME.getValue());
