@@ -1,6 +1,7 @@
 package com.jubo.modules.sys.service;
 
 
+import com.jubo.common.utils.R;
 import com.jubo.modules.sys.entity.AccountInfoEntity;
 
 import java.util.List;
@@ -12,6 +13,14 @@ import java.util.Map;
  * @date 2017-07-21 22:46:51
  */
 public interface AccountInfoService {
+
+
+    /**
+     * 支付订单
+     *
+     * @param orderId
+     */
+    R pay(String orderId);
 
     AccountInfoEntity queryObjectByUserId(Long userId);
 

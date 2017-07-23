@@ -21,7 +21,7 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("/app/device")
-public class DeviceController {
+public class AppDeviceController {
 	@Autowired
 	private DeviceService deviceService;
 	

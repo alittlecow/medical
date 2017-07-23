@@ -21,8 +21,8 @@ import java.util.Map;
  * @date 2017-07-21 22:46:51
  */
 @RestController
-@RequestMapping("devicedatahistory")
-public class DeviceDataHistoryController {
+@RequestMapping("/app/devicedatahistory")
+public class AppDeviceDataHistoryController {
 	@Autowired
 	private DeviceDataHistoryService deviceDataHistoryService;
 	

@@ -166,4 +166,26 @@ public class Constant {
             return value;
         }
     }
+
+
+    public enum AccountAdjustType {
+        //用户充值
+        USER_RECHARGE(new Byte("0")),
+        //用户消费
+        USER_CONSUME(new Byte("1")),
+        //分成结算
+        DEALER_SETTLEMENT(new Byte("2")),
+        //提现
+        ENCASHMENT(new Byte("3"));
+
+        private Byte value;
+
+        private AccountAdjustType(Byte value) {
+            this.value = value;
+        }
+
+        public Byte getValue() {
+            return value;
+        }
+    }
 }

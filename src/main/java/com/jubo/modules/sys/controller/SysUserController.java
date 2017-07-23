@@ -107,7 +107,7 @@ public class SysUserController extends AbstractController {
     @RequiresPermissions("sys:user:save")
     public R save(@RequestBody SysUserEntity user) {
         ValidatorUtils.validateEntity(user, AddGroup.class);
-        Assert.isNotValidPassword(user.getPassword(), "");
+        Assert.isNotValidPassword(user.getPassword(), ErrorMessage.PASSWORD_FORMAT_ERROR);
         Assert.isNotPhone(user.getMobile(), ErrorMessage.PHONE_FORMAT_ERROR);
         user.setCreateUserId(getUserId());
 

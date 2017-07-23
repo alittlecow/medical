@@ -19,7 +19,10 @@ $(function () {
                         return '<span">用户消费</span>';
                     }
                     if (value === 2) {
-                        return '<span">分销商结算</span>';
+                        return '<span">分成结算</span>';
+                    }
+                    if (value === 3) {
+                        return '<span">提现</span>';
                     }
                 }
             },
