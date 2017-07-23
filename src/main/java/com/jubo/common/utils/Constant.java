@@ -112,4 +112,20 @@ public class Constant {
         }
     }
 
+
+    //角色类型
+    public enum Role {
+        ROLE_ADMIN(new Long(1)), ROLE_ORDINARY_USER(new Long(2)),
+        ROLE_DEALER(new Long(3)), ROLE_SHOP_KEEPER(new Long(4)), ROLE_IDCARD_USER(new Long(5));
+        private Long value;
+
+        private Role(Long value) {
+            this.value = value;
+        }
+
+        public Long getValue() {
+            return value;
+        }
+    }
+
 }

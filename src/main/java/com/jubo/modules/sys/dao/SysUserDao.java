@@ -15,6 +15,9 @@ import java.util.Map;
  */
 @Mapper
 public interface SysUserDao extends BaseDao<SysUserEntity> {
+
+
+	SysUserEntity queryByMobile(String mobile);
 	
 	/**
 	 * 查询用户的所有权限
