@@ -2,6 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.jubo.modules.sys.dao.SysUserDao">
+
+
+	<select id="queryByMobile" resultType="com.jubo.modules.sys.entity.SysUserEntity">
+		select * from sys_user where mobile = #{mobile}
+	</select>
+
 	<select id="queryObject" resultType="com.jubo.modules.sys.entity.SysUserEntity">
 		select * from sys_user where user_id = #{value}
 	</select>
