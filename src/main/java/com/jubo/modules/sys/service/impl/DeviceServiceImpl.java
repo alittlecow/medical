@@ -1,8 +1,12 @@
 package com.jubo.modules.sys.service.impl;
 
+import com.jubo.common.mtqq.Mqttutils;
+import com.jubo.common.utils.SpringContextUtils;
+import org.eclipse.paho.client.mqttv3.MqttException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -51,5 +55,31 @@ public class DeviceServiceImpl implements DeviceService {
 	public void deleteBatch(String[] ids){
 		deviceDao.deleteBatch(ids);
 	}
-	
+
+	@Override
+	public void useDevice(DeviceEntity device) {
+		String code = device.getCode();
+
+		//发布使用设备请求
+		String publicTopic = "start";
+		Map<String,String> message = new HashMap<String,String>();
+		message.put("code","20170001");
+		Mqttutils mqttutils = (Mqttutils)SpringContextUtils.getBean("Mqttutils");
+		mqttutils.publish(publicTopic,message);
+
+		//订阅设备采集数据主题
+		try {
+			Mqttutils.client.subscribe(code + "/subsd", 2);
+		} catch (MqttException e) {
+			e.printStackTrace();
+		}
+
+		//订阅设备停止使用主题
+		try {
+			Mqttutils.client.subscribe(code + "/stop", 2);
+		} catch (MqttException e) {
+			e.printStackTrace();
+		}
+	}
+
 }

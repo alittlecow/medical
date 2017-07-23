@@ -1,8 +1,11 @@
 package com.jubo.modules.sys.service.impl;
 
 import com.jubo.common.exception.RRException;
+import com.jubo.common.utils.UUIDUtil;
 import com.jubo.modules.sys.dao.SysUserDao;
+import com.jubo.modules.sys.entity.AccountInfoEntity;
 import com.jubo.modules.sys.entity.SysUserEntity;
+import com.jubo.modules.sys.service.AccountInfoService;
 import com.jubo.modules.sys.service.SysRoleService;
 import com.jubo.modules.sys.service.SysUserRoleService;
 import com.jubo.modules.sys.service.SysUserService;
@@ -37,6 +40,8 @@ public class SysUserServiceImpl implements SysUserService {
 	private SysUserRoleService sysUserRoleService;
 	@Autowired
 	private SysRoleService sysRoleService;
+	@Autowired
+	private AccountInfoService AccountInfoService;
 
 	@Override
 	public List<String> queryAllPerms(Long userId) {
@@ -71,11 +76,12 @@ public class SysUserServiceImpl implements SysUserService {
 	@Override
 	@Transactional
 	public void save(SysUserEntity user) {
-		user.setCreateTime(new Date());
 		//sha256加密
 		String salt = RandomStringUtils.randomAlphanumeric(20);
-		user.setPassword(new Sha256Hash(user.getPassword(), salt).toHex());
 		user.setSalt(salt);
+		user.setPassword(new Sha256Hash(user.getPassword(), salt).toHex());
+		user.setCreateTime(new Date());
+		//保存用户
 		sysUserDao.save(user);
 		
 		//检查角色是否越权
@@ -83,6 +89,11 @@ public class SysUserServiceImpl implements SysUserService {
 		
 		//保存用户与角色关系
 		sysUserRoleService.saveOrUpdate(user.getUserId(), user.getRoleIdList());
+
+		//新增用户账户
+		/*AccountInfoEntity accountInfoEntity = new AccountInfoEntity();
+		accountInfoEntity.setId();
+		AccountInfoService.save();*/
 	}
 
 	@Override

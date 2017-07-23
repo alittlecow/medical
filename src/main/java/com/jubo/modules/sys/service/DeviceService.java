@@ -27,4 +27,8 @@ public interface DeviceService {
 	void delete(String id);
 	
 	void deleteBatch(String[] ids);
+
+	void useDevice(DeviceEntity device);
+
+
 }
