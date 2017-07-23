@@ -66,7 +66,7 @@ public class SysUserServiceImpl implements SysUserService {
         account.setBalance(new BigDecimal("0"));
         account.setCreateTime(nowTime);
         account.setUpdateTime(nowTime);
-        account.setUserId(String.valueOf(user.getUserId()));
+        account.setUserId(user.getUserId());
         account.setId(UUIDUtil.getUUId());
         AccountInfoService.save(account);
     }
@@ -109,13 +109,22 @@ public class SysUserServiceImpl implements SysUserService {
     @Override
     @Transactional
     public void save(SysUserEntity user) {
+        Date nowTime = new Date();
         //sha256加密
         String salt = RandomStringUtils.randomAlphanumeric(20);
         user.setSalt(salt);
         user.setPassword(new Sha256Hash(user.getPassword(), salt).toHex());
-        user.setCreateTime(new Date());
+        user.setCreateTime(nowTime);
         //保存用户
         sysUserDao.save(user);
+        //新建账户
+        AccountInfoEntity account = new AccountInfoEntity();
+        account.setBalance(new BigDecimal("0"));
+        account.setCreateTime(nowTime);
+        account.setUpdateTime(nowTime);
+        account.setUserId(user.getUserId());
+        account.setId(UUIDUtil.getUUId());
+        AccountInfoService.save(account);
 
         //检查角色是否越权
         checkRole(user);
@@ -123,6 +132,14 @@ public class SysUserServiceImpl implements SysUserService {
         //保存用户与角色关系
         sysUserRoleService.saveOrUpdate(user.getUserId(), user.getRoleIdList());
 
+    }
+
+
+    /**
+     * app用户更新个人信息
+     */
+    public void updateAppUser(Map map) {
+        sysUserDao.updateAppUser(map);
     }
 
     @Override

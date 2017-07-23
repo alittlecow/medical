@@ -30,7 +30,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("/api/app/user")
 @Api("用户接口")
-public class UserController {
+public class AppUserController {
 
     @Autowired
     private SysUserService sysUserService;
@@ -94,7 +94,7 @@ public class UserController {
             @ApiImplicitParam(paramType = "query", name = "token", value = "token", required = true, dataType = "String"),
     })
     @RequestMapping(value = "/resetPassword", method = RequestMethod.POST)
-    public R password(@LoginUser SysUserEntity user, @RequestBody Map<String, Object> params) {
+    public R resetPassword(@LoginUser SysUserEntity user, @RequestBody Map<String, Object> params) {
         String password = MapUtils.getString(params, "password");
         String newPassword = MapUtils.getString(params, "newPassword");
 
@@ -122,13 +122,43 @@ public class UserController {
             @ApiImplicitParam(paramType = "query", name = "token", value = "token", required = true, dataType = "String"),
     })
     @RequestMapping(value = "/logout", method = RequestMethod.POST)
-    public R password(@LoginUser SysUserEntity user) {
+    public R logout(@LoginUser SysUserEntity user) {
 
         SysUserTokenEntity userTokenEntity = sysUserTokenService.queryByUserId(user.getUserId());
+
+        //更新token失效时间
         userTokenEntity.setExpireTime(new Date());
         sysUserTokenService.update(userTokenEntity);
 
         return R.ok();
+    }
+
+
+    /**
+     * 修改用户信息
+     */
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType = "query", name = "token", value = "token", required = true, dataType = "String"),
+    })
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    public R update(@LoginUser SysUserEntity user, @RequestBody Map<String, Object> params) {
+
+        params.put("userId", user.getUserId());
+        sysUserService.updateAppUser(params);
+
+        return R.ok();
+    }
+
+    /**
+     * 信息
+     */
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType = "query", name = "token", value = "token", required = true, dataType = "String"),
+    })
+    @RequestMapping("/info")
+    public R info(@LoginUser SysUserEntity user) {
+
+        return R.ok().putData(user);
     }
 
 }

@@ -69,6 +69,12 @@ public interface SysUserService {
      */
     void save(SysUserEntity user);
 
+
+    /**
+     * app用户修改个人信息
+     */
+    void updateAppUser(Map map);
+
     /**
      * 修改用户
      */

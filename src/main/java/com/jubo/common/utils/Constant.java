@@ -128,4 +128,42 @@ public class Constant {
         }
     }
 
+    public enum GoodsType {
+        //设备使用类型
+        DEVICE_USE_COUNT(new Byte("1")),
+        //账户充值类型
+        ACCOUNT_RECHARGE_TIME(new Byte("2"));
+
+        private Byte value;
+
+        private GoodsType(Byte value) {
+            this.value = value;
+        }
+
+        public Byte getValue() {
+            return value;
+        }
+    }
+
+
+    public enum PayStatus {
+        //待支付
+        NEED_PAY(new Integer("0")),
+        //支付中
+        IN_PAY(new Integer("1")),
+        //支付成功
+        SUCCESS(new Integer("20")),
+        //支付失败
+        FAIL(new Integer("21"));
+
+        private Integer value;
+
+        private PayStatus(Integer value) {
+            this.value = value;
+        }
+
+        public Integer getValue() {
+            return value;
+        }
+    }
 }

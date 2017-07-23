@@ -32,7 +32,7 @@ public class SwaggerConfig extends WebMvcConfigurerAdapter {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.jubo.modules"))
+                .apis(RequestHandlerSelectors.basePackage("com.jubo.modules.api"))
                 .paths(PathSelectors.any())
                 .build();
     }

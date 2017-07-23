@@ -13,61 +13,61 @@ import java.util.List;
 public class PageUtils implements Serializable {
 	private static final long serialVersionUID = 1L;
 	//总记录数
-	private int totalRecordNum;
+	private int totalCount;
 	//每页记录数
-	private int pageSize;
+	private int limit;
 	//总页数
-	private int pages;
+	private int totalPage;
 	//当前页数
-	private int pageNo;
+	private int page;
 	//列表数据
 	private List<?> list;
 	
 	/**
 	 * 分页
 	 * @param list        列表数据
-	 * @param totalRecordNum  总记录数
-	 * @param pageSize    每页记录数
-	 * @param pageNo    当前页数
+	 * @param totalCount  总记录数
+	 * @param limit    每页记录数
+	 * @param page    当前页数
 	 */
-	public PageUtils(List<?> list, int totalRecordNum, int pageSize, int pageNo) {
+	public PageUtils(List<?> list, int totalCount, int limit, int page) {
 		this.list = list;
-		this.totalRecordNum = totalRecordNum;
-		this.pageSize = pageSize;
-		this.pageNo = pageNo;
-		this.pages = (int)Math.ceil((double)totalRecordNum/pageSize);
+		this.totalCount = totalCount;
+		this.limit = limit;
+		this.page = page;
+		this.totalPage = (int)Math.ceil((double)totalCount/limit);
 	}
 
-	public int getTotalRecordNum() {
-		return totalRecordNum;
+	public int getTotalCount() {
+		return totalCount;
 	}
 
-	public void setTotalRecordNum(int totalRecordNum) {
-		this.totalRecordNum = totalRecordNum;
+	public void setTotalCount(int totalCount) {
+		this.totalCount = totalCount;
 	}
 
-	public int getPageSize() {
-		return pageSize;
+	public int getLimit() {
+		return limit;
 	}
 
-	public void setPageSize(int pageSize) {
-		this.pageSize = pageSize;
+	public void setLimit(int limit) {
+		this.limit = limit;
 	}
 
-	public int getPages() {
-		return pages;
+	public int getTotalPage() {
+		return totalPage;
 	}
 
-	public void setPages(int pages) {
-		this.pages = pages;
+	public void setTotalPage(int totalPage) {
+		this.totalPage = totalPage;
 	}
 
-	public int getPageNo() {
-		return pageNo;
+	public int getPage() {
+		return page;
 	}
 
-	public void setPageNo(int pageNo) {
-		this.pageNo = pageNo;
+	public void setPage(int page) {
+		this.page = page;
 	}
 
 	public List<?> getList() {

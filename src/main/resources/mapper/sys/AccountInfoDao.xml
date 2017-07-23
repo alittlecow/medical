@@ -12,9 +12,16 @@
         <result property="updateTime" column="update_time"/>
     </resultMap>
 
+    <select id="queryObjectByUserId" parameterType="java.lang.Long"
+            resultType="com.jubo.modules.sys.entity.AccountInfoEntity">
+        SELECT * FROM account_info WHERE user_id=#{userId}
+    </select>
+
+
     <select id="queryObject" resultType="com.jubo.modules.sys.entity.AccountInfoEntity">
 		select * from account_info where id = #{value}
 	</select>
+
 
     <select id="queryList" resultType="com.jubo.modules.sys.entity.AccountInfoEntity">
         select * from account_info

@@ -19,7 +19,6 @@ import java.util.Date;
 public class GoodsEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    //
     private String id;
     @NotBlank(message = "商品名不能为空", groups = {AddGroup.class, UpdateGroup.class})
     private String name;

@@ -21,6 +21,8 @@ $(function () {
                     }
                     if (value === 3) {
                         return '<span">个人账户</span>';
+                    } else {
+                        return '<span"></span>';
                     }
                 }
             },
@@ -38,6 +40,8 @@ $(function () {
                     }
                     if (value === 21) {
                         return '<span">支付失败</span>';
+                    } else {
+                        return '<span"></span>';
                     }
                 }
             },
