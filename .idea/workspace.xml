@@ -8,8 +8,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a926d803-ce16-424f-814f-2c79e98b833e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/service/impl/AccountInfoServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/service/impl/AccountInfoServiceImpl.java" />
     </list>
     <list id="5b34dfd9-4693-4335-a9b9-c7bc4cec8f1f" name="New changelist" comment="" />
@@ -52,11 +50,11 @@
       <file leaf-file-name="AccountInfoServiceImpl.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/service/impl/AccountInfoServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+            <state relative-caret-position="198">
+              <caret line="62" column="8" lean-forward="false" selection-start-line="62" selection-start-column="8" selection-end-line="62" selection-end-column="8" />
               <folding>
-                <element signature="e#3743#3744#0" expanded="true" />
-                <element signature="e#3808#3809#0" expanded="true" />
+                <element signature="e#3749#3750#0" expanded="true" />
+                <element signature="e#3814#3815#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -260,8 +258,8 @@
         <option value="$PROJECT_DIR$/src/main/java/com/jubo/common/utils/ErrorMessage.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jubo/common/utils/Constant.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/entity/AccountTransactionHistoryEntity.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/service/impl/AccountInfoServiceImpl.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/service/impl/AccountInfoServiceImpl.java" />
       </list>
     </option>
   </component>
@@ -2534,7 +2532,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="66028000" />
+    <option name="totallyTimeSpent" value="66120000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-1631" width="2902" height="1582" extended-state="6" />
@@ -2992,11 +2990,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jubo/modules/sys/service/impl/AccountInfoServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+        <state relative-caret-position="198">
+          <caret line="62" column="8" lean-forward="false" selection-start-line="62" selection-start-column="8" selection-end-line="62" selection-end-column="8" />
           <folding>
-            <element signature="e#3743#3744#0" expanded="true" />
-            <element signature="e#3808#3809#0" expanded="true" />
+            <element signature="e#3749#3750#0" expanded="true" />
+            <element signature="e#3814#3815#0" expanded="true" />
           </folding>
         </state>
       </provider>

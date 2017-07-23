@@ -60,9 +60,7 @@ public class AccountInfoServiceImpl implements AccountInfoService {
         if (newBalance < 0) {
             return R.error(ErrorMessage.MONEY_NOT_ENOUGH);
         }
-
-
-
+        
 
         //账户更新 生成流水
         accountMoneyChangeRec(orderId, orderMoney, account, oldBalance, newBalance,
