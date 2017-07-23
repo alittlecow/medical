@@ -21,9 +21,9 @@ $(function () {
         pager: "#jqGridPager",
         jsonReader : {
             root: "page.list",
-            page: "page.currPage",
-            total: "page.totalPage",
-            records: "page.totalCount"
+            page: "page.pageNo",
+            total: "page.pages",
+            records: "page.totalRecordNum"
         },
         prmNames : {
             page:"page", 

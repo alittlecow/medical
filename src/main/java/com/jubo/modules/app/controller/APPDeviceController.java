@@ -1,11 +1,10 @@
-package com.jubo.modules.api.controller;
+package com.jubo.modules.app.controller;
 
 import com.jubo.common.utils.PageUtils;
 import com.jubo.common.utils.Query;
 import com.jubo.common.utils.R;
 import com.jubo.modules.sys.entity.DeviceEntity;
 import com.jubo.modules.sys.service.DeviceService;
-import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
