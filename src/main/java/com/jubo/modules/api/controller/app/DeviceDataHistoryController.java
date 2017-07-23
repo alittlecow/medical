@@ -1,4 +1,4 @@
-package com.jubo.modules.app.controller;
+package com.jubo.modules.api.controller.app;
 
 import com.jubo.common.utils.PageUtils;
 import com.jubo.common.utils.Query;
@@ -22,7 +22,7 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("devicedatahistory")
-public class APPDeviceDataHistoryController {
+public class DeviceDataHistoryController {
 	@Autowired
 	private DeviceDataHistoryService deviceDataHistoryService;
 	

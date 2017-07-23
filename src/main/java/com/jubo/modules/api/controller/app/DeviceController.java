@@ -1,4 +1,4 @@
-package com.jubo.modules.app.controller;
+package com.jubo.modules.api.controller.app;
 
 import com.jubo.common.utils.PageUtils;
 import com.jubo.common.utils.Query;
@@ -21,7 +21,7 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("/app/device")
-public class APPDeviceController {
+public class DeviceController {
 	@Autowired
 	private DeviceService deviceService;
 	
