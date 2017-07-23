@@ -3,7 +3,7 @@
 
 <mapper namespace="com.jubo.modules.sys.dao.UserBankCardDao">
 
-	<!-- 可根据自己的需求，是否要使用 -->
+    <!-- 可根据自己的需求，是否要使用 -->
     <resultMap type="com.jubo.modules.sys.entity.UserBankCardEntity" id="userBankCardMap">
         <result property="id" column="id"/>
         <result property="status" column="status"/>
@@ -15,30 +15,40 @@
         <result property="accountName" column="account_Name"/>
     </resultMap>
 
-	<select id="queryObject" resultType="com.jubo.modules.sys.entity.UserBankCardEntity">
+    <select id="queryObject" resultType="com.jubo.modules.sys.entity.UserBankCardEntity">
 		select * from user_bank_card where id = #{value}
 	</select>
 
-	<select id="queryList" resultType="com.jubo.modules.sys.entity.UserBankCardEntity">
-		select * from user_bank_card
+    <select id="queryList" resultType="com.jubo.modules.sys.entity.UserBankCardEntity">
+        select * from user_bank_card
+        <where>
+            <if test="userId != null and userId != ''">
+                AND `user_id` = #{userId}
+            </if>
+        </where>
         <choose>
             <when test="sidx != null and sidx.trim() != ''">
                 order by ${sidx} ${order}
             </when>
-			<otherwise>
+            <otherwise>
                 order by id desc
-			</otherwise>
+            </otherwise>
         </choose>
-		<if test="offset != null and limit != null">
-			limit #{offset}, #{limit}
-		</if>
-	</select>
-	
- 	<select id="queryTotal" resultType="int">
-		select count(*) from user_bank_card 
-	</select>
-	 
-	<insert id="save" parameterType="com.jubo.modules.sys.entity.UserBankCardEntity">
+        <if test="offset != null and limit != null">
+            limit #{offset}, #{limit}
+        </if>
+    </select>
+
+    <select id="queryTotal" resultType="int">
+        select count(*) from user_bank_card
+        <where>
+            <if test="userId != null and userId != ''">
+                AND `user_id` = #{userId}
+            </if>
+        </where>
+    </select>
+
+    <insert id="save" parameterType="com.jubo.modules.sys.entity.UserBankCardEntity">
 		insert into user_bank_card
 		(
 			`id`, 
@@ -62,30 +72,30 @@
 			#{accountName}
 		)
 	</insert>
-	 
-	<update id="update" parameterType="com.jubo.modules.sys.entity.UserBankCardEntity">
-		update user_bank_card 
-		<set>
-			<if test="status != null">`status` = #{status}, </if>
-			<if test="userId != null">`user_id` = #{userId}, </if>
-			<if test="bankFullName != null">`bank_full_name` = #{bankFullName}, </if>
-			<if test="cardType != null">`card_type` = #{cardType}, </if>
-			<if test="accountType != null">`account_type` = #{accountType}, </if>
-			<if test="accountNo != null">`account_No` = #{accountNo}, </if>
-			<if test="accountName != null">`account_Name` = #{accountName}</if>
-		</set>
-		where id = #{id}
-	</update>
-	
-	<delete id="delete">
+
+    <update id="update" parameterType="com.jubo.modules.sys.entity.UserBankCardEntity">
+        update user_bank_card
+        <set>
+            <if test="status != null">`status` = #{status},</if>
+            <if test="userId != null">`user_id` = #{userId},</if>
+            <if test="bankFullName != null">`bank_full_name` = #{bankFullName},</if>
+            <if test="cardType != null">`card_type` = #{cardType},</if>
+            <if test="accountType != null">`account_type` = #{accountType},</if>
+            <if test="accountNo != null">`account_No` = #{accountNo},</if>
+            <if test="accountName != null">`account_Name` = #{accountName}</if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <delete id="delete">
 		delete from user_bank_card where id = #{value}
 	</delete>
-	
-	<delete id="deleteBatch">
-		delete from user_bank_card where id in 
-		<foreach item="id" collection="array" open="(" separator="," close=")">
-			#{id}
-		</foreach>
-	</delete>
+
+    <delete id="deleteBatch">
+        delete from user_bank_card where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
 
 </mapper>

@@ -3,7 +3,7 @@
 
 <mapper namespace="com.jubo.modules.sys.dao.AccountTransactionHistoryDao">
 
-	<!-- 可根据自己的需求，是否要使用 -->
+    <!-- 可根据自己的需求，是否要使用 -->
     <resultMap type="com.jubo.modules.sys.entity.AccountTransactionHistoryEntity" id="accountTransactionHistoryMap">
         <result property="id" column="id"/>
         <result property="accountId" column="account_id"/>
@@ -15,30 +15,52 @@
         <result property="orderId" column="order_id"/>
     </resultMap>
 
-	<select id="queryObject" resultType="com.jubo.modules.sys.entity.AccountTransactionHistoryEntity">
+    <select id="queryObject" resultType="com.jubo.modules.sys.entity.AccountTransactionHistoryEntity">
 		select * from account_transaction_history where id = #{value}
 	</select>
 
-	<select id="queryList" resultType="com.jubo.modules.sys.entity.AccountTransactionHistoryEntity">
-		select * from account_transaction_history
+    <select id="queryList" resultType="com.jubo.modules.sys.entity.AccountTransactionHistoryEntity">
+        select * from account_transaction_history
+        <where>
+            <if test="accountId != null and accountId != '' ">
+                AND account_id = #{accountId}
+            </if>
+            <if test="beginTime != null and beginTime != '' ">
+                AND create_time <![CDATA[ >= ]]> #{beginTime}
+            </if>
+            <if test="endTime != null and endTime != ''">
+                AND create_time <![CDATA[ < ]]> #{endTime}
+            </if>
+        </where>
         <choose>
             <when test="sidx != null and sidx.trim() != ''">
                 order by ${sidx} ${order}
             </when>
-			<otherwise>
+            <otherwise>
                 order by id desc
-			</otherwise>
+            </otherwise>
         </choose>
-		<if test="offset != null and limit != null">
-			limit #{offset}, #{limit}
-		</if>
-	</select>
-	
- 	<select id="queryTotal" resultType="int">
-		select count(*) from account_transaction_history 
-	</select>
-	 
-	<insert id="save" parameterType="com.jubo.modules.sys.entity.AccountTransactionHistoryEntity">
+        <if test="offset != null and limit != null">
+            limit #{offset}, #{limit}
+        </if>
+    </select>
+
+    <select id="queryTotal" resultType="int">
+        select count(*) from account_transaction_history
+        <where>
+            <if test="accountId != null and accountId != '' ">
+                AND account_id = #{accountId}
+            </if>
+            <if test="beginTime != null and beginTime != '' ">
+                AND create_time <![CDATA[ >= ]]> #{beginTime}
+            </if>
+            <if test="endTime != null and endTime != ''">
+                AND create_time <![CDATA[ < ]]> #{endTime}
+            </if>
+        </where>
+    </select>
+
+    <insert id="save" parameterType="com.jubo.modules.sys.entity.AccountTransactionHistoryEntity">
 		insert into account_transaction_history
 		(
 			`id`, 
@@ -62,30 +84,30 @@
 			#{orderId}
 		)
 	</insert>
-	 
-	<update id="update" parameterType="com.jubo.modules.sys.entity.AccountTransactionHistoryEntity">
-		update account_transaction_history 
-		<set>
-			<if test="accountId != null">`account_id` = #{accountId}, </if>
-			<if test="beforeAdjustMoney != null">`before_adjust_money` = #{beforeAdjustMoney}, </if>
-			<if test="adjustMoney != null">`adjust_money` = #{adjustMoney}, </if>
-			<if test="afterAdjustMoney != null">`after_adjust_money` = #{afterAdjustMoney}, </if>
-			<if test="adjustType != null">`adjust_type` = #{adjustType}, </if>
-			<if test="createTime != null">`create_time` = #{createTime}, </if>
-			<if test="orderId != null">`order_id` = #{orderId}</if>
-		</set>
-		where id = #{id}
-	</update>
-	
-	<delete id="delete">
+
+    <update id="update" parameterType="com.jubo.modules.sys.entity.AccountTransactionHistoryEntity">
+        update account_transaction_history
+        <set>
+            <if test="accountId != null">`account_id` = #{accountId},</if>
+            <if test="beforeAdjustMoney != null">`before_adjust_money` = #{beforeAdjustMoney},</if>
+            <if test="adjustMoney != null">`adjust_money` = #{adjustMoney},</if>
+            <if test="afterAdjustMoney != null">`after_adjust_money` = #{afterAdjustMoney},</if>
+            <if test="adjustType != null">`adjust_type` = #{adjustType},</if>
+            <if test="createTime != null">`create_time` = #{createTime},</if>
+            <if test="orderId != null">`order_id` = #{orderId}</if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <delete id="delete">
 		delete from account_transaction_history where id = #{value}
 	</delete>
-	
-	<delete id="deleteBatch">
-		delete from account_transaction_history where id in 
-		<foreach item="id" collection="array" open="(" separator="," close=")">
-			#{id}
-		</foreach>
-	</delete>
+
+    <delete id="deleteBatch">
+        delete from account_transaction_history where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
 
 </mapper>

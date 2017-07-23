@@ -3,7 +3,7 @@
 
 <mapper namespace="com.jubo.modules.sys.dao.AccountEnchashmentDao">
 
-	<!-- 可根据自己的需求，是否要使用 -->
+    <!-- 可根据自己的需求，是否要使用 -->
     <resultMap type="com.jubo.modules.sys.entity.AccountEnchashmentEntity" id="accountEnchashmentMap">
         <result property="id" column="id"/>
         <result property="userId" column="user_id"/>
@@ -18,30 +18,52 @@
         <result property="cardType" column="card_type"/>
     </resultMap>
 
-	<select id="queryObject" resultType="com.jubo.modules.sys.entity.AccountEnchashmentEntity">
+    <select id="queryObject" resultType="com.jubo.modules.sys.entity.AccountEnchashmentEntity">
 		select * from account_enchashment where id = #{value}
 	</select>
 
-	<select id="queryList" resultType="com.jubo.modules.sys.entity.AccountEnchashmentEntity">
-		select * from account_enchashment
+    <select id="queryList" resultType="com.jubo.modules.sys.entity.AccountEnchashmentEntity">
+        select * from account_enchashment
+        <where>
+            <if test="userId != null and userId != '' ">
+                AND user_id = #{userId}
+            </if>
+            <if test="beginTime != null and beginTime != '' ">
+                AND create_at <![CDATA[ >= ]]> #{beginTime}
+            </if>
+            <if test="endTime != null and endTime != ''">
+                AND create_at <![CDATA[ < ]]> #{endTime}
+            </if>
+        </where>
         <choose>
             <when test="sidx != null and sidx.trim() != ''">
                 order by ${sidx} ${order}
             </when>
-			<otherwise>
+            <otherwise>
                 order by id desc
-			</otherwise>
+            </otherwise>
         </choose>
-		<if test="offset != null and limit != null">
-			limit #{offset}, #{limit}
-		</if>
-	</select>
-	
- 	<select id="queryTotal" resultType="int">
-		select count(*) from account_enchashment 
-	</select>
-	 
-	<insert id="save" parameterType="com.jubo.modules.sys.entity.AccountEnchashmentEntity">
+        <if test="offset != null and limit != null">
+            limit #{offset}, #{limit}
+        </if>
+    </select>
+
+    <select id="queryTotal" resultType="int">
+        select count(*) from account_enchashment
+        <where>
+            <if test="userId != null and userId != '' ">
+                AND user_id = #{userId}
+            </if>
+            <if test="beginTime != null and beginTime != '' ">
+                AND create_at <![CDATA[ >= ]]> #{beginTime}
+            </if>
+            <if test="endTime != null and endTime != ''">
+                AND create_at <![CDATA[ < ]]> #{endTime}
+            </if>
+        </where>
+    </select>
+
+    <insert id="save" parameterType="com.jubo.modules.sys.entity.AccountEnchashmentEntity">
 		insert into account_enchashment
 		(
 			`id`, 
@@ -71,33 +93,33 @@
 			#{cardType}
 		)
 	</insert>
-	 
-	<update id="update" parameterType="com.jubo.modules.sys.entity.AccountEnchashmentEntity">
-		update account_enchashment 
-		<set>
-			<if test="userId != null">`user_id` = #{userId}, </if>
-			<if test="payAt != null">`pay_at` = #{payAt}, </if>
-			<if test="totalFee != null">`total_fee` = #{totalFee}, </if>
-			<if test="bankFullName != null">`bank_full_name` = #{bankFullName}, </if>
-			<if test="accountType != null">`account_type` = #{accountType}, </if>
-			<if test="accountNo != null">`account_no` = #{accountNo}, </if>
-			<if test="accountName != null">`account_name` = #{accountName}, </if>
-			<if test="status != null">`status` = #{status}, </if>
-			<if test="createAt != null">`create_at` = #{createAt}, </if>
-			<if test="cardType != null">`card_type` = #{cardType}</if>
-		</set>
-		where id = #{id}
-	</update>
-	
-	<delete id="delete">
+
+    <update id="update" parameterType="com.jubo.modules.sys.entity.AccountEnchashmentEntity">
+        update account_enchashment
+        <set>
+            <if test="userId != null">`user_id` = #{userId},</if>
+            <if test="payAt != null">`pay_at` = #{payAt},</if>
+            <if test="totalFee != null">`total_fee` = #{totalFee},</if>
+            <if test="bankFullName != null">`bank_full_name` = #{bankFullName},</if>
+            <if test="accountType != null">`account_type` = #{accountType},</if>
+            <if test="accountNo != null">`account_no` = #{accountNo},</if>
+            <if test="accountName != null">`account_name` = #{accountName},</if>
+            <if test="status != null">`status` = #{status},</if>
+            <if test="createAt != null">`create_at` = #{createAt},</if>
+            <if test="cardType != null">`card_type` = #{cardType}</if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <delete id="delete">
 		delete from account_enchashment where id = #{value}
 	</delete>
-	
-	<delete id="deleteBatch">
-		delete from account_enchashment where id in 
-		<foreach item="id" collection="array" open="(" separator="," close=")">
-			#{id}
-		</foreach>
-	</delete>
+
+    <delete id="deleteBatch">
+        delete from account_enchashment where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
 
 </mapper>

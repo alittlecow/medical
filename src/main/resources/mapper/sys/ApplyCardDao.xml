@@ -3,7 +3,7 @@
 
 <mapper namespace="com.jubo.modules.sys.dao.ApplyCardDao">
 
-	<!-- 可根据自己的需求，是否要使用 -->
+    <!-- 可根据自己的需求，是否要使用 -->
     <resultMap type="com.jubo.modules.sys.entity.ApplyCardEntity" id="applyCardMap">
         <result property="id" column="id"/>
         <result property="contactName" column="contact_name"/>
@@ -15,30 +15,52 @@
         <result property="status" column="status"/>
     </resultMap>
 
-	<select id="queryObject" resultType="com.jubo.modules.sys.entity.ApplyCardEntity">
+    <select id="queryObject" resultType="com.jubo.modules.sys.entity.ApplyCardEntity">
 		select * from apply_card where id = #{value}
 	</select>
 
-	<select id="queryList" resultType="com.jubo.modules.sys.entity.ApplyCardEntity">
-		select * from apply_card
+    <select id="queryList" resultType="com.jubo.modules.sys.entity.ApplyCardEntity">
+        select * from apply_card
+        <where>
+            <if test="contactName != null and contactName != '' ">
+                AND contact_name = #{contactName}
+            </if>
+            <if test="beginTime != null and beginTime != '' ">
+                AND apply_time <![CDATA[ >= ]]> #{beginTime}
+            </if>
+            <if test="endTime != null and endTime != ''">
+                AND apply_time <![CDATA[ < ]]> #{endTime}
+            </if>
+        </where>
         <choose>
             <when test="sidx != null and sidx.trim() != ''">
                 order by ${sidx} ${order}
             </when>
-			<otherwise>
+            <otherwise>
                 order by id desc
-			</otherwise>
+            </otherwise>
         </choose>
-		<if test="offset != null and limit != null">
-			limit #{offset}, #{limit}
-		</if>
-	</select>
-	
- 	<select id="queryTotal" resultType="int">
-		select count(*) from apply_card 
-	</select>
-	 
-	<insert id="save" parameterType="com.jubo.modules.sys.entity.ApplyCardEntity">
+        <if test="offset != null and limit != null">
+            limit #{offset}, #{limit}
+        </if>
+    </select>
+
+    <select id="queryTotal" resultType="int">
+        select count(*) from apply_card
+        <where>
+            <if test="contactName != null and contactName != '' ">
+                AND contact_name = #{contactName}
+            </if>
+            <if test="beginTime != null and beginTime != '' ">
+                AND apply_time <![CDATA[ >= ]]> #{beginTime}
+            </if>
+            <if test="endTime != null and endTime != ''">
+                AND apply_time <![CDATA[ < ]]> #{endTime}
+            </if>
+        </where>
+    </select>
+
+    <insert id="save" parameterType="com.jubo.modules.sys.entity.ApplyCardEntity">
 		insert into apply_card
 		(
 			`id`, 
@@ -62,30 +84,30 @@
 			#{status}
 		)
 	</insert>
-	 
-	<update id="update" parameterType="com.jubo.modules.sys.entity.ApplyCardEntity">
-		update apply_card 
-		<set>
-			<if test="contactName != null">`contact_name` = #{contactName}, </if>
-			<if test="contactPhone != null">`contact_phone` = #{contactPhone}, </if>
-			<if test="contactAddress != null">`contact_address` = #{contactAddress}, </if>
-			<if test="idCard != null">`id_card` = #{idCard}, </if>
-			<if test="applyTime != null">`apply_time` = #{applyTime}, </if>
-			<if test="updateTime != null">`update_time` = #{updateTime}, </if>
-			<if test="status != null">`status` = #{status}</if>
-		</set>
-		where id = #{id}
-	</update>
-	
-	<delete id="delete">
+
+    <update id="update" parameterType="com.jubo.modules.sys.entity.ApplyCardEntity">
+        update apply_card
+        <set>
+            <if test="contactName != null">`contact_name` = #{contactName},</if>
+            <if test="contactPhone != null">`contact_phone` = #{contactPhone},</if>
+            <if test="contactAddress != null">`contact_address` = #{contactAddress},</if>
+            <if test="idCard != null">`id_card` = #{idCard},</if>
+            <if test="applyTime != null">`apply_time` = #{applyTime},</if>
+            <if test="updateTime != null">`update_time` = #{updateTime},</if>
+            <if test="status != null">`status` = #{status}</if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <delete id="delete">
 		delete from apply_card where id = #{value}
 	</delete>
-	
-	<delete id="deleteBatch">
-		delete from apply_card where id in 
-		<foreach item="id" collection="array" open="(" separator="," close=")">
-			#{id}
-		</foreach>
-	</delete>
+
+    <delete id="deleteBatch">
+        delete from apply_card where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
 
 </mapper>
