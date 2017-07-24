@@ -61,7 +61,7 @@ public class AccountInfoServiceImpl implements AccountInfoService {
             return R.error(ErrorMessage.MONEY_NOT_ENOUGH);
         }
 
-        
+
         //账户更新 生成流水
         accountMoneyChangeRec(orderId, orderMoney, account, oldBalance, newBalance,
                 Constant.AccountAdjustType.USER_CONSUME.getValue());
@@ -77,6 +77,9 @@ public class AccountInfoServiceImpl implements AccountInfoService {
         accountTransactionHistoryRec(orderId, adjustMoney, account, oldBalance, newBalance, adjustType);
 
     }
+
+
+
 
     private void accountTransactionHistoryRec(String orderId, Double adjustMoney, AccountInfoEntity account, Double oldBalance, Double newBalance, Byte adjustType) {
         AccountTransactionHistoryEntity history = new AccountTransactionHistoryEntity();

@@ -18,7 +18,7 @@ public class CardEntity implements Serializable {
 	//
 	private String id;
 	//用户id
-	private String userId;
+	private Long userId;
 	//设备编码
 	private String code;
 	//剩余使用次数
@@ -43,13 +43,13 @@ public class CardEntity implements Serializable {
 	/**
 	 * 设置：用户id
 	 */
-	public void setUserId(String userId) {
+	public void setUserId(Long userId) {
 		this.userId = userId;
 	}
 	/**
 	 * 获取：用户id
 	 */
-	public String getUserId() {
+	public Long getUserId() {
 		return userId;
 	}
 	/**

@@ -18,8 +18,25 @@ public class CardServiceImpl implements CardService {
     private CardDao cardDao;
 
     @Override
+    public void bind(String code, Long userId) {
+
+        CardEntity card = new CardEntity();
+        card.setId(UUIDUtil.getUUId());
+        card.setCode(code);
+        card.setUserId(userId);
+        card.setCount(0);
+        card.setCreateTime(new Date());
+        cardDao.save(card);
+    }
+
+    @Override
     public CardEntity queryObject(String id) {
         return cardDao.queryObject(id);
+    }
+
+    @Override
+    public CardEntity queryObjectByCode(String code) {
+        return cardDao.queryObjectByCode(code);
     }
 
     @Override

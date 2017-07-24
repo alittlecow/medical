@@ -23,4 +23,8 @@ public class ErrorMessage {
     public static final String MONEY_NOT_ENOUGH = "余额不足";
 
 
+    //权限
+    public static final String USER_NO_PERMISSION = "用户没有权限查看该记录";
+
+
 }

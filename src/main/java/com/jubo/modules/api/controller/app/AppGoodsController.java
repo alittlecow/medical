@@ -53,4 +53,20 @@ public class AppGoodsController {
     }
 
 
+    /**
+     * 消费商品（门店扫码使用）
+     */
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType = "query", name = "token", value = "token", required = true, dataType = "String"),
+    })
+    @RequestMapping(value = "/consume", method = RequestMethod.POST)
+    public R consume(@RequestBody Map<String, Object> params) {
+        String deviceId = MapUtils.getString(params, "deviceId");
+        Assert.isBlank(deviceId, "设备ID不能为空");
+
+
+        return R.ok();
+    }
+
+
 }

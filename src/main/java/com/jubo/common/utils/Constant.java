@@ -188,4 +188,24 @@ public class Constant {
             return value;
         }
     }
+
+
+    public enum ApplyCardStatus {
+        //提交申请
+        INIT(new Integer("0")),
+        //审批失败
+        APPLY_FAIL(new Integer("1")),
+        //审批成功
+        APPLY_SUCCESS(new Integer("2"));
+
+        private Integer value;
+
+        private ApplyCardStatus(Integer value) {
+            this.value = value;
+        }
+
+        public Integer getValue() {
+            return value;
+        }
+    }
 }

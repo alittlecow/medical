@@ -40,7 +40,7 @@ $.ajaxSetup({
         if(xhr.responseJSON.code == 401){
             parent.location.href = baseURL + 'login.html';
         }
-    }
+}
 });
 
 //jqgrid全局配置

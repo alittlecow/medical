@@ -17,6 +17,10 @@
 		select * from card where id = #{value}
 	</select>
 
+    <select id="queryObjectByCode" resultType="com.jubo.modules.sys.entity.CardEntity">
+        select * from card where code = #{value}
+    </select>
+
     <select id="queryList" resultType="com.jubo.modules.sys.entity.CardEntity">
         select * from card
         <where>

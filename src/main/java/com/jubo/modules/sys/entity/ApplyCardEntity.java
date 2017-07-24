@@ -17,7 +17,7 @@ public class ApplyCardEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
     //id
-    @NotBlank(message = "商品名不能为空", groups = {UpdateGroup.class})
+    @NotBlank(message = "id不能为空", groups = {UpdateGroup.class})
     private String id;
     //联系人姓名
     @NotBlank(message = "联系人姓名不能为空", groups = {AddGroup.class})
@@ -37,6 +37,16 @@ public class ApplyCardEntity implements Serializable {
     private Date updateTime;
     //申请状态 0 提交申请 1审批失败 2 审批成功
     private Integer status;
+
+    private Long applyUserId;
+
+    public Long getApplyUserId() {
+        return applyUserId;
+    }
+
+    public void setApplyUserId(Long applyUserId) {
+        this.applyUserId = applyUserId;
+    }
 
     /**
      * 设置：id
