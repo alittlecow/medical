@@ -1,21 +1,16 @@
 package com.jubo.modules.sys.controller;
 
-import java.util.List;
-import java.util.Map;
-
+import com.jubo.common.utils.PageUtils;
+import com.jubo.common.utils.Query;
+import com.jubo.common.utils.R;
 import com.jubo.modules.sys.entity.AccountInfoEntity;
 import com.jubo.modules.sys.service.AccountInfoService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import com.jubo.common.utils.PageUtils;
-import com.jubo.common.utils.Query;
-import com.jubo.common.utils.R;
+import java.util.List;
+import java.util.Map;
 
 
 
