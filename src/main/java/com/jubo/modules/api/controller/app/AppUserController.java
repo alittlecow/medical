@@ -15,10 +15,7 @@ import io.swagger.annotations.ApiImplicitParams;
 import org.apache.commons.collections.MapUtils;
 import org.apache.shiro.crypto.hash.Sha256Hash;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.Map;
@@ -67,8 +64,8 @@ public class AppUserController {
     @AuthIgnore
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public R login(@RequestBody Map<String, Object> params) {
-        String password = MapUtils.getString(params, "password");
         String mobile = MapUtils.getString(params, "mobile");
+        String password = MapUtils.getString(params, "password");
         //用户信息
         SysUserEntity user = sysUserService.queryByMobile(mobile);
 
@@ -139,11 +136,12 @@ public class AppUserController {
      */
     @ApiImplicitParams({
             @ApiImplicitParam(paramType = "query", name = "token", value = "token", required = true, dataType = "String"),
+            @ApiImplicitParam(paramType = "query", name = "password", value = "password", required = false, dataType = "String")
     })
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     public R update(@LoginUser SysUserEntity user, @RequestBody Map<String, Object> params) {
 
-        params.put("userId", user.getUserId());
+        params.put("userId",user.getUserId());
         sysUserService.updateAppUser(params);
 
         return R.ok();
@@ -157,6 +155,8 @@ public class AppUserController {
     })
     @RequestMapping("/info")
     public R info(@LoginUser SysUserEntity user) {
+
+        Assert.isNull(user, "token失效，请重新登录");
 
         return R.ok().putData(user);
     }
