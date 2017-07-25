@@ -1,21 +1,19 @@
 package com.jubo.modules.sys.controller;
 
-import java.util.List;
-import java.util.Map;
-
+import com.jubo.common.annotation.SysLog;
+import com.jubo.common.utils.PageUtils;
+import com.jubo.common.utils.Query;
 import com.jubo.common.utils.R;
+import com.jubo.modules.api.annotation.LoginUser;
 import com.jubo.modules.sys.entity.AccountEnchashmentEntity;
+import com.jubo.modules.sys.entity.SysUserEntity;
 import com.jubo.modules.sys.service.AccountEnchashmentService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import com.jubo.common.utils.PageUtils;
-import com.jubo.common.utils.Query;
+import java.util.List;
+import java.util.Map;
 
 
 
@@ -38,7 +36,9 @@ public class AccountEnchashmentController {
 	 */
 	@RequestMapping("/list")
 	@RequiresPermissions("accountenchashment:list")
-	public R list(@RequestParam Map<String, Object> params){
+	public R list(@RequestParam Map<String, Object> params,@LoginUser SysUserEntity user){
+		//根据登录信息自动注入用户id
+		params.put("userId",user.getUserId());
 		//查询列表数据
         Query query = new Query(params);
 
@@ -63,10 +63,10 @@ public class AccountEnchashmentController {
 	}
 	
 	/**
-	 * 保存
+	 *
 	 */
+	@SysLog
 	@RequestMapping("/save")
-	@RequiresPermissions("accountenchashment:save")
 	public R save(@RequestBody AccountEnchashmentEntity accountEnchashment){
 		accountEnchashmentService.save(accountEnchashment);
 		
@@ -75,14 +75,15 @@ public class AccountEnchashmentController {
 	
 	/**
 	 * 修改
+	 * 提现订单不允许修改
 	 */
-	@RequestMapping("/update")
+/*	@RequestMapping("/update")
 	@RequiresPermissions("accountenchashment:update")
 	public R update(@RequestBody AccountEnchashmentEntity accountEnchashment){
 		accountEnchashmentService.update(accountEnchashment);
 		
 		return R.ok();
-	}
+	}*/
 	
 	/**
 	 * 删除

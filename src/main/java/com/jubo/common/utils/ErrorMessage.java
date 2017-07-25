@@ -26,5 +26,8 @@ public class ErrorMessage {
     //权限
     public static final String USER_NO_PERMISSION = "用户没有权限查看该记录";
 
+    //提现
+
+    public static final String BC_ENCHASHMENT_FAILED = "企业打款失败";
 
 }
