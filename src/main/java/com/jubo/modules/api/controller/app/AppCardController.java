@@ -1,6 +1,8 @@
 package com.jubo.modules.api.controller.app;
 
 import com.jubo.common.utils.ErrorMessage;
+import com.jubo.common.utils.PageUtils;
+import com.jubo.common.utils.Query;
 import com.jubo.common.utils.R;
 import com.jubo.common.validator.Assert;
 import com.jubo.common.validator.ValidatorUtils;
@@ -8,8 +10,10 @@ import com.jubo.common.validator.group.AddGroup;
 import com.jubo.modules.api.annotation.LoginUser;
 import com.jubo.modules.sys.entity.ApplyCardEntity;
 import com.jubo.modules.sys.entity.CardEntity;
+import com.jubo.modules.sys.entity.CardHistoryEntity;
 import com.jubo.modules.sys.entity.SysUserEntity;
 import com.jubo.modules.sys.service.ApplyCardService;
+import com.jubo.modules.sys.service.CardHistoryService;
 import com.jubo.modules.sys.service.CardService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -38,6 +42,9 @@ public class AppCardController {
     private CardService cardService;
     @Autowired
     private ApplyCardService applyCardService;
+
+    @Autowired
+    private CardHistoryService cardHistoryService;
 
     /**
      * ID卡绑定
@@ -147,6 +154,16 @@ public class AppCardController {
     @RequestMapping(value = "/rechargerecord", method = RequestMethod.POST)
     public R RechargeRecord(@LoginUser SysUserEntity user, @RequestBody Map<String, Object> params) {
 
-        return R.ok();
+        params.put("userId", user.getUserId());
+
+        //查询列表数据
+        Query query = new Query(params);
+
+        List<CardHistoryEntity> cardHistoryList = cardHistoryService.queryList(query);
+        int total = cardHistoryService.queryTotal(query);
+
+        PageUtils pageUtil = new PageUtils(cardHistoryList, total, query.getLimit(), query.getPage());
+
+        return R.ok().putData(pageUtil);
     }
 }

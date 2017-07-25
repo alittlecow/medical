@@ -81,6 +81,35 @@ public class SysUserEntity implements Serializable {
      */
     private Date createTime;
 
+
+    private String realName;
+    private String idCard;
+    private Byte isAuth;
+
+    public String getRealName() {
+        return realName;
+    }
+
+    public void setRealName(String realName) {
+        this.realName = realName;
+    }
+
+    public String getIdCard() {
+        return idCard;
+    }
+
+    public void setIdCard(String idCard) {
+        this.idCard = idCard;
+    }
+
+    public Byte getIsAuth() {
+        return isAuth;
+    }
+
+    public void setIsAuth(Byte isAuth) {
+        this.isAuth = isAuth;
+    }
+
     /**
      * 设置：
      *
