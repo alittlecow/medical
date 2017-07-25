@@ -10,47 +10,50 @@ import java.util.List;
 import java.util.Map;
 
 
-
-
-
 @Service("cardHistoryService")
 public class CardHistoryServiceImpl implements CardHistoryService {
-	@Autowired
-	private CardHistoryDao cardHistoryDao;
-	
-	@Override
-	public CardHistoryEntity queryObject(String id){
-		return cardHistoryDao.queryObject(id);
-	}
-	
-	@Override
-	public List<CardHistoryEntity> queryList(Map<String, Object> map){
-		return cardHistoryDao.queryList(map);
-	}
-	
-	@Override
-	public int queryTotal(Map<String, Object> map){
-		return cardHistoryDao.queryTotal(map);
-	}
-	
-	@Override
-	public void save(CardHistoryEntity cardHistory){
-		cardHistoryDao.save(cardHistory);
-	}
-	
-	@Override
-	public void update(CardHistoryEntity cardHistory){
-		cardHistoryDao.update(cardHistory);
-	}
-	
-	@Override
-	public void delete(String id){
-		cardHistoryDao.delete(id);
-	}
-	
-	@Override
-	public void deleteBatch(String[] ids){
-		cardHistoryDao.deleteBatch(ids);
-	}
-	
+    @Autowired
+    private CardHistoryDao cardHistoryDao;
+
+
+    @Override
+    public CardHistoryEntity queryObjectByCode(String code) {
+        return cardHistoryDao.queryObjectByCode(code);
+    }
+
+    @Override
+    public CardHistoryEntity queryObject(String id) {
+        return cardHistoryDao.queryObject(id);
+    }
+
+    @Override
+    public List<CardHistoryEntity> queryList(Map<String, Object> map) {
+        return cardHistoryDao.queryList(map);
+    }
+
+    @Override
+    public int queryTotal(Map<String, Object> map) {
+        return cardHistoryDao.queryTotal(map);
+    }
+
+    @Override
+    public void save(CardHistoryEntity cardHistory) {
+        cardHistoryDao.save(cardHistory);
+    }
+
+    @Override
+    public void update(CardHistoryEntity cardHistory) {
+        cardHistoryDao.update(cardHistory);
+    }
+
+    @Override
+    public void delete(String id) {
+        cardHistoryDao.delete(id);
+    }
+
+    @Override
+    public void deleteBatch(String[] ids) {
+        cardHistoryDao.deleteBatch(ids);
+    }
+
 }

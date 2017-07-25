@@ -17,4 +17,6 @@ public interface CardDao extends BaseDao<CardEntity> {
      *
      */
     CardEntity queryObjectByCode(String code);
+
+    CardEntity queryObjectByUserId(Long code);
 }

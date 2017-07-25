@@ -27,6 +27,18 @@ public class CardHistoryEntity implements Serializable {
     //创建记录时间
     private Date createTime;
 
+    //调整次数
+    private Integer adjustCount;
+
+
+    public Integer getAdjustCount() {
+        return adjustCount;
+    }
+
+    public void setAdjustCount(Integer adjustCount) {
+        this.adjustCount = adjustCount;
+    }
+
     /**
      * 设置：id
      */

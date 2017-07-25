@@ -18,6 +18,9 @@ public interface OrderService {
      */
     String buildOrder(Long userId, String goodsId, BigDecimal orderMoney);
 
+
+    String buildIdRechargeOrder(String cardCode, Long userId, String goodsId, BigDecimal orderMoney);
+
     OrderEntity queryObject(String id);
 
     List<OrderEntity> queryList(Map<String, Object> map);

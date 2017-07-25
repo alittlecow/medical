@@ -1,24 +1,17 @@
 package com.jubo.modules.api.controller.app;
 
-import com.jubo.common.utils.ErrorMessage;
-import com.jubo.common.utils.PageUtils;
-import com.jubo.common.utils.Query;
-import com.jubo.common.utils.R;
+import com.jubo.common.utils.*;
 import com.jubo.common.validator.Assert;
 import com.jubo.common.validator.ValidatorUtils;
 import com.jubo.common.validator.group.AddGroup;
 import com.jubo.modules.api.annotation.LoginUser;
-import com.jubo.modules.sys.entity.ApplyCardEntity;
-import com.jubo.modules.sys.entity.CardEntity;
-import com.jubo.modules.sys.entity.CardHistoryEntity;
-import com.jubo.modules.sys.entity.SysUserEntity;
-import com.jubo.modules.sys.service.ApplyCardService;
-import com.jubo.modules.sys.service.CardHistoryService;
-import com.jubo.modules.sys.service.CardService;
+import com.jubo.modules.sys.entity.*;
+import com.jubo.modules.sys.service.*;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import org.apache.commons.collections.MapUtils;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -46,6 +39,8 @@ public class AppCardController {
     @Autowired
     private CardHistoryService cardHistoryService;
 
+
+
     /**
      * ID卡绑定
      */
@@ -54,6 +49,8 @@ public class AppCardController {
     })
     @RequestMapping(value = "/bind", method = RequestMethod.POST)
     public R bind(@LoginUser SysUserEntity user, @RequestBody Map<String, Object> params) {
+
+        // TODO: 2017/7/25 卡号码正确性校验
         String code = MapUtils.getString(params, "code");
         Assert.isBlank(code, "ID卡号不存在");
 
@@ -83,10 +80,8 @@ public class AppCardController {
     })
     @RequestMapping(value = "/info", method = RequestMethod.POST)
     public R info(@LoginUser SysUserEntity user, @RequestBody Map<String, Object> params) {
-        String cardId = MapUtils.getString(params, "cardId");
-        Assert.isBlank(cardId, "ID卡不存在");
 
-        CardEntity card = cardService.queryObject(cardId);
+        CardEntity card = cardService.queryObjectByUserId(user.getUserId());
         Assert.isNull(card, "ID卡不存在");
         if (card.getUserId().compareTo(user.getUserId()) != 0) {
             return R.error(ErrorMessage.USER_NO_PERMISSION);
@@ -145,8 +140,11 @@ public class AppCardController {
         return R.ok().putData(list);
     }
 
+
+
+
     /**
-     * ID卡充值记录
+     * ID卡使用记录
      */
     @ApiImplicitParams({
             @ApiImplicitParam(paramType = "query", name = "token", value = "token", required = true, dataType = "String"),
@@ -154,7 +152,10 @@ public class AppCardController {
     @RequestMapping(value = "/rechargerecord", method = RequestMethod.POST)
     public R RechargeRecord(@LoginUser SysUserEntity user, @RequestBody Map<String, Object> params) {
 
-        params.put("userId", user.getUserId());
+        CardEntity card = cardService.queryObjectByUserId(user.getUserId());
+
+        Assert.isNull(card, "用户未绑定ID卡");
+        params.put("code", card.getCode());
 
         //查询列表数据
         Query query = new Query(params);

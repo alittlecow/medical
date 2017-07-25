@@ -17,6 +17,8 @@ public interface CardService {
      */
     void bind(String code, Long userId);
 
+    CardEntity queryObjectByUserId(Long userId);
+
     CardEntity queryObjectByCode(String code);
 
     CardEntity queryObject(String id);

@@ -16,7 +16,8 @@ import java.util.Map;
 public interface CardHistoryService {
 	
 	CardHistoryEntity queryObject(String id);
-	
+	CardHistoryEntity queryObjectByCode(String code);
+
 	List<CardHistoryEntity> queryList(Map<String, Object> map);
 	
 	int queryTotal(Map<String, Object> map);
