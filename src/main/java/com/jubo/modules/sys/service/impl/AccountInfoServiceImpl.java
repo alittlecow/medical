@@ -167,6 +167,8 @@ public class AccountInfoServiceImpl implements AccountInfoService {
                 userEntity.setIdCard(idNo);
                 userEntity.setIsAuth(new Byte("1"));
                 sysUserDao.update(userEntity);
+            }else{
+                throw new RRException("认证信息不匹配",500);
             }
         } catch (BCException e) {
            throw new RRException("实名认证接口调用失败",e);
