@@ -33,7 +33,7 @@ import java.util.Map;
  */
 @RestController
 @Api("app账户接口")
-@RequestMapping("/api/app/account")
+@RequestMapping(value = "/api/app/account",method = RequestMethod.GET)
 public class AppAccountController {
 
     @Autowired
