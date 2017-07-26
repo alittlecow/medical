@@ -141,7 +141,7 @@ public class AppUserController {
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     public R update(@LoginUser SysUserEntity user, @RequestBody Map<String, Object> params) {
 
-        params.put("userId",user.getUserId());
+        params.put("userId", user.getUserId());
         sysUserService.updateAppUser(params);
 
         return R.ok();
@@ -153,7 +153,7 @@ public class AppUserController {
     @ApiImplicitParams({
             @ApiImplicitParam(paramType = "query", name = "token", value = "token", required = true, dataType = "String"),
     })
-    @RequestMapping("/info")
+    @RequestMapping(value = "/info", method = RequestMethod.POST)
     public R info(@LoginUser SysUserEntity user) {
 
         Assert.isNull(user, "token失效，请重新登录");

@@ -208,4 +208,22 @@ public class Constant {
             return value;
         }
     }
+
+
+    public enum RechargeOrderType {
+        //0 账户充值
+        ACCOUNT_RECHARGE(new Byte("0")),
+        //ID卡充值
+        ID_RECHARGE(new Byte("1"));
+
+        private Byte value;
+
+        private RechargeOrderType(Byte value) {
+            this.value = value;
+        }
+
+        public Byte getValue() {
+            return value;
+        }
+    }
 }

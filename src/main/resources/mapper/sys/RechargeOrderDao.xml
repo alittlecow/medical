@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jubo.modules.sys.dao.RechargeOrderDao">
+
+    <!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.jubo.modules.sys.entity.RechargeOrderEntity" id="orderMap">
+        <result property="id" column="id"/>
+        <result property="userId" column="user_id"/>
+        <result property="createTime" column="create_time"/>
+        <result property="payTime" column="pay_time"/>
+        <result property="payType" column="pay_type"/>
+        <result property="goodsId" column="goods_id"/>
+        <result property="orderMoney" column="order_money"/>
+        <result property="payStatus" column="pay_status"/>
+        <result property="orderType" column="order_type"/>
+        <result property="objectId" column="object_id"/>
+    </resultMap>
+
+    <select id="queryObject" resultType="com.jubo.modules.sys.entity.RechargeOrderEntity">
+		select * from `recharge_order` where id = #{value}
+	</select>
+
+    <select id="queryList" resultType="com.jubo.modules.sys.entity.Rechargerecharge_orderEntity">
+        select * from `recharge_order`
+        <where>
+            <if test="id != null and id != ''">
+                AND `id` = #{id}
+            </if>
+            <if test="userId != null and userId != ''">
+                AND `user_id` = #{userId}
+            </if>
+            <if test="payType != null">
+                AND `pay_type` = #{payType}
+            </if>
+            <if test="goodsId != null and goodsId !=''">
+                AND `goods_id` = #{goodsId}
+            </if>
+            <if test="orderMoney != null">
+                AND `order_money` = #{orderMoney}
+            </if>
+            <if test="payStatus != null">
+                AND `pay_status` = #{payStatus}
+            </if>
+            <if test="beginTime != null and beginTime != '' ">
+                AND create_time <![CDATA[ >= ]]> #{beginTime}
+            </if>
+            <if test="endTime != null and endTime != ''">
+                AND create_time <![CDATA[ < ]]> #{endTime}
+            </if>
+
+        </where>
+        <choose>
+            <when test="sidx != null and sidx.trim() != ''">
+                order by ${sidx} ${order}
+            </when>
+            <otherwise>
+                order by id desc
+            </otherwise>
+        </choose>
+        <if test="offset != null and limit != null">
+            limit #{offset}, #{limit}
+        </if>
+    </select>
+
+    <select id="queryTotal" resultType="int">
+        select count(*) from `recharge_order`
+        <where>
+            <if test="id != null and id != ''">
+                AND `id` = #{id}
+            </if>
+            <if test="userId != null and userId != ''">
+                AND `user_id` = #{userId}
+            </if>
+            <if test="payType != null">
+                AND `pay_type` = #{payType}
+            </if>
+            <if test="goodsId != null and goodsId !=''">
+                AND `goods_id` = #{goodsId}
+            </if>
+            <if test="orderMoney != null">
+                AND `order_money` = #{orderMoney}
+            </if>
+            <if test="payStatus != null">
+                AND `pay_status` = #{payStatus}
+            </if>
+            <if test="beginTime != null and beginTime != '' ">
+                AND create_time <![CDATA[ >= ]]> #{beginTime}
+            </if>
+            <if test="endTime != null and endTime != ''">
+                AND create_time <![CDATA[ < ]]> #{endTime}
+            </if>
+        </where>
+    </select>
+
+    <insert id="save" parameterType="com.jubo.modules.sys.entity.RechargeOrderEntity">
+		insert into `recharge_order`
+		(
+			`id`,
+			`user_id`,
+			`create_time`,
+			`pay_time`,
+			`pay_type`,
+			`goods_id`,
+			`order_money`,
+			`pay_status`,
+			`order_type`,
+			`object_id`
+		)
+		values
+		(
+			#{id},
+			#{userId},
+			#{createTime},
+			#{payTime},
+			#{payType},
+			#{goodsId},
+			#{orderMoney},
+			#{payStatus},
+			#{orderType},
+			#{objectId}
+		)
+	</insert>
+
+    <update id="update" parameterType="com.jubo.modules.sys.entity.Rechargerecharge_orderEntity">
+        update `order`
+        <set>
+            <if test="userId != null userId !=''">`user_id` = #{userId},</if>
+            <if test="payTime != null">`pay_time` = #{payTime},</if>
+            <if test="payType != null">`pay_type` = #{payType},</if>
+            <if test="goodsId != null">`goods_id` = #{goodsId},</if>
+            <if test="orderMoney != null">`order_money` = #{orderMoney},</if>
+            <if test="payStatus != null">`pay_status` = #{payStatus}</if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <delete id="delete">
+		delete from `recharge_order` where id = #{value}
+	</delete>
+
+    <delete id="deleteBatch">
+        delete from `recharge_order` where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+</mapper>

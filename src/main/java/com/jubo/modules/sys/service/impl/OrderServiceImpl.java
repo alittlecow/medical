@@ -41,6 +41,23 @@ public class OrderServiceImpl implements OrderService {
         return id;
     }
 
+    @Transactional
+    @Override
+    public String buildIdRechargeOrder(String cardCode, Long userId, String goodsId, BigDecimal orderMoney) {
+        OrderEntity order = new OrderEntity();
+        String id = UUIDUtil.getUUId();
+        order.setId(id);
+        order.setUserId(userId);
+        order.setCreateTime(new Date());
+        order.setGoodsId(goodsId);
+        order.setOrderMoney(orderMoney);
+        order.setPayStatus(Constant.PayStatus.NEED_PAY.getValue());
+
+        orderDao.save(order);
+
+        return id;
+    }
+
     @Override
     public OrderEntity queryObject(String id) {
         return orderDao.queryObject(id);

@@ -40,6 +40,11 @@ public class CardServiceImpl implements CardService {
     }
 
     @Override
+    public CardEntity queryObjectByUserId(Long userId) {
+        return cardDao.queryObjectByUserId(userId);
+    }
+
+    @Override
     public List<CardEntity> queryList(Map<String, Object> map) {
         return cardDao.queryList(map);
     }
