@@ -19,6 +19,8 @@ public class CardEntity implements Serializable {
 	private String id;
 	//用户id
 	private Long userId;
+
+	private Byte isBind;
 	//设备编码
 	private String code;
 	//剩余使用次数
@@ -27,6 +29,15 @@ public class CardEntity implements Serializable {
 	private Date createTime;
 	//上次使用时间
 	private Date lastUseTime;
+
+
+	public Byte getIsBind() {
+		return isBind;
+	}
+
+	public void setIsBind(Byte isBind) {
+		this.isBind = isBind;
+	}
 
 	/**
 	 * 设置：

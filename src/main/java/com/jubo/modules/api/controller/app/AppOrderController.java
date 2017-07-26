@@ -56,13 +56,10 @@ public class AppOrderController {
     })
     @RequestMapping(value = "/consumeorder", method = RequestMethod.POST)
     public R create(@LoginUser SysUserEntity user, @RequestBody Map<String, Object> params) {
-        String goodsId = MapUtils.getString(params, "goodsId");
-        Assert.isBlank(goodsId, "商品ID不能为空");
+        String deviceId = MapUtils.getString(params, "deviceId");
+        Assert.isBlank(deviceId, "设备ID不能为空");
 
-        GoodsEntity goods = goodsService.queryObject(goodsId);
-        Assert.isNull(goodsId, "商品不存在");
-
-        String orderId = orderService.buildOrder(user.getUserId(), goodsId, goods.getMoney());
+        String orderId = orderService.buildConsumeOrder(user.getUserId());
         Map map = new HashMap();
         map.put("orderId", orderId);
         return R.ok().putData(map);

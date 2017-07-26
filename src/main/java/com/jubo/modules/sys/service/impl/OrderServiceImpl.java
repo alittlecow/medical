@@ -3,6 +3,9 @@ package com.jubo.modules.sys.service.impl;
 import com.jubo.common.utils.Constant;
 import com.jubo.common.utils.R;
 import com.jubo.common.utils.UUIDUtil;
+import com.jubo.modules.sys.dao.GoodsDao;
+import com.jubo.modules.sys.entity.GoodsEntity;
+import com.jubo.modules.sys.service.GoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,12 +23,21 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service("orderService")
 public class OrderServiceImpl implements OrderService {
+
+    @Autowired
+    private GoodsDao goodsDao;
     @Autowired
     private OrderDao orderDao;
 
-
     @Transactional
     @Override
+    public String buildConsumeOrder(Long userId) {
+        //获取id为0的商品
+        GoodsEntity goods = goodsDao.queryObject("0");
+
+        return buildOrder(userId, goods.getId(), goods.getMoney());
+    }
+
     public String buildOrder(Long userId, String goodsId, BigDecimal orderMoney) {
         OrderEntity order = new OrderEntity();
         String id = UUIDUtil.getUUId();
@@ -41,22 +53,7 @@ public class OrderServiceImpl implements OrderService {
         return id;
     }
 
-    @Transactional
-    @Override
-    public String buildIdRechargeOrder(String cardCode, Long userId, String goodsId, BigDecimal orderMoney) {
-        OrderEntity order = new OrderEntity();
-        String id = UUIDUtil.getUUId();
-        order.setId(id);
-        order.setUserId(userId);
-        order.setCreateTime(new Date());
-        order.setGoodsId(goodsId);
-        order.setOrderMoney(orderMoney);
-        order.setPayStatus(Constant.PayStatus.NEED_PAY.getValue());
 
-        orderDao.save(order);
-
-        return id;
-    }
 
     @Override
     public OrderEntity queryObject(String id) {

@@ -14,12 +14,12 @@ import java.util.Map;
 public interface OrderService {
 
     /**
-     * 构建初始化订单
+     * 用户门店消费订单
+     * @param userId
+     * @return
      */
-    String buildOrder(Long userId, String goodsId, BigDecimal orderMoney);
+    String buildConsumeOrder(Long userId);
 
-
-    String buildIdRechargeOrder(String cardCode, Long userId, String goodsId, BigDecimal orderMoney);
 
     OrderEntity queryObject(String id);
 

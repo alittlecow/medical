@@ -1,25 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <resourceExtensions />
     <annotationProcessing>
-      <profile default="true" name="Default" enabled="false">
-        <processorPath useClasspath="true" />
-      </profile>
-      <profile default="false" name="Maven default annotation processors profile" enabled="true">
+      <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="medcial" />
         <module name="medical" />
-        <module name="renren-fast" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="medcial" target="1.8" />
       <module name="medical" target="1.8" />
-      <module name="renren-fast" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
