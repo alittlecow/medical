@@ -6,6 +6,7 @@
     <!-- 可根据自己的需求，是否要使用 -->
     <resultMap type="com.jubo.modules.sys.entity.CardEntity" id="cardMap">
         <result property="id" column="id"/>
+        <result property="isBind" column="is_bind"/>
         <result property="userId" column="user_id"/>
         <result property="code" column="code"/>
         <result property="count" column="count"/>
@@ -32,6 +33,9 @@
             <if test="userId != null and userId != '' ">
                 AND user_id = #{userId}
             </if>
+            <if test="isBind != null">
+                AND is_bind = #{isBind}
+            </if>
         </where>
         <choose>
             <when test="sidx != null and sidx.trim() != ''">
@@ -52,6 +56,9 @@
             <if test="userId != null and userId != '' ">
                 AND user_id = #{userId}
             </if>
+            <if test="isBind != null">
+                AND is_bind = #{isBind}
+            </if>
         </where>
     </select>
 
@@ -60,7 +67,8 @@
 		(
 			`id`, 
 			`user_id`, 
-			`code`, 
+			`is_bind`,
+			`code`,
 			`count`, 
 			`create_time`, 
 			`last_use_time`
@@ -69,7 +77,8 @@
 		(
 			#{id}, 
 			#{userId}, 
-			#{code}, 
+			#{isBind},
+			#{code},
 			#{count}, 
 			#{createTime}, 
 			#{lastUseTime}
@@ -80,6 +89,7 @@
         update card
         <set>
             <if test="userId != null">`user_id` = #{userId},</if>
+            <if test="userId != null">`is_bind` = #{isBind},</if>
             <if test="code != null">`code` = #{code},</if>
             <if test="count != null">`count` = #{count},</if>
             <if test="lastUseTime != null">`last_use_time` = #{lastUseTime}</if>

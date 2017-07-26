@@ -1,5 +1,6 @@
 package com.jubo.modules.sys.service.impl;
 
+import com.jubo.common.utils.Constant;
 import com.jubo.common.utils.UUIDUtil;
 import com.jubo.modules.sys.dao.CardDao;
 import com.jubo.modules.sys.entity.CardEntity;
@@ -22,6 +23,7 @@ public class CardServiceImpl implements CardService {
 
         CardEntity card = new CardEntity();
         card.setId(UUIDUtil.getUUId());
+        card.setIsBind(Constant.CardBindStatus.TRUE.getValue());
         card.setCode(code);
         card.setUserId(userId);
         card.setCount(0);

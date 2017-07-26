@@ -40,7 +40,6 @@ public class AppCardController {
     private CardHistoryService cardHistoryService;
 
 
-
     /**
      * ID卡绑定
      */
@@ -50,13 +49,18 @@ public class AppCardController {
     @RequestMapping(value = "/bind", method = RequestMethod.POST)
     public R bind(@LoginUser SysUserEntity user, @RequestBody Map<String, Object> params) {
 
-        // TODO: 2017/7/25 卡号码正确性校验
         String code = MapUtils.getString(params, "code");
-        Assert.isBlank(code, "ID卡号不存在");
+        if (StringUtils.isBlank(code)) {
+            return R.error("卡号不能为空");
+        }
 
         CardEntity card = cardService.queryObjectByCode(code);
         if (card != null) {
-            return R.error("改卡已被绑定");
+            return R.error("ID卡不存在");
+        }
+
+        if (Constant.CardBindStatus.TRUE.getValue().compareTo(card.getIsBind()) == 0) {
+            return R.error("ID卡已经被绑定");
         }
 
         Map map = new HashMap();
@@ -139,8 +143,6 @@ public class AppCardController {
 
         return R.ok().putData(list);
     }
-
-
 
 
     /**

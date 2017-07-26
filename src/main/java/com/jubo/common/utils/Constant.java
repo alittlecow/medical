@@ -226,4 +226,22 @@ public class Constant {
             return value;
         }
     }
+
+
+    public enum CardBindStatus {
+        //1 已经绑定
+        TRUE(new Byte("1")),
+        //0  没有绑定
+        FALSE(new Byte("0"));
+
+        private Byte value;
+
+        private CardBindStatus(Byte value) {
+            this.value = value;
+        }
+
+        public Byte getValue() {
+            return value;
+        }
+    }
 }
