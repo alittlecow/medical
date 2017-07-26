@@ -1,26 +1,31 @@
 package com.jubo.modules.sys.service.impl;
 
+import cn.beecloud.BCPay;
+import cn.beecloud.bean.BCAuth;
+import cn.beecloud.bean.BCException;
+import com.jubo.common.exception.RRException;
 import com.jubo.common.utils.Constant;
 import com.jubo.common.utils.ErrorMessage;
 import com.jubo.common.utils.R;
 import com.jubo.common.utils.UUIDUtil;
+import com.jubo.modules.sys.dao.AccountInfoDao;
+import com.jubo.modules.sys.dao.SysUserDao;
+import com.jubo.modules.sys.entity.AccountInfoEntity;
 import com.jubo.modules.sys.entity.AccountTransactionHistoryEntity;
 import com.jubo.modules.sys.entity.OrderEntity;
+import com.jubo.modules.sys.entity.SysUserEntity;
+import com.jubo.modules.sys.service.AccountInfoService;
 import com.jubo.modules.sys.service.AccountTransactionHistoryService;
 import com.jubo.modules.sys.service.OrderService;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
-
-import com.jubo.modules.sys.dao.AccountInfoDao;
-import com.jubo.modules.sys.entity.AccountInfoEntity;
-import com.jubo.modules.sys.service.AccountInfoService;
-import org.springframework.transaction.annotation.Transactional;
 
 
 @Service("accountInfoService")
@@ -30,6 +35,9 @@ public class AccountInfoServiceImpl implements AccountInfoService {
 
     @Autowired
     private OrderService orderService;
+
+    @Autowired
+    private SysUserDao sysUserDao;
 
     @Autowired
     private AccountTransactionHistoryService historyService;
@@ -139,6 +147,30 @@ public class AccountInfoServiceImpl implements AccountInfoService {
     @Override
     public void deleteBatch(String[] ids) {
         accountInfoDao.deleteBatch(ids);
+    }
+
+    @Override
+    public void auth(Map<String, String> params, SysUserEntity userEntity) {
+        if(new Byte("1").equals(userEntity.getIsAuth())){
+            throw new RRException("帐号已通过实名认证");
+        }
+        String name = params.get("name");
+        String idNo = params.get("idNo");
+        String cardNo = params.get("cardNo");
+        BCAuth auth = new BCAuth(name, idNo, cardNo);
+        String mobile = params.get("mobile");
+        auth.setMobile(mobile);
+        try {
+            auth = BCPay.startBCAuth(auth);
+            if(auth.isAuthResult()){
+                userEntity.setRealName(name);
+                userEntity.setIdCard(idNo);
+                userEntity.setIsAuth(new Byte("1"));
+                sysUserDao.update(userEntity);
+            }
+        } catch (BCException e) {
+           throw new RRException("实名认证接口调用失败",e);
+        }
     }
 
 }

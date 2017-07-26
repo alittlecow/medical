@@ -3,7 +3,9 @@ package com.jubo.modules.sys.controller;
 import com.jubo.common.utils.PageUtils;
 import com.jubo.common.utils.Query;
 import com.jubo.common.utils.R;
+import com.jubo.modules.api.annotation.LoginUser;
 import com.jubo.modules.sys.entity.AccountInfoEntity;
+import com.jubo.modules.sys.entity.SysUserEntity;
 import com.jubo.modules.sys.service.AccountInfoService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -87,6 +89,16 @@ public class AccountInfoController {
 	public R delete(@RequestBody String[] ids){
 		accountInfoService.deleteBatch(ids);
 		
+		return R.ok();
+	}
+
+	/**
+	 * 实名认证
+	 */
+	@RequestMapping("/auth")
+	public R auth(@RequestBody  Map<String, String> params, @LoginUser SysUserEntity userEntity){
+		accountInfoService.auth(params,userEntity);
+
 		return R.ok();
 	}
 	

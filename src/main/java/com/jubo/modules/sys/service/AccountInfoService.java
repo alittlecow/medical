@@ -3,6 +3,7 @@ package com.jubo.modules.sys.service;
 
 import com.jubo.common.utils.R;
 import com.jubo.modules.sys.entity.AccountInfoEntity;
+import com.jubo.modules.sys.entity.SysUserEntity;
 
 import java.util.List;
 import java.util.Map;
@@ -37,4 +38,6 @@ public interface AccountInfoService {
     void delete(String id);
 
     void deleteBatch(String[] ids);
+
+    void auth(Map<String, String> params, SysUserEntity userEntity);
 }
