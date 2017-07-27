@@ -1,8 +1,8 @@
 spring:
     datasource:
-        url: jdbc:mysql://119.23.248.130:3306/smartagro?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8
-        username: mysql
-        password: mysql
+        url: jdbc:mysql://114.215.172.5:3306/medical?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8
+        username: root
+        password: Sywl040516
         #连接池的配置信息
         initialSize: 10
         minIdle: 10

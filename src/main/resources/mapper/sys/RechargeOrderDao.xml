@@ -21,7 +21,7 @@
 		select * from `recharge_order` where id = #{value}
 	</select>
 
-    <select id="queryList" resultType="com.jubo.modules.sys.entity.Rechargerecharge_orderEntity">
+    <select id="queryList" resultType="com.jubo.modules.sys.entity.RechargeOrderEntity">
         select * from `recharge_order`
         <where>
             <if test="id != null and id != ''">
@@ -122,7 +122,7 @@
 		)
 	</insert>
 
-    <update id="update" parameterType="com.jubo.modules.sys.entity.Rechargerecharge_orderEntity">
+    <update id="update" parameterType="com.jubo.modules.sys.entity.RechargeOrderEntity">
         update `order`
         <set>
             <if test="userId != null userId !=''">`user_id` = #{userId},</if>

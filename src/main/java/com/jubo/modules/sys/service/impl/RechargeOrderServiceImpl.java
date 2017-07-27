@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Map;
 
 
-@Service("orderService")
+@Service("rechargeOrderService")
 public class RechargeOrderServiceImpl implements RechargeOrderService {
     @Autowired
     private RechargeOrderDao rechargeOrderDao;
