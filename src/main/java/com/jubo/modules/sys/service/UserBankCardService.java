@@ -1,5 +1,6 @@
 package com.jubo.modules.sys.service;
 
+import com.jubo.modules.sys.entity.SysUserEntity;
 import com.jubo.modules.sys.entity.UserBankCardEntity;
 
 import java.util.List;
@@ -20,7 +21,7 @@ public interface UserBankCardService {
 	
 	int queryTotal(Map<String, Object> map);
 	
-	void save(UserBankCardEntity userBankCard);
+	void save(UserBankCardEntity userBankCard, SysUserEntity userEntity);
 	
 	void update(UserBankCardEntity userBankCard);
 	

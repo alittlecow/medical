@@ -1,21 +1,19 @@
 package com.jubo.modules.sys.controller;
 
-import java.util.List;
-import java.util.Map;
-
-import com.jubo.modules.sys.entity.UserBankCardEntity;
-import com.jubo.modules.sys.service.UserBankCardService;
-import org.apache.shiro.authz.annotation.RequiresPermissions;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.jubo.common.utils.PageUtils;
 import com.jubo.common.utils.Query;
 import com.jubo.common.utils.R;
+import com.jubo.modules.api.annotation.LoginUser;
+import com.jubo.modules.sys.entity.SysUserEntity;
+import com.jubo.modules.sys.entity.UserBankCardEntity;
+import com.jubo.modules.sys.service.UserBankCardService;
+import org.apache.commons.lang.StringUtils;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Map;
 
 
 
@@ -38,9 +36,10 @@ public class UserBankCardController {
 	 */
 	@RequestMapping("/list")
 	@RequiresPermissions("userbankcard:list")
-	public R list(@RequestParam Map<String, Object> params){
+	public R list(@RequestParam Map<String, Object> params,@LoginUser SysUserEntity sysUser){
 		//查询列表数据
         Query query = new Query(params);
+		params.put("userId",sysUser.getUserId());
 
 		List<UserBankCardEntity> userBankCardList = userBankCardService.queryList(query);
 		int total = userBankCardService.queryTotal(query);
@@ -67,8 +66,9 @@ public class UserBankCardController {
 	 */
 	@RequestMapping("/save")
 	@RequiresPermissions("userbankcard:save")
-	public R save(@RequestBody UserBankCardEntity userBankCard){
-		userBankCardService.save(userBankCard);
+	public R save(@RequestBody UserBankCardEntity userBankCard, @LoginUser SysUserEntity userEntity){
+
+		userBankCardService.save(userBankCard,userEntity);
 		
 		return R.ok();
 	}
@@ -89,9 +89,10 @@ public class UserBankCardController {
 	 */
 	@RequestMapping("/delete")
 	@RequiresPermissions("userbankcard:delete")
-	public R delete(@RequestBody String[] ids){
-		userBankCardService.deleteBatch(ids);
-		
+	public R delete(@RequestBody String ids){
+		if(StringUtils.isNotBlank(ids)){
+			userBankCardService.deleteBatch(ids.split(","));
+		}
 		return R.ok();
 	}
 	

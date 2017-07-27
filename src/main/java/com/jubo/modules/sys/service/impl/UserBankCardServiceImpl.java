@@ -1,14 +1,14 @@
 package com.jubo.modules.sys.service.impl;
 
+import com.jubo.modules.sys.dao.UserBankCardDao;
+import com.jubo.modules.sys.entity.SysUserEntity;
+import com.jubo.modules.sys.entity.UserBankCardEntity;
+import com.jubo.modules.sys.service.UserBankCardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Map;
-
-import com.jubo.modules.sys.dao.UserBankCardDao;
-import com.jubo.modules.sys.entity.UserBankCardEntity;
-import com.jubo.modules.sys.service.UserBankCardService;
 
 
 
@@ -33,7 +33,8 @@ public class UserBankCardServiceImpl implements UserBankCardService {
 	}
 	
 	@Override
-	public void save(UserBankCardEntity userBankCard){
+	public void save(UserBankCardEntity userBankCard, SysUserEntity userEntity){
+		userBankCard.setUserId(userEntity.getUserId().toString());
 		userBankCardDao.save(userBankCard);
 	}
 	
