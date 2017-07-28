@@ -21,7 +21,7 @@ import java.util.Map;
  * @date 2017-07-21 22:46:51
  */
 @RestController
-@RequestMapping("devicebind")
+@RequestMapping("/app/devicebind")
 public class AppDeviceBindController {
 	@Autowired
 	private DeviceBindService deviceBindService;
