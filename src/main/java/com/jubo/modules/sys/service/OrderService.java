@@ -15,11 +15,19 @@ public interface OrderService {
 
     /**
      * 用户门店消费订单
+     *
      * @param userId
      * @return
      */
-    String buildConsumeOrder(Long userId);
+    String buildConsumeOrder(Long userId, String deviceId);
 
+    /**
+     * 刷卡消费订单
+     *
+     * @param code
+     * @param deviceId
+     */
+    void buildCardOrder(String code, String deviceId);
 
     OrderEntity queryObject(String id);
 

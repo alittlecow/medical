@@ -5,7 +5,7 @@ $(function () {
         colModel: [
             {label: '订单ID', name: 'id', index: 'id', width: 50, key: true},
             {label: '用户ID', name: 'userId', index: 'user_id', width: 80},
-            {label: '商品ID', name: 'goodsId', index: 'goods_id', width: 80},
+            {label: '设备ID', name: 'deviceId', index: 'device_id', width: 80},
             {label: '订单金额', name: 'orderMoney', index: 'order_money', width: 80},
             {
                 label: '支付类型', name: 'payType', index: 'pay_type', width: 80,
@@ -21,8 +21,11 @@ $(function () {
                     }
                     if (value === 3) {
                         return '<span">个人账户</span>';
+                    }
+                    if (value === 4) {
+                        return '<span">刷卡支付</span>';
                     } else {
-                        return '<span"></span>';
+                        return '<span"></span>'
                     }
                 }
             },
@@ -42,6 +45,17 @@ $(function () {
                         return '<span">支付失败</span>';
                     } else {
                         return '<span"></span>';
+                    }
+                }
+            },
+            {
+                label: '订单类型', name: 'orderType', index: 'order_type', width: 80,
+                formatter: function (value, options, row) {
+                    if (value === 10) {
+                        return '<span">扫码使用</span>';
+                    }
+                    if (value === 11) {
+                        return '<span">刷卡使用</span>';
                     }
                 }
             },

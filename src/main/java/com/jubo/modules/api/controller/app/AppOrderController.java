@@ -3,6 +3,7 @@ package com.jubo.modules.api.controller.app;
 import com.jubo.common.utils.Constant;
 import com.jubo.common.utils.R;
 import com.jubo.common.validator.Assert;
+import com.jubo.modules.api.annotation.AuthIgnore;
 import com.jubo.modules.api.annotation.LoginUser;
 import com.jubo.modules.sys.entity.AccountInfoEntity;
 import com.jubo.modules.sys.entity.CardEntity;
@@ -49,25 +50,48 @@ public class AppOrderController {
 
 
     /**
-     * 门店消费生成订单接口
+     * 门店消费订单接口
      */
     @ApiImplicitParams({
             @ApiImplicitParam(paramType = "query", name = "token", value = "token", required = true, dataType = "String"),
     })
     @RequestMapping(value = "/consumeorder", method = RequestMethod.POST)
-    public R create(@LoginUser SysUserEntity user, @RequestBody Map<String, Object> params) {
+    public R consumeOrder(@LoginUser SysUserEntity user, @RequestBody Map<String, Object> params) {
         String deviceId = MapUtils.getString(params, "deviceId");
         Assert.isBlank(deviceId, "设备ID不能为空");
 
-        String orderId = orderService.buildConsumeOrder(user.getUserId());
+        String orderId = orderService.buildConsumeOrder(user.getUserId(), deviceId );
         Map map = new HashMap();
         map.put("orderId", orderId);
+
         return R.ok().putData(map);
     }
 
 
     /**
-     * ID卡充值生成订单
+     * ID卡刷卡消费订单
+     */
+    @AuthIgnore
+    @RequestMapping(value = "/cardorder", method = RequestMethod.POST)
+    public R cardOrder(@RequestBody Map<String, Object> params) {
+        String deviceId = MapUtils.getString(params, "deviceId");
+        String code = MapUtils.getString(params, "code");
+
+        if (StringUtils.isBlank(deviceId)) {
+            return R.error("设备ID不能为空");
+        }
+        if (StringUtils.isBlank(code)) {
+            return R.error("ID卡号不能为空");
+        }
+
+        orderService.buildCardOrder(code, deviceId);
+
+        // TODO: 2017/7/27 开启设备
+        return R.ok();
+    }
+
+    /**
+     * 充值订单接口
      */
     @ApiImplicitParams({
             @ApiImplicitParam(paramType = "query", name = "token", value = "token", required = true, dataType = "String"),
@@ -78,7 +102,7 @@ public class AppOrderController {
 
         String objectId = null;
         //ID卡充值订单
-        if (Constant.RechargeOrderType.ID_RECHARGE.getValue().compareTo(orderType) == 0) {
+        if (Constant.OrderType.ID_RECHARGE.getValue().compareTo(orderType) == 0) {
             String code = MapUtils.getString(params, "code");
             Assert.isBlank(code, "充值卡号不能为空");
             CardEntity card = cardService.queryObjectByCode(code);
@@ -87,7 +111,7 @@ public class AppOrderController {
         }
 
         //账户充值
-        if (Constant.RechargeOrderType.ACCOUNT_RECHARGE.getValue().compareTo(orderType) == 0) {
+        if (Constant.OrderType.ACCOUNT_RECHARGE.getValue().compareTo(orderType) == 0) {
             AccountInfoEntity account = accountInfoService.queryObjectByUserId(user.getUserId());
             objectId = account.getId();
         }

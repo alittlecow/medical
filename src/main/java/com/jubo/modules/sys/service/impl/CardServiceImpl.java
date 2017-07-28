@@ -1,9 +1,13 @@
 package com.jubo.modules.sys.service.impl;
 
+import com.jubo.common.exception.RRException;
 import com.jubo.common.utils.Constant;
 import com.jubo.common.utils.UUIDUtil;
+import com.jubo.common.validator.Assert;
 import com.jubo.modules.sys.dao.CardDao;
 import com.jubo.modules.sys.entity.CardEntity;
+import com.jubo.modules.sys.entity.CardHistoryEntity;
+import com.jubo.modules.sys.service.CardHistoryService;
 import com.jubo.modules.sys.service.CardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +22,9 @@ public class CardServiceImpl implements CardService {
     @Autowired
     private CardDao cardDao;
 
+    @Autowired
+    private CardHistoryService cardHistoryService;
+
     @Override
     public void bind(String code, Long userId) {
 
@@ -29,6 +36,31 @@ public class CardServiceImpl implements CardService {
         card.setCount(0);
         card.setCreateTime(new Date());
         cardDao.save(card);
+    }
+
+    @Override
+    public void useCard(String code, int times) {
+        CardEntity card = cardDao.queryObjectByCode(code);
+        Assert.isNull(card, "ID卡不存在");
+
+        int leftCount = card.getCount();
+        if (leftCount <= 0) {
+            throw new RRException("消费次数不足");
+        }
+
+        //消费次数减一
+        card.setCount(leftCount - times);
+        cardDao.update(card);
+
+        CardHistoryEntity cardHistory = new CardHistoryEntity();
+        cardHistory.setId(UUIDUtil.getUUId());
+        cardHistory.setCode(code);
+        cardHistory.setAdjustCount(times);
+        cardHistory.setCount(leftCount - times);
+        cardHistory.setType(Constant.CardAdjustType.USE.getValue());
+        cardHistory.setCreateTime(new Date());
+        cardHistoryService.save(cardHistory);
+
     }
 
     @Override

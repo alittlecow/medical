@@ -17,6 +17,14 @@ public interface CardService {
      */
     void bind(String code, Long userId);
 
+    /**
+     * 使用ID卡 times次
+     *
+     * @param code
+     * @param times
+     */
+    void useCard(String code, int times);
+
     CardEntity queryObjectByUserId(Long userId);
 
     CardEntity queryObjectByCode(String code);

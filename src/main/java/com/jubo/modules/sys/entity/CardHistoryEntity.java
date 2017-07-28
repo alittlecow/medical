@@ -21,7 +21,7 @@ public class CardHistoryEntity implements Serializable {
     //剩余次数
     private Integer count;
     //1设备使用 2充值（充值有充值类型字段）
-    private Integer type;
+    private Byte type;
     //0支付宝 1微信 2银联 3个人账户
     private String payType;
     //创建记录时间
@@ -30,6 +30,13 @@ public class CardHistoryEntity implements Serializable {
     //调整次数
     private Integer adjustCount;
 
+    public Byte getType() {
+        return type;
+    }
+
+    public void setType(Byte type) {
+        this.type = type;
+    }
 
     public Integer getAdjustCount() {
         return adjustCount;
@@ -93,16 +100,6 @@ public class CardHistoryEntity implements Serializable {
     /**
      * 设置：1设备使用 2充值（充值有充值类型字段）
      */
-    public void setType(Integer type) {
-        this.type = type;
-    }
-
-    /**
-     * 获取：1设备使用 2充值（充值有充值类型字段）
-     */
-    public Integer getType() {
-        return type;
-    }
 
     /**
      * 设置：0支付宝 1微信 2银联 3个人账户

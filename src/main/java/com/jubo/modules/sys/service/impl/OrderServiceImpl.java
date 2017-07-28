@@ -1,17 +1,15 @@
 package com.jubo.modules.sys.service.impl;
 
 import com.jubo.common.utils.Constant;
-import com.jubo.common.utils.R;
 import com.jubo.common.utils.UUIDUtil;
-import com.jubo.modules.sys.dao.GoodsDao;
 import com.jubo.modules.sys.entity.GoodsEntity;
+import com.jubo.modules.sys.service.CardService;
 import com.jubo.modules.sys.service.GoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -25,24 +23,30 @@ import org.springframework.transaction.annotation.Transactional;
 public class OrderServiceImpl implements OrderService {
 
     @Autowired
-    private GoodsDao goodsDao;
+    private GoodsService goodsService;
     @Autowired
     private OrderDao orderDao;
 
+    @Autowired
+    private CardService cardService;
+
     @Transactional
     @Override
-    public String buildConsumeOrder(Long userId) {
+    public String buildConsumeOrder(Long userId, String deviceId) {
         //获取id为0的商品
-        GoodsEntity goods = goodsDao.queryObject("0");
+        GoodsEntity goods = goodsService.queryObject("0");
 
-        return buildOrder(userId, goods.getId(), goods.getMoney());
+        return buildConsumerOrder(userId, deviceId, "0", goods.getMoney());
     }
 
-    public String buildOrder(Long userId, String goodsId, BigDecimal orderMoney) {
+    //扫码支付订单
+    public String buildConsumerOrder(Long userId, String deviceId, String goodsId, BigDecimal orderMoney) {
         OrderEntity order = new OrderEntity();
         String id = UUIDUtil.getUUId();
         order.setId(id);
         order.setUserId(userId);
+        order.setDeviceId(deviceId);
+        order.setOrderType(Constant.OrderType.USER_DEVICE_BY_ONLINE.getValue());
         order.setCreateTime(new Date());
         order.setGoodsId(goodsId);
         order.setOrderMoney(orderMoney);
@@ -54,6 +58,31 @@ public class OrderServiceImpl implements OrderService {
     }
 
 
+    @Transactional
+    @Override
+    public void buildCardOrder(String code, String deviceId) {
+
+        //使用次数1
+        cardService.useCard(code, 1);
+
+        GoodsEntity goods = goodsService.queryObject("0");
+        BigDecimal orderMoney = goods.getMoney();
+
+        OrderEntity order = new OrderEntity();
+        String id = UUIDUtil.getUUId();
+        order.setId(id);
+        order.setDeviceId(deviceId);
+        order.setOrderType(Constant.OrderType.USER_DEVICE_BY_CARD.getValue());
+        order.setCardCode(code);
+        order.setOrderMoney(orderMoney);
+        order.setPayStatus(Constant.PayStatus.SUCCESS.getValue());
+        order.setPayType(Constant.PayType.CARD.getValue());
+        order.setCreateTime(new Date());
+        order.setPayTime(new Date());
+
+        //保存为支付成功订单
+        save(order);
+    }
 
     @Override
     public OrderEntity queryObject(String id) {

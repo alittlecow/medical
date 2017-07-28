@@ -66,6 +66,12 @@ public class SysUserEntity implements Serializable {
 
     private Integer status;
 
+    private Long deptId;
+    /**
+     * 部门名称
+     */
+    private String deptName;
+
     /**
      * 角色ID列表
      */
@@ -85,6 +91,23 @@ public class SysUserEntity implements Serializable {
     private String realName;
     private String idCard;
     private Byte isAuth;
+
+
+    public String getDeptName() {
+        return deptName;
+    }
+
+    public void setDeptName(String deptName) {
+        this.deptName = deptName;
+    }
+
+    public Long getDeptId() {
+        return deptId;
+    }
+
+    public void setDeptId(Long deptId) {
+        this.deptId = deptId;
+    }
 
     public String getRealName() {
         return realName;

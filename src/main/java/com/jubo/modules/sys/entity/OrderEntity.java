@@ -22,13 +22,53 @@ public class OrderEntity implements Serializable {
     //订单支付完成时间
     private Date payTime;
     //支付类型（0支付宝 1微信 2银联 3个人账户）
-    private Integer payType;
+    private Byte payType;
     //一次交易的商品id
     private String goodsId;
     //订单金额
     private BigDecimal orderMoney;
     //订单状态（0待支付 1支付中 20 支付成功 21支付失败）
     private Integer payStatus;
+
+    //订单类型  10 扫码使用 11 ID卡刷卡使用
+    private Byte orderType;
+
+    private String deviceId;
+
+    private String cardCode;
+
+    public String getCardCode() {
+        return cardCode;
+    }
+
+    public void setCardCode(String cardCode) {
+        this.cardCode = cardCode;
+    }
+
+    public Byte getOrderType() {
+        return orderType;
+    }
+
+    public void setOrderType(Byte orderType) {
+        this.orderType = orderType;
+    }
+
+    public String getDeviceId() {
+        return deviceId;
+    }
+
+    public void setDeviceId(String deviceId) {
+        this.deviceId = deviceId;
+    }
+
+
+    public Byte getPayType() {
+        return payType;
+    }
+
+    public void setPayType(Byte payType) {
+        this.payType = payType;
+    }
 
     /**
      * 设置：
@@ -80,19 +120,7 @@ public class OrderEntity implements Serializable {
         return payTime;
     }
 
-    /**
-     * 设置：支付类型（0支付宝 1微信 2银联 3个人账户）
-     */
-    public void setPayType(Integer payType) {
-        this.payType = payType;
-    }
 
-    /**
-     * 获取：支付类型（0支付宝 1微信 2银联 3个人账户）
-     */
-    public Integer getPayType() {
-        return payType;
-    }
 
     /**
      * 设置：一次交易的商品id

@@ -210,15 +210,19 @@ public class Constant {
     }
 
 
-    public enum RechargeOrderType {
+    public enum OrderType {
         //0 账户充值
         ACCOUNT_RECHARGE(new Byte("0")),
         //ID卡充值
-        ID_RECHARGE(new Byte("1"));
+        ID_RECHARGE(new Byte("1")),
+        //实时支付
+        USER_DEVICE_BY_ONLINE(new Byte("10")),
+        //刷卡支付
+        USER_DEVICE_BY_CARD(new Byte("11"));
 
         private Byte value;
 
-        private RechargeOrderType(Byte value) {
+        private OrderType(Byte value) {
             this.value = value;
         }
 
@@ -237,6 +241,47 @@ public class Constant {
         private Byte value;
 
         private CardBindStatus(Byte value) {
+            this.value = value;
+        }
+
+        public Byte getValue() {
+            return value;
+        }
+    }
+
+    public enum CardAdjustType {
+        //1 使用
+        USE(new Byte("1")),
+        //2  充值
+        RECHARGE(new Byte("2"));
+
+        private Byte value;
+
+        private CardAdjustType(Byte value) {
+            this.value = value;
+        }
+
+        public Byte getValue() {
+            return value;
+        }
+    }
+
+
+    public enum PayType {
+        //支付宝
+        ALIPAY(new Byte("0")),
+        //微信
+        WECHAT(new Byte("1")),
+        //银联
+        BANK(new Byte("2")),
+        //个人账户
+        ACCOUNT(new Byte("3")),
+        //刷卡支付
+        CARD(new Byte("4"));
+
+        private Byte value;
+
+        private PayType(Byte value) {
             this.value = value;
         }
 

@@ -6,7 +6,6 @@
     <!-- 可根据自己的需求，是否要使用 -->
     <resultMap type="com.jubo.modules.sys.entity.CardHistoryEntity" id="cardHistoryMap">
         <result property="id" column="id"/>
-        <result property="userId" column="user_id"/>
         <result property="code" column="code"/>
         <result property="count" column="count"/>
         <result property="adjustCount" column="adjust_count"/>
@@ -27,8 +26,8 @@
     <select id="queryList" resultType="com.jubo.modules.sys.entity.CardHistoryEntity">
         select * from card_history
         <where>
-            <if test="userId != null">
-                user_id = #{userId}
+            <if test="code != null">
+                code = #{code}
             </if>
         </where>
         <choose>
@@ -47,8 +46,8 @@
     <select id="queryTotal" resultType="int">
         select count(*) from card_history
         <where>
-            <if test="userId != null">
-                user_id = #{userId}
+            <if test="code != null">
+                code = #{code}
             </if>
         </where>
     </select>
@@ -57,20 +56,20 @@
 		insert into card_history
 		(
 			`id`, 
-			`user_id`, 
-			`code`, 
-			`count`, 
-			`type`, 
+			`code`,
+			`adjust_count`,
+			`count`,
+			`type`,
 			`pay_type`, 
 			`create_time`
 		)
 		values
 		(
 			#{id}, 
-			#{userId}, 
-			#{code}, 
-			#{count}, 
-			#{type}, 
+			#{code},
+			#{adjustCount},
+			#{count},
+			#{type},
 			#{payType}, 
 			#{createTime}
 		)
@@ -79,7 +78,6 @@
     <update id="update" parameterType="com.jubo.modules.sys.entity.CardHistoryEntity">
         update card_history
         <set>
-            <if test="userId != null">`user_id` = #{userId},</if>
             <if test="code != null">`code` = #{code},</if>
             <if test="count != null">`count` = #{count},</if>
             <if test="type != null">`type` = #{type},</if>

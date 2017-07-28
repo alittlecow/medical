@@ -13,6 +13,9 @@
         <result property="goodsId" column="goods_id"/>
         <result property="orderMoney" column="order_money"/>
         <result property="payStatus" column="pay_status"/>
+        <result property="orderType" column="order_type"/>
+        <result property="deviceId" column="device_id"/>
+        <result property="cardCode" column="card_code"/>
     </resultMap>
 
     <select id="queryObject" resultType="com.jubo.modules.sys.entity.OrderEntity">
@@ -39,6 +42,15 @@
             </if>
             <if test="payStatus != null">
                 AND `pay_status` = #{payStatus}
+            </if>
+            <if test="orderType != null">
+                AND `order_type` = #{orderType}
+            </if>
+            <if test="deviceId != null">
+                AND `device_id` = #{deviceId}
+            </if>
+            <if test="cardCode != null">
+                AND `card_code` = #{cardCode}
             </if>
             <if test="beginTime != null and beginTime != '' ">
                 AND create_time <![CDATA[ >= ]]> #{beginTime}
@@ -79,8 +91,17 @@
             <if test="orderMoney != null">
                 AND `order_money` = #{orderMoney}
             </if>
+            <if test="orderType != null">
+                AND `order_type` = #{orderType}
+            </if>
+            <if test="deviceId != null">
+                AND `device_id` = #{deviceId}
+            </if>
             <if test="payStatus != null">
                 AND `pay_status` = #{payStatus}
+            </if>
+            <if test="cardCode != null">
+                AND `card_code` = #{cardCode}
             </if>
             <if test="beginTime != null and beginTime != '' ">
                 AND create_time <![CDATA[ >= ]]> #{beginTime}
@@ -101,7 +122,10 @@
 			`pay_type`, 
 			`goods_id`, 
 			`order_money`, 
-			`pay_status`
+			`pay_status`,
+			`order_type`,
+			`device_id`,
+			`card_code`
 		)
 		values
 		(
@@ -112,14 +136,16 @@
 			#{payType}, 
 			#{goodsId}, 
 			#{orderMoney}, 
-			#{payStatus}
+			#{payStatus},
+			#{orderType},
+			#{deviceId},
+			#{cardCode}
 		)
 	</insert>
 
     <update id="update" parameterType="com.jubo.modules.sys.entity.OrderEntity">
         update `order`
         <set>
-            <if test="userId != null userId !=''">`user_id` = #{userId},</if>
             <if test="payTime != null">`pay_time` = #{payTime},</if>
             <if test="payType != null">`pay_type` = #{payType},</if>
             <if test="goodsId != null">`goods_id` = #{goodsId},</if>

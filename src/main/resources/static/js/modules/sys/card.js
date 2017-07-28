@@ -5,7 +5,7 @@ $(function () {
         colModel: [
             {label: 'id', name: 'id', index: 'id', width: 50, key: true, hidden: true},
             {label: '用户id', name: 'userId', index: 'user_id', width: 80},
-            {label: '设备编码', name: 'code', index: 'code', width: 80},
+            {label: 'ID卡号', name: 'code', index: 'code', width: 80},
             {label: '剩余使用次数', name: 'count', index: 'count', width: 80},
             {
                 label: '是否被绑定', name: 'isBind', index: 'is_bind', width: 80,
