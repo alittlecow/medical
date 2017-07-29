@@ -58,7 +58,9 @@
 			`id`, 
 			`user_id`, 
 			`balance`, 
-			`create_time`, 
+			`proportion`,
+			`allow_encashment`,
+			`create_time`,
 			`update_time`
 		)
 		values
@@ -66,7 +68,9 @@
 			#{id}, 
 			#{userId}, 
 			#{balance}, 
-			#{createTime}, 
+			#{proportion},
+			#{allowEncashment},
+			#{createTime},
 			#{updateTime}
 		)
 	</insert>

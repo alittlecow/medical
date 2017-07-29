@@ -19,10 +19,34 @@ public class AccountInfoEntity implements Serializable {
     private Long userId;
     //账户余额
     private BigDecimal balance;
+
+    //允许提现标准位 1允许0 不允许
+    private String allowEncashment;
+
+    //分成比例
+    private BigDecimal proportion;
+
     //账户创建时间
     private Date createTime;
     //账户最后一次更新时间
     private Date updateTime;
+
+
+    public String getAllowEncashment() {
+        return allowEncashment;
+    }
+
+    public void setAllowEncashment(String allowEncashment) {
+        this.allowEncashment = allowEncashment;
+    }
+
+    public BigDecimal getProportion() {
+        return proportion;
+    }
+
+    public void setProportion(BigDecimal proportion) {
+        this.proportion = proportion;
+    }
 
     /**
      * 设置：id
