@@ -59,9 +59,9 @@ public class SysDeptController extends AbstractController {
             map.put("deptFilter", sysDeptService.getSubDeptIdList(getDeptId()));
         }
         List<SysDeptEntity> deptList = sysDeptService.queryList(map);
-        deptList.forEach(dept -> {
+        for (SysDeptEntity dept : deptList) {
             dept.setLevelName(DEPT_LEV_NAME.get(dept.getLevel()));
-        });
+        }
 
         return deptList;
     }
