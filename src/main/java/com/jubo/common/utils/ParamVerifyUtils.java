@@ -10,7 +10,10 @@ import java.util.regex.Pattern;
  */
 public class ParamVerifyUtils {
     public static final String PHONE_REG = "^((13[0-9])|(15[^4])|(18[0,2,3,5-9])|(17[0-8])|(147))\\d{8}$";
+
     public static final String PASSWORD_REG = "^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,20}$";
+
+    public static final String EMAIL_REG = "^\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$";
 
     /**
      * 手机号码校验
@@ -39,6 +42,29 @@ public class ParamVerifyUtils {
         Matcher matcher = p.matcher(password);
         return matcher.matches();
     }
+
+    public static boolean isEmail(String email) {
+        if (StringUtils.isBlank(email))
+            return false;
+        Pattern p = Pattern.compile(EMAIL_REG);
+        Matcher matcher = p.matcher(email);
+        return matcher.matches();
+    }
+
+    /**
+     * 所有字符串均不为空时返回true
+     * @param str
+     * @return
+     */
+    public static boolean checkAllValues(String... str){
+        for(String s : str){
+            if (StringUtils.isBlank(s)){
+                return false;
+            }
+        }
+        return true;
+    }
+
 
     public static void main(String[] args) {
         System.out.println(isValidPassWord("12345"));

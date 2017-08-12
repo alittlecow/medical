@@ -60,7 +60,8 @@
         select * from sys_user where username = #{username}
     </select>
 
-    <insert id="save" parameterType="com.jubo.modules.sys.entity.SysUserEntity" useGeneratedKeys="true" keyProperty="userId">
+    <insert id="save" parameterType="com.jubo.modules.sys.entity.SysUserEntity" useGeneratedKeys="true"
+            keyProperty="userId">
         insert into sys_user
         (
         `user_id`,
@@ -90,12 +91,12 @@
     <update id="update" parameterType="com.jubo.modules.sys.entity.SysUserEntity">
         update sys_user
         <set>
-            <if test="username != null">`username` = #{username}, </if>
-            <if test="password != null">`password` = #{password}, </if>
-            <if test="email != null">`email` = #{email}, </if>
-            <if test="mobile != null">`mobile` = #{mobile}, </if>
-            <if test="status != null">`status` = #{status}, </if>
-            <if test="deptId != null">`dept_id` = #{deptId}, </if>
+            <if test="username != null">`username` = #{username},</if>
+            <if test="password != null">`password` = #{password},</if>
+            <if test="email != null">`email` = #{email},</if>
+            <if test="mobile != null">`mobile` = #{mobile},</if>
+            <if test="status != null">`status` = #{status},</if>
+            <if test="deptId != null">`dept_id` = #{deptId},</if>
         </set>
         where user_id = #{userId}
     </update>

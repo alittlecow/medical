@@ -46,7 +46,7 @@ public class OrderServiceImpl implements OrderService {
         order.setId(id);
         order.setUserId(userId);
         order.setDeviceId(deviceId);
-        order.setOrderType(Constant.OrderType.USER_DEVICE_BY_ONLINE.getValue());
+        order.setOrderType(Constant.OrderType.USER_DEVICE.getValue());
         order.setCreateTime(new Date());
         order.setGoodsId(goodsId);
         order.setOrderMoney(orderMoney);
@@ -72,13 +72,14 @@ public class OrderServiceImpl implements OrderService {
         String id = UUIDUtil.getUUId();
         order.setId(id);
         order.setDeviceId(deviceId);
-        order.setOrderType(Constant.OrderType.USER_DEVICE_BY_CARD.getValue());
+        order.setOrderType(Constant.OrderType.USER_DEVICE.getValue());
         order.setCardCode(code);
         order.setOrderMoney(orderMoney);
         order.setPayStatus(Constant.PayStatus.SUCCESS.getValue());
         order.setPayType(Constant.PayType.CARD.getValue());
         order.setCreateTime(new Date());
         order.setPayTime(new Date());
+        order.setPayType(Constant.PayType.CARD.getValue());
 
         //保存为支付成功订单
         save(order);

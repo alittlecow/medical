@@ -22,14 +22,17 @@ public class SysDeptEntity implements Serializable {
 	//部门名称
 	private String name;
 
-	//分成比例
-	private BigDecimal proportion;
+	private Integer level;
+
+	private String levelName;
 	//地址
 	private String address;
 	//上级部门名称
 	private String parentName;
 	//排序
 	private Integer orderNum;
+
+	private Long userId;
 	/**
 	 * ztree属性
 	 */
@@ -37,13 +40,28 @@ public class SysDeptEntity implements Serializable {
 
 	private List<?> list;
 
-
-	public BigDecimal getProportion() {
-		return proportion;
+	public Long getUserId() {
+		return userId;
 	}
 
-	public void setProportion(BigDecimal proportion) {
-		this.proportion = proportion;
+	public void setUserId(Long userId) {
+		this.userId = userId;
+	}
+
+	public String getLevelName() {
+		return levelName;
+	}
+
+	public void setLevelName(String levelName) {
+		this.levelName = levelName;
+	}
+
+	public Integer getLevel() {
+		return level;
+	}
+
+	public void setLevel(Integer level) {
+		this.level = level;
 	}
 
 	public String getAddress() {

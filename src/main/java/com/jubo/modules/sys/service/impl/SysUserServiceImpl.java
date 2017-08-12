@@ -42,6 +42,11 @@ public class SysUserServiceImpl implements SysUserService {
     @Autowired
     private AccountInfoService AccountInfoService;
 
+    @Override
+    public int queryDeptDealerRole(Long deptId) {
+
+        return sysUserDao.queryDeptDealerRole(deptId);
+    }
 
     @Override
     @Transactional
@@ -108,7 +113,7 @@ public class SysUserServiceImpl implements SysUserService {
 
     @Override
     @Transactional
-    public void save(SysUserEntity user) {
+    public Long save(SysUserEntity user) {
         Date nowTime = new Date();
         //sha256加密
         String salt = RandomStringUtils.randomAlphanumeric(20);
@@ -127,10 +132,12 @@ public class SysUserServiceImpl implements SysUserService {
         AccountInfoService.save(account);
 
         //检查角色是否越权
-        checkRole(user);
+//        checkRole(user);
 
         //保存用户与角色关系
         sysUserRoleService.saveOrUpdate(user.getUserId(), user.getRoleIdList());
+
+        return user.getUserId();
 
     }
 
@@ -153,7 +160,7 @@ public class SysUserServiceImpl implements SysUserService {
         sysUserDao.update(user);
 
         //检查角色是否越权
-        checkRole(user);
+//        checkRole(user);
 
         //保存用户与角色关系
         sysUserRoleService.saveOrUpdate(user.getUserId(), user.getRoleIdList());

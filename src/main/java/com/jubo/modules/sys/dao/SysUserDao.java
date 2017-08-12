@@ -17,6 +17,8 @@ import java.util.Map;
 public interface SysUserDao extends BaseDao<SysUserEntity> {
 
 
+    int queryDeptDealerRole(Long deptId);
+
     SysUserEntity queryByMobile(String mobile);
 
 

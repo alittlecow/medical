@@ -138,8 +138,8 @@ Dept.initColumn = function () {
         {field: 'selectItem', radio: true},
         {title: '分销商ID', field: 'deptId', visible: false, align: 'center', valign: 'middle', width: '80px'},
         {title: '分销商名称', field: 'name', align: 'center', valign: 'middle', sortable: true, width: '100px'},
-        {title: '上级分销商', field: 'parentName', align: 'center', valign: 'middle', sortable: true, width: '100px'},
-        {title: '分成比例', field: 'proportion', align: 'center', valign: 'middle', sortable: true, width: '100px'},
+        {title: '用户ID', field: 'userId', align: 'center', valign: 'middle', sortable: true, width: '100px'},
+        {title: '分销商等级', field: 'levelName', align: 'center', valign: 'middle', sortable: true, width: '100px'},
         {title: '地址', field: 'address', align: 'center', valign: 'middle', sortable: true, width: '180px'},
         {title: '排序号', field: 'orderNum', align: 'center', valign: 'middle', sortable: true, width: '100px'}]
     return columns;

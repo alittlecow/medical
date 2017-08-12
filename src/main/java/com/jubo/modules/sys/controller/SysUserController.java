@@ -1,6 +1,7 @@
 package com.jubo.modules.sys.controller;
 
 import com.jubo.common.annotation.SysLog;
+import com.jubo.common.exception.RRException;
 import com.jubo.common.utils.*;
 import com.jubo.common.validator.Assert;
 import com.jubo.common.validator.ValidatorUtils;
@@ -106,6 +107,7 @@ public class SysUserController extends AbstractController {
     @RequestMapping("/save")
     @RequiresPermissions("sys:user:save")
     public R save(@RequestBody SysUserEntity user) {
+
         ValidatorUtils.validateEntity(user, AddGroup.class);
         Assert.isNotValidPassword(user.getPassword(), ErrorMessage.PASSWORD_FORMAT_ERROR);
         Assert.isNotPhone(user.getMobile(), ErrorMessage.PHONE_FORMAT_ERROR);
@@ -115,6 +117,7 @@ public class SysUserController extends AbstractController {
         if (existUser != null) {
             return R.error(ErrorMessage.PHONE_IS_EXIST);
         }
+
 
         sysUserService.save(user);
         return R.ok();
@@ -127,8 +130,8 @@ public class SysUserController extends AbstractController {
     @RequestMapping("/update")
     @RequiresPermissions("sys:user:update")
     public R update(@RequestBody SysUserEntity user) {
-        ValidatorUtils.validateEntity(user, UpdateGroup.class);
 
+        ValidatorUtils.validateEntity(user, UpdateGroup.class);
         user.setCreateUserId(getUserId());
         sysUserService.update(user);
 
@@ -154,4 +157,6 @@ public class SysUserController extends AbstractController {
 
         return R.ok();
     }
+
+
 }

@@ -14,6 +14,11 @@ public class Constant {
     public static final int SUPER_ADMIN = 1;
 
 
+    //role
+    //分销商角色id
+    public static final int DEALER = 1;
+
+
     /**
      * 生效
      **/
@@ -216,9 +221,9 @@ public class Constant {
         //ID卡充值
         ID_RECHARGE(new Byte("1")),
         //实时支付
-        USER_DEVICE_BY_ONLINE(new Byte("10")),
+        USER_DEVICE(new Byte("2"));
         //刷卡支付
-        USER_DEVICE_BY_CARD(new Byte("11"));
+//        USER_DEVICE_BY_CARD(new Byte("11"));
 
         private Byte value;
 

@@ -32,16 +32,18 @@
 			`parent_id`, 
 			`name`, 
 			`address`,
-			`proportion`,
-			`order_num`
+			`order_num`,
+			`user_id`,
+			`level`
 		)
 		values
 		(
 			#{parentId}, 
 			#{name}, 
 			#{address},
-			#{proportion},
-			#{orderNum}
+			#{orderNum},
+			#{userId},
+			#{level}
 		)
 	</insert>
 	 

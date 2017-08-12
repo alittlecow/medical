@@ -15,6 +15,7 @@ import java.util.Map;
  */
 public interface SysUserService {
 
+    int queryDeptDealerRole(Long deptId);
 
     /**
      * 注册用户
@@ -67,7 +68,7 @@ public interface SysUserService {
     /**
      * 保存用户
      */
-    void save(SysUserEntity user);
+    Long save(SysUserEntity user);
 
 
     /**

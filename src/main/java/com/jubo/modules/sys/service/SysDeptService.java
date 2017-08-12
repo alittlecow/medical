@@ -1,8 +1,11 @@
 package com.jubo.modules.sys.service;
 
 
+import com.jubo.common.utils.R;
+import com.jubo.modules.sys.vo.DeptVo;
 import com.jubo.modules.sys.entity.SysDeptEntity;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import java.util.Map;
 
@@ -19,7 +22,7 @@ public interface SysDeptService {
 	
 	List<SysDeptEntity> queryList(Map<String, Object> map);
 
-	void save(SysDeptEntity sysDept);
+	R save(DeptVo sysDept) throws InvocationTargetException, IllegalAccessException;
 	
 	void update(SysDeptEntity sysDept);
 	

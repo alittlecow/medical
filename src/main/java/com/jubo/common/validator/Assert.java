@@ -31,6 +31,12 @@ public abstract class Assert {
         }
     }
 
+    public static void isNotEmail(String email, String message){
+        if (!ParamVerifyUtils.isEmail(email)) {
+            throw new RRException(message);
+        }
+    }
+
     public static void isNotValidPassword(String password, String message) {
         if (!ParamVerifyUtils.isValidPassWord(password)) {
             throw new RRException(message);

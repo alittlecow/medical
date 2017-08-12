@@ -9,7 +9,10 @@ public class ErrorMessage {
 
     //user
     public static final String PHONE_FORMAT_ERROR = "电话号码格式错误";
+    public static final String EMAIL_FORMAT_ERROR = "邮箱格式错误";
+
     public static final String PHONE_IS_EXIST = "电话号码已注册";
+    public static final String USERNAME_IS_EXIST = "用户名已注册";
     public static final String PASSWORD_FORMAT_ERROR = "请输入6-20位字母数字组合密码";
 
     //order
