@@ -5,6 +5,8 @@ import com.jubo.common.utils.R;
 import com.jubo.modules.sys.vo.DeptVo;
 import com.jubo.modules.sys.entity.SysDeptEntity;
 import com.jubo.modules.sys.service.SysDeptService;
+import org.apache.commons.collections.MapUtils;
+import org.apache.commons.lang.StringUtils;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -46,6 +48,24 @@ public class SysDeptController extends AbstractController {
         put(1, 2L);
         put(2, 3L);
     }};
+
+
+    /**
+     * 列表
+     */
+    @RequestMapping("/getMerchantList")
+    @RequiresPermissions("sys:dept:list")
+    public R getMerchantList(@RequestBody Map<String, String> params) {
+
+        Map<String, String> map = new HashMap<>();
+        String merchantName = MapUtils.getString(params, "merchantName");
+        if (StringUtils.isNotBlank(merchantName)) {
+            map.put("name", "%" + merchantName + "%");
+        }
+        List<SysDeptEntity> deptList = sysDeptService.getMerchantList(map);
+
+        return R.ok().putData(deptList);
+    }
 
     /**
      * 列表

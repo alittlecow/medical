@@ -3,40 +3,88 @@
 
 <mapper namespace="com.jubo.modules.sys.dao.DeviceDao">
 
-	<!-- 可根据自己的需求，是否要使用 -->
+    <!-- 可根据自己的需求，是否要使用 -->
     <resultMap type="com.jubo.modules.sys.entity.DeviceEntity" id="deviceMap">
         <result property="id" column="id"/>
         <result property="code" column="code"/>
         <result property="useStatus" column="use_status"/>
+        <result property="merchant_id" column="merchantID"/>
+        <result property="operate_time" column="operateTime"/>
+        <result property="bind_status" column="bindStatus"/>
         <result property="isBreakdown" column="is_breakdown"/>
         <result property="totalMoney" column="total_money"/>
         <result property="totalTime" column="total_time"/>
     </resultMap>
 
-	<select id="queryObject" resultType="com.jubo.modules.sys.entity.DeviceEntity">
-		select * from device where id = #{value}
+    <select id="queryObject" resultType="com.jubo.modules.sys.entity.DeviceEntity">
+		 select a.*,b.name AS  merchantName
+        from device a LEFT JOIN sys_dept b on a.merchant_id = b.dept_id AND  b.level = 2
+         where id = #{value}
 	</select>
 
-	<select id="queryList" resultType="com.jubo.modules.sys.entity.DeviceEntity">
-		select * from device
+    <select id="queryList" resultType="com.jubo.modules.sys.entity.DeviceEntity">
+        select a.*,b.name AS merchantName
+        from device a LEFT JOIN sys_dept b on a.merchant_id = b.dept_id AND b.level = 2
+
+        <where>
+            <if test="code != null and code != '' ">
+                AND code = #{code}
+            </if>
+            <if test="sim != null and sim != '' ">
+                AND sim = #{sim}
+            </if>
+            <if test="bindStatus != null">
+                AND bind_status = #{bindStatus}
+            </if>
+            <if test="useStatus != null">
+                AND use_status = #{useStatus}
+            </if>
+            <if test="isBreakdown != null">
+                AND is_breakdown = #{isBreakdown}
+            </if>
+            <if test="merchantId != null">
+                AND merchant_id = #{merchantId}
+            </if>
+        </where>
+
         <choose>
             <when test="sidx != null and sidx.trim() != ''">
                 order by ${sidx} ${order}
             </when>
-			<otherwise>
+            <otherwise>
                 order by id desc
-			</otherwise>
+            </otherwise>
         </choose>
-		<if test="offset != null and limit != null">
-			limit #{offset}, #{limit}
-		</if>
-	</select>
-	
- 	<select id="queryTotal" resultType="int">
-		select count(*) from device 
-	</select>
-	 
-	<insert id="save" parameterType="com.jubo.modules.sys.entity.DeviceEntity">
+        <if test="offset != null and limit != null">
+            limit #{offset}, #{limit}
+        </if>
+    </select>
+
+    <select id="queryTotal" resultType="int">
+        select count(*) from device
+        <where>
+            <if test="code != null and code != '' ">
+                AND code = #{code}
+            </if>
+            <if test="sim != null and sim != '' ">
+                AND sim = #{sim}
+            </if>
+            <if test="bindStatus != null">
+                AND bind_status = #{bindStatus}
+            </if>
+            <if test="useStatus != null">
+                AND use_status = #{useStatus}
+            </if>
+            <if test="isBreakdown != null">
+                AND is_breakdown = #{isBreakdown}
+            </if>
+            <if test="merchantId != null">
+                AND merchant_id = #{merchantId}
+            </if>
+        </where>
+    </select>
+
+    <insert id="save" parameterType="com.jubo.modules.sys.entity.DeviceEntity">
 		insert into device
 		(
 			`id`, 
@@ -56,28 +104,28 @@
 			#{totalTime}
 		)
 	</insert>
-	 
-	<update id="update" parameterType="com.jubo.modules.sys.entity.DeviceEntity">
-		update device 
-		<set>
-			<if test="code != null">`code` = #{code}, </if>
-			<if test="useStatus != null">`use_status` = #{useStatus}, </if>
-			<if test="isBreakdown != null">`is_breakdown` = #{isBreakdown}, </if>
-			<if test="totalMoney != null">`total_money` = #{totalMoney}, </if>
-			<if test="totalTime != null">`total_time` = #{totalTime}</if>
-		</set>
-		where id = #{id}
-	</update>
-	
-	<delete id="delete">
+
+    <update id="update" parameterType="com.jubo.modules.sys.entity.DeviceEntity">
+        update device
+        <set>
+            <if test="code != null">`code` = #{code},</if>
+            <if test="useStatus != null">`use_status` = #{useStatus},</if>
+            <if test="isBreakdown != null">`is_breakdown` = #{isBreakdown},</if>
+            <if test="totalMoney != null">`total_money` = #{totalMoney},</if>
+            <if test="totalTime != null">`total_time` = #{totalTime}</if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <delete id="delete">
 		delete from device where id = #{value}
 	</delete>
-	
-	<delete id="deleteBatch">
-		delete from device where id in 
-		<foreach item="id" collection="array" open="(" separator="," close=")">
-			#{id}
-		</foreach>
-	</delete>
+
+    <delete id="deleteBatch">
+        delete from device where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
 
 </mapper>

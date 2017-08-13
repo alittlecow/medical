@@ -3,9 +3,27 @@
 
 <mapper namespace="com.jubo.modules.sys.dao.SysDeptDao">
 
+
+	<select id="getMerchantList" resultType="com.jubo.modules.sys.entity.SysDeptEntity">
+		select *
+		from sys_dept d
+		<where>
+			d.del_flag = 0
+			<if test="deptId != null">
+				AND dept_id = #{deptId}
+			</if>
+			<if test="name != null and name != ''">
+				AND `name` LIKE #{name}
+			</if>
+		</where>
+
+	</select>
+
 	<select id="queryObject" resultType="com.jubo.modules.sys.entity.SysDeptEntity">
 		select * from sys_dept where dept_id = #{value} and del_flag = 0
 	</select>
+
+
 
 	<select id="queryList" resultType="com.jubo.modules.sys.entity.SysDeptEntity">
 		select d.*,(select p.name from sys_dept p where p.dept_id = d.parent_id) as parentName
@@ -13,6 +31,7 @@
 		<if test="deptFilter != null">
 			and d.dept_id in (${deptFilter})
 		</if>
+
         <choose>
             <when test="sidx != null and sidx.trim() != ''">
                 order by d.${sidx} ${order}

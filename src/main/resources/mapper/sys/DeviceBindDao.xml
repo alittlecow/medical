@@ -8,7 +8,7 @@
         <result property="id" column="id"/>
         <result property="deviceId" column="device_id"/>
         <result property="dealerId" column="dealer_id"/>
-        <result property="bindTime" column="bind_time"/>
+        <result property="operateTime" column="bind_time"/>
     </resultMap>
 
 	<select id="queryObject" resultType="com.jubo.modules.sys.entity.DeviceBindEntity">
@@ -47,7 +47,7 @@
 			#{id}, 
 			#{deviceId}, 
 			#{dealerId}, 
-			#{bindTime}
+			#{operateTime}
 		)
 	</insert>
 	 
@@ -56,7 +56,7 @@
 		<set>
 			<if test="deviceId != null">`device_id` = #{deviceId}, </if>
 			<if test="dealerId != null">`dealer_id` = #{dealerId}, </if>
-			<if test="bindTime != null">`bind_time` = #{bindTime}</if>
+			<if test="operateTime != null">`bind_time` = #{operateTime}</if>
 		</set>
 		where id = #{id}
 	</update>

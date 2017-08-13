@@ -43,6 +43,11 @@ public class SysDeptServiceImpl implements SysDeptService {
     }
 
     @Override
+    public List<SysDeptEntity> getMerchantList(Map<String, String> map) {
+        return sysDeptDao.getMerchantList(map);
+    }
+
+    @Override
     public List<SysDeptEntity> queryList(Map<String, Object> map) {
         return sysDeptDao.queryList(map);
     }

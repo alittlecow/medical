@@ -4,6 +4,7 @@ import com.jubo.modules.sys.entity.SysDeptEntity;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * 部门管理
@@ -20,4 +21,6 @@ public interface SysDeptDao extends BaseDao<SysDeptEntity> {
      * @param parentId  上级部门ID
      */
     List<Long> queryDetpIdList(Long parentId);
+
+    List<SysDeptEntity> getMerchantList(Map<String,String> params);
 }

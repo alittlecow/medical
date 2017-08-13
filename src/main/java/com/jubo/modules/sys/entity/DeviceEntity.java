@@ -9,8 +9,7 @@ import java.util.Date;
 /**
  * 
  * 
- * @author chenshun
- * @email sunlightcs@gmail.com
+ * @author pengxiao
  * @date 2017-07-21 22:46:51
  */
 public class DeviceEntity implements Serializable {
@@ -20,85 +19,114 @@ public class DeviceEntity implements Serializable {
 	private String id;
 	//设备编码
 	private String code;
+
+	private String sim;
 	//设备使用状态（0未使用 1使用中）
-	private Integer useStatus;
+	private Byte useStatus;
 	//是否故障（0正常 1故障）
-	private Integer isBreakdown;
+	private Byte isBreakdown;
+	//商户id
+	private Long merchantId;
+	//商户名称
+	private String merchantName;
+
+	//0 未绑定 1已经绑定
+	private Byte bindStatus;
+
+	private Date operateTime;
+
 	//设备使用产生的总金额
 	private BigDecimal totalMoney;
+
 	//设备使用的总时间
 	private Long totalTime;
 
-	/**
-	 * 设置：
-	 */
-	public void setId(String id) {
-		this.id = id;
+
+	public String getMerchantName() {
+		return merchantName;
 	}
-	/**
-	 * 获取：
-	 */
+
+	public void setMerchantName(String merchantName) {
+		this.merchantName = merchantName;
+	}
+
+	public String getSim() {
+		return sim;
+	}
+
+	public void setSim(String sim) {
+		this.sim = sim;
+	}
+
 	public String getId() {
 		return id;
 	}
-	/**
-	 * 设置：设备编码
-	 */
-	public void setCode(String code) {
-		this.code = code;
+
+	public void setId(String id) {
+		this.id = id;
 	}
-	/**
-	 * 获取：设备编码
-	 */
+
 	public String getCode() {
 		return code;
 	}
-	/**
-	 * 设置：设备使用状态（0未使用 1使用中）
-	 */
-	public void setUseStatus(Integer useStatus) {
-		this.useStatus = useStatus;
+
+	public void setCode(String code) {
+		this.code = code;
 	}
-	/**
-	 * 获取：设备使用状态（0未使用 1使用中）
-	 */
-	public Integer getUseStatus() {
+
+	public Byte getUseStatus() {
 		return useStatus;
 	}
-	/**
-	 * 设置：是否故障（0正常 1故障）
-	 */
-	public void setIsBreakdown(Integer isBreakdown) {
-		this.isBreakdown = isBreakdown;
+
+	public void setUseStatus(Byte useStatus) {
+		this.useStatus = useStatus;
 	}
-	/**
-	 * 获取：是否故障（0正常 1故障）
-	 */
-	public Integer getIsBreakdown() {
+
+	public Byte getIsBreakdown() {
 		return isBreakdown;
 	}
-	/**
-	 * 设置：设备使用产生的总金额
-	 */
-	public void setTotalMoney(BigDecimal totalMoney) {
-		this.totalMoney = totalMoney;
+
+	public void setIsBreakdown(Byte isBreakdown) {
+		this.isBreakdown = isBreakdown;
 	}
-	/**
-	 * 获取：设备使用产生的总金额
-	 */
+
+	public Long getMerchantId() {
+		return merchantId;
+	}
+
+	public void setMerchantId(Long merchantId) {
+		this.merchantId = merchantId;
+	}
+
+	public Byte getBindStatus() {
+		return bindStatus;
+	}
+
+	public void setBindStatus(Byte bindStatus) {
+		this.bindStatus = bindStatus;
+	}
+
+	public Date getOperateTime() {
+		return operateTime;
+	}
+
+	public void setOperateTime(Date operateTime) {
+		this.operateTime = operateTime;
+	}
+
 	public BigDecimal getTotalMoney() {
 		return totalMoney;
 	}
-	/**
-	 * 设置：设备使用的总时间
-	 */
-	public void setTotalTime(Long totalTime) {
-		this.totalTime = totalTime;
+
+	public void setTotalMoney(BigDecimal totalMoney) {
+		this.totalMoney = totalMoney;
 	}
-	/**
-	 * 获取：设备使用的总时间
-	 */
+
 	public Long getTotalTime() {
 		return totalTime;
+	}
+
+	public void setTotalTime(Long totalTime) {
+		this.totalTime = totalTime;
 	}
 }

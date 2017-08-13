@@ -17,7 +17,10 @@ import java.util.Map;
  * @date 2017-06-20 15:23:47
  */
 public interface SysDeptService {
-	
+
+	List<SysDeptEntity> getMerchantList(Map<String, String> map);
+
+
 	SysDeptEntity queryObject(Long deptId);
 	
 	List<SysDeptEntity> queryList(Map<String, Object> map);
