@@ -2,10 +2,12 @@ package com.jubo.modules.api.interceptor;
 
 
 import com.jubo.common.exception.RRException;
+import com.jubo.common.utils.R;
 import com.jubo.modules.api.annotation.AuthIgnore;
 import com.jubo.modules.sys.entity.SysUserTokenEntity;
 import com.jubo.modules.sys.service.SysUserTokenService;
 import org.apache.commons.lang.StringUtils;
+import org.apache.http.HttpStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;
@@ -57,7 +59,8 @@ public class AuthorizationInterceptor extends HandlerInterceptorAdapter {
         //查询token信息
         SysUserTokenEntity tokenEntity = tokenService.queryByToken(token);
         if (tokenEntity == null || tokenEntity.getExpireTime().getTime() < System.currentTimeMillis()) {
-            throw new RRException("token失效，请重新登录");
+
+            throw new RRException("token失效，请重新登录", R.TOKEN_EXPIRE);
         }
 
         //设置userId到request里，后续根据userId，获取用户信息

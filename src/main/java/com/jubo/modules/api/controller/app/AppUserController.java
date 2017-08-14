@@ -1,8 +1,12 @@
 package com.jubo.modules.api.controller.app;
 
+import com.jubo.common.utils.ParamVerifyUtils;
 import com.jubo.common.utils.R;
 import com.jubo.common.utils.SMSUtils;
 import com.jubo.common.validator.Assert;
+import com.jubo.common.validator.ValidatorUtils;
+import com.jubo.common.validator.group.AddGroup;
+import com.jubo.common.validator.group.UpdateGroup;
 import com.jubo.modules.api.annotation.AuthIgnore;
 import com.jubo.modules.api.annotation.LoginUser;
 import com.jubo.modules.sys.entity.SysUserEntity;
@@ -66,6 +70,10 @@ public class AppUserController {
     public R login(@RequestBody Map<String, Object> params) {
         String mobile = MapUtils.getString(params, "mobile");
         String password = MapUtils.getString(params, "password");
+
+        if (!ParamVerifyUtils.checkAllValues(mobile, password)) {
+            return R.error("手机号,密码不能为空");
+        }
         //用户信息
         SysUserEntity user = sysUserService.queryByMobile(mobile);
 
@@ -141,6 +149,11 @@ public class AppUserController {
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     public R update(@LoginUser SysUserEntity user, @RequestBody Map<String, Object> params) {
 
+        ValidatorUtils.validateEntity(user, UpdateGroup.class);
+
+        if(MapUtils.isEmpty(params)){
+            return R.ok();
+        }
         params.put("userId", user.getUserId());
         sysUserService.updateAppUser(params);
 

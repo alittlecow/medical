@@ -121,6 +121,7 @@ var vm = new Vue({
         select: function (merchant) {
             vm.device.merchantId = merchant.deptId;
             vm.device.merchantName = merchant.name;
+            //不能正常显示....
             $("#merchantName").val(merchant.name);
             layer.close(vm.layerIndex);
 

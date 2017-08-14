@@ -294,4 +294,57 @@ public class Constant {
             return value;
         }
     }
+
+    public enum DeviceBindType {
+        //0 未使用 1已经绑定 2解绑
+        NEVER_USE(new Byte("0")),
+
+        IS_BIND(new Byte("1")),
+
+        IS_NOT_BIND(new Byte("2"));
+
+        private Byte value;
+
+        private DeviceBindType(Byte value) {
+            this.value = value;
+        }
+
+        public Byte getValue() {
+            return value;
+        }
+    }
+
+    public enum DeviceUseStatus {
+        //设备使用状态（0未使用 1使用中）
+        NEVER_USE(new Byte("0")),
+
+        USE_ING(new Byte("1"));
+
+        private Byte value;
+
+        private DeviceUseStatus(Byte value) {
+            this.value = value;
+        }
+
+        public Byte getValue() {
+            return value;
+        }
+    }
+
+    public enum DeviceBreakdownStatus {
+        //设备是否故障（0正常 1故障）
+        NORMAL(new Byte("0")),
+
+        BREAKDOWN(new Byte("1"));
+
+        private Byte value;
+
+        private DeviceBreakdownStatus(Byte value) {
+            this.value = value;
+        }
+
+        public Byte getValue() {
+            return value;
+        }
+    }
 }

@@ -1,5 +1,9 @@
 package com.jubo.modules.sys.entity;
 
+import com.jubo.common.validator.group.AddGroup;
+import com.jubo.common.validator.group.UpdateGroup;
+import org.hibernate.validator.constraints.NotBlank;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
@@ -18,8 +22,10 @@ public class DeviceEntity implements Serializable {
 	//
 	private String id;
 	//设备编码
-	private String code;
 
+	@NotBlank(message = "邮箱不能为空", groups = {AddGroup.class, UpdateGroup.class})
+	private String code;
+	@NotBlank(message = "邮箱不能为空", groups = {AddGroup.class, UpdateGroup.class})
 	private String sim;
 	//设备使用状态（0未使用 1使用中）
 	private Byte useStatus;

@@ -3,6 +3,7 @@ package com.jubo.modules.sys.controller;
 import java.util.List;
 import java.util.Map;
 
+import com.jubo.common.validator.ValidatorUtils;
 import com.jubo.modules.sys.entity.DeviceEntity;
 import com.jubo.modules.sys.service.DeviceService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
@@ -68,6 +69,9 @@ public class DeviceController {
 	@RequestMapping("/save")
 	@RequiresPermissions("device:save")
 	public R save(@RequestBody DeviceEntity device){
+
+		ValidatorUtils.validateEntity(device);
+
 		deviceService.save(device);
 		
 		return R.ok();
@@ -79,6 +83,9 @@ public class DeviceController {
 	@RequestMapping("/update")
 	@RequiresPermissions("device:update")
 	public R update(@RequestBody DeviceEntity device){
+
+		ValidatorUtils.validateEntity(device);
+
 		deviceService.update(device);
 		
 		return R.ok();
