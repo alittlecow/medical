@@ -5,6 +5,7 @@ import com.jubo.common.utils.UUIDUtil;
 import com.jubo.modules.sys.entity.GoodsEntity;
 import com.jubo.modules.sys.service.CardService;
 import com.jubo.modules.sys.service.GoodsService;
+import org.apache.commons.lang.time.DateFormatUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,13 +13,16 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import com.jubo.modules.sys.dao.OrderDao;
 import com.jubo.modules.sys.entity.OrderEntity;
 import com.jubo.modules.sys.service.OrderService;
 import org.springframework.transaction.annotation.Transactional;
 
+import static com.jubo.common.utils.Constant.PRE_RECHARGE_ORDER;
 
+@Transactional
 @Service("orderService")
 public class OrderServiceImpl implements OrderService {
 
@@ -30,7 +34,8 @@ public class OrderServiceImpl implements OrderService {
     @Autowired
     private CardService cardService;
 
-    @Transactional
+    private AtomicInteger orderNum = new AtomicInteger(0);
+
     @Override
     public String buildConsumeOrder(Long userId, String deviceId) {
         //获取id为0的商品
@@ -39,10 +44,11 @@ public class OrderServiceImpl implements OrderService {
         return buildConsumerOrder(userId, deviceId, "0", goods.getMoney());
     }
 
-    //扫码支付订单
+    //消费订单号
     public String buildConsumerOrder(Long userId, String deviceId, String goodsId, BigDecimal orderMoney) {
         OrderEntity order = new OrderEntity();
-        String id = UUIDUtil.getUUId();
+        //消费订单号
+        String id = createOrderId();
         order.setId(id);
         order.setUserId(userId);
         order.setDeviceId(deviceId);
@@ -58,7 +64,6 @@ public class OrderServiceImpl implements OrderService {
     }
 
 
-    @Transactional
     @Override
     public void buildCardOrder(String code, String deviceId) {
 
@@ -69,7 +74,9 @@ public class OrderServiceImpl implements OrderService {
         BigDecimal orderMoney = goods.getMoney();
 
         OrderEntity order = new OrderEntity();
-        String id = UUIDUtil.getUUId();
+
+        //消费订单号
+        String id = createOrderId();
         order.setId(id);
         order.setDeviceId(deviceId);
         order.setOrderType(Constant.OrderType.USER_DEVICE.getValue());
@@ -83,6 +90,8 @@ public class OrderServiceImpl implements OrderService {
 
         //保存为支付成功订单
         save(order);
+
+        // TODO: 2017/8/15 分成 
     }
 
     @Override
@@ -118,6 +127,22 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public void deleteBatch(String[] ids) {
         orderDao.deleteBatch(ids);
+    }
+
+
+    /**
+     * 生成充值订单id
+     *
+     * @return
+     */
+    private String createOrderId() {
+        if (orderNum.addAndGet(1) == 100000) {
+            orderNum.set(0);
+        }
+        String dateString = DateFormatUtils.format(new Date(), "yyyyMMddHHmmss");
+        String idString = (orderNum + "000000").substring(0, 6);
+
+        return PRE_RECHARGE_ORDER + dateString + idString;
     }
 
 }

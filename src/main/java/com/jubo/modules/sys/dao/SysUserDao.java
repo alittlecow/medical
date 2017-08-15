@@ -45,4 +45,7 @@ public interface SysUserDao extends BaseDao<SysUserEntity> {
      * 修改密码
      */
     int updatePassword(Map<String, Object> map);
+
+
+    int updatePasswordByUserId(Map<String, Object> map);
 }

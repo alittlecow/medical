@@ -1,12 +1,10 @@
 package com.jubo.modules.api.controller.app;
 
+import com.jubo.common.utils.DateUtils;
 import com.jubo.common.utils.ParamVerifyUtils;
 import com.jubo.common.utils.R;
 import com.jubo.common.utils.SMSUtils;
 import com.jubo.common.validator.Assert;
-import com.jubo.common.validator.ValidatorUtils;
-import com.jubo.common.validator.group.AddGroup;
-import com.jubo.common.validator.group.UpdateGroup;
 import com.jubo.modules.api.annotation.AuthIgnore;
 import com.jubo.modules.api.annotation.LoginUser;
 import com.jubo.modules.sys.entity.SysUserEntity;
@@ -17,10 +15,13 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import org.apache.commons.collections.MapUtils;
+import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang.time.DateFormatUtils;
 import org.apache.shiro.crypto.hash.Sha256Hash;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.ParseException;
 import java.util.Date;
 import java.util.Map;
 
@@ -71,7 +72,7 @@ public class AppUserController {
         String mobile = MapUtils.getString(params, "mobile");
         String password = MapUtils.getString(params, "password");
 
-        if (!ParamVerifyUtils.checkAllValues(mobile, password)) {
+        if (!ParamVerifyUtils.checkAllValuesNotEmpty(mobile, password)) {
             return R.error("手机号,密码不能为空");
         }
         //用户信息
@@ -119,6 +120,34 @@ public class AppUserController {
         return R.ok();
     }
 
+    /**
+     * 找回密码
+     */
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType = "query", name = "token", value = "token", required = true, dataType = "String"),
+    })
+    @RequestMapping(value = "/getBackPassword", method = RequestMethod.POST)
+    public R getBackPassword(@RequestBody Map<String, Object> params) {
+        String password = MapUtils.getString(params, "password");
+        String mobile = MapUtils.getString(params, "mobile");
+
+        Assert.isNotValidPassword(password, "密码格式错误");
+
+        SysUserEntity user = sysUserService.queryByMobile(mobile);
+
+        if (user == null) {
+            return R.error("用户不存在");
+        }
+
+        //sha256加密
+        password = new Sha256Hash(password, user.getSalt()).toHex();
+
+        //更新密码
+        int count = sysUserService.getBackPassword(user.getUserId(), password);
+
+        return R.ok();
+    }
+
 
     /**
      * 退出登陆
@@ -148,12 +177,20 @@ public class AppUserController {
     })
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     public R update(@LoginUser SysUserEntity user, @RequestBody Map<String, Object> params) {
+        String username = MapUtils.getString(params, "username");
+        String sex = MapUtils.getString(params, "sex");
+        String email = MapUtils.getString(params, "email");
+        String birthday = MapUtils.getString(params, "birthday");
 
-        ValidatorUtils.validateEntity(user, UpdateGroup.class);
-
-        if(MapUtils.isEmpty(params)){
+        if (ParamVerifyUtils.checkAllValuesNotEmpty(username, sex, email, birthday)) {
             return R.ok();
         }
+
+        if (StringUtils.isNotBlank(birthday)) {
+            Date b = DateUtils.getDate(birthday);
+        }
+
+
         params.put("userId", user.getUserId());
         sysUserService.updateAppUser(params);
 

@@ -29,6 +29,13 @@ public class Constant {
      **/
     public static final int DISABLE = 0;
 
+
+    //充值订单和消费订单前缀
+    public static final int PRE_RECHARGE_ORDER = 1;
+
+    public static final int PRE_CONSUMER_ORDER = 2;
+
+
     /**
      * 菜单类型
      *
@@ -220,7 +227,7 @@ public class Constant {
         ACCOUNT_RECHARGE(new Byte("0")),
         //ID卡充值
         ID_RECHARGE(new Byte("1")),
-        //实时支付
+        //在线支付
         USER_DEVICE(new Byte("2"));
         //刷卡支付
 //        USER_DEVICE_BY_CARD(new Byte("11"));

@@ -101,12 +101,14 @@
         where user_id = #{userId}
     </update>
 
-    <update id="updateAppUser" parameterType="com.jubo.modules.sys.entity.SysUserEntity">
+    <!--用户个人信息修改-->
+    <update id="updateAppUser" parameterType="java.util.Map">
         update sys_user
         <set>
             <if test="username != null">`username` = #{username},</if>
             <if test="email != null">`email` = #{email},</if>
-            <if test="mobile != null">`mobile` = #{mobile}</if>
+            <if test="mobile != null">`mobile` = #{mobile},</if>
+            <if test="sex != null">`mobile` = #{sex},</if>
         </set>
         where user_id = #{userId}
     </update>
@@ -114,6 +116,12 @@
     <update id="updatePassword" parameterType="map">
         update sys_user set `password` = #{newPassword}
         where user_id = #{userId} and password = #{password}
+    </update>
+
+
+    <update id="updatePasswordByUserId" parameterType="map">
+        update sys_user set `password` = #{password}
+        where user_id = #{userId}
     </update>
 
     <delete id="deleteBatch">

@@ -181,6 +181,14 @@ public class SysUserServiceImpl implements SysUserService {
         return sysUserDao.updatePassword(map);
     }
 
+    @Override
+    public int getBackPassword(Long userId, String password) {
+        Map<String, Object> map = new HashMap<>();
+        map.put("userId", userId);
+        map.put("password", password);
+        return sysUserDao.updatePasswordByUserId(map);
+    }
+
     /**
      * 检查角色是否越权
      */

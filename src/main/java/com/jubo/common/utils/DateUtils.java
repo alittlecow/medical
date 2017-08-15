@@ -1,5 +1,6 @@
 package com.jubo.common.utils;
 
+import com.jubo.common.exception.RRException;
 import org.apache.commons.lang.time.DateFormatUtils;
 
 import java.text.ParseException;
@@ -42,10 +43,14 @@ public class DateUtils {
      * @return
      * @throws ParseException
      */
-    public static Date getDate(String dateString) throws ParseException {
+    public static Date getDate(String dateString) {
         Date d = null;
-        org.apache.commons.lang.time.DateUtils.parseDate(dateString,
-                new String[]{DATE_PATTERN, DATE_TIME_PATTERN});
+        try {
+            org.apache.commons.lang.time.DateUtils.parseDate(dateString,
+                    new String[]{DATE_PATTERN, DATE_TIME_PATTERN});
+        } catch (ParseException e) {
+            throw new RRException("日期格式错误");
+        }
 
         return d;
     }

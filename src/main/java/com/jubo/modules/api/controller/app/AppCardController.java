@@ -93,56 +93,6 @@ public class AppCardController {
         return R.ok().putData(card);
     }
 
-    /**
-     * ID卡申请
-     */
-    @ApiImplicitParams({
-            @ApiImplicitParam(paramType = "query", name = "token", value = "token", required = true, dataType = "String"),
-    })
-    @RequestMapping(value = "/apply", method = RequestMethod.POST)
-    public R apply(@LoginUser SysUserEntity user, @RequestBody ApplyCardEntity applyCardEntity) {
-        ValidatorUtils.validateEntity(applyCardEntity, AddGroup.class);
-        Assert.isNotPhone(applyCardEntity.getContactPhone(), "手机号码格式错误");
-
-        applyCardEntity.setApplyUserId(user.getUserId());
-        applyCardService.apply(applyCardEntity);
-
-        return R.ok();
-    }
-
-    /**
-     * ID卡申请记录信息
-     */
-    @ApiImplicitParams({
-            @ApiImplicitParam(paramType = "query", name = "token", value = "token", required = true, dataType = "String"),
-    })
-    @RequestMapping(value = "/applyinfo", method = RequestMethod.POST)
-    public R applyInfo(@LoginUser SysUserEntity user, @RequestBody Map<String, Object> params) {
-        String applyId = MapUtils.getString(params, "applyId");
-        Assert.isBlank(applyId, "申请记录不存在");
-
-        ApplyCardEntity applyCardEntity = applyCardService.queryObject(applyId);
-        if (user.getUserId().compareTo(applyCardEntity.getApplyUserId()) != 0) {
-            return R.error(ErrorMessage.USER_NO_PERMISSION);
-        }
-
-        return R.ok().putData(applyCardEntity);
-    }
-
-    /**
-     * ID卡申请记录列表
-     */
-    @ApiImplicitParams({
-            @ApiImplicitParam(paramType = "query", name = "token", value = "token", required = true, dataType = "String"),
-    })
-    @RequestMapping(value = "/applylist", method = RequestMethod.POST)
-    public R applyList(@LoginUser SysUserEntity user, @RequestBody Map<String, Object> params) {
-
-        params.put("applyUserId", user.getUserId());
-        List<ApplyCardEntity> list = applyCardService.queryList(params);
-
-        return R.ok().putData(list);
-    }
 
 
     /**

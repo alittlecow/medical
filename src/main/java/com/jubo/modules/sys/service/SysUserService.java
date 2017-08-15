@@ -94,4 +94,13 @@ public interface SysUserService {
      * @param newPassword 新密码
      */
     int updatePassword(Long userId, String password, String newPassword);
+
+
+    /**
+     * 找回密码
+     * @param userId
+     * @param password
+     * @return
+     */
+    int getBackPassword(Long userId, String password);
 }

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jubo.modules.sys.dao.SettlementRuleDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.jubo.modules.sys.entity.SettlementRuleEntity" id="settlementRuleMap">
+        <result property="id" column="id"/>
+        <result property="admin" column="admin"/>
+        <result property="merchant" column="merchant"/>
+        <result property="prettyCash" column="pretty_cash"/>
+        <result property="provinceDealer" column="province_dealer"/>
+        <result property="cityDealer" column="city_dealer"/>
+    </resultMap>
+
+	<select id="queryObject" resultType="com.jubo.modules.sys.entity.SettlementRuleEntity">
+		select * from settlement_rule where id = #{value}
+	</select>
+
+	<select id="queryList" resultType="com.jubo.modules.sys.entity.SettlementRuleEntity">
+		select * from settlement_rule
+        <choose>
+            <when test="sidx != null and sidx.trim() != ''">
+                order by ${sidx} ${order}
+            </when>
+			<otherwise>
+                order by id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="queryTotal" resultType="int">
+		select count(*) from settlement_rule 
+	</select>
+	 
+	<insert id="save" parameterType="com.jubo.modules.sys.entity.SettlementRuleEntity">
+		insert into settlement_rule
+		(
+			`id`, 
+			`admin`, 
+			`merchant`, 
+			`pretty_cash`, 
+			`province_dealer`, 
+			`city_dealer`
+		)
+		values
+		(
+			#{id}, 
+			#{admin}, 
+			#{merchant}, 
+			#{prettyCash}, 
+			#{provinceDealer}, 
+			#{cityDealer}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.jubo.modules.sys.entity.SettlementRuleEntity">
+		update settlement_rule 
+		<set>
+			<if test="admin != null">`admin` = #{admin}, </if>
+			<if test="merchant != null">`merchant` = #{merchant}, </if>
+			<if test="prettyCash != null">`pretty_cash` = #{prettyCash}, </if>
+			<if test="provinceDealer != null">`province_dealer` = #{provinceDealer}, </if>
+			<if test="cityDealer != null">`city_dealer` = #{cityDealer}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="delete">
+		delete from settlement_rule where id = #{value}
+	</delete>
+	
+	<delete id="deleteBatch">
+		delete from settlement_rule where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

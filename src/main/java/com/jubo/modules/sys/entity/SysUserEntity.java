@@ -53,6 +53,7 @@ public class SysUserEntity implements Serializable {
 
 
     private Date birthday;
+
     private Integer sex;
     /**
      * 手机号

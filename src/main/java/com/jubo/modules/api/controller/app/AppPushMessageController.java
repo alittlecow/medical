@@ -23,6 +23,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("/api/app/pushmessage")
 public class AppPushMessageController {
+
 	@Autowired
 	private PushMessageService pushMessageService;
 	
@@ -51,36 +52,6 @@ public class AppPushMessageController {
 		PushMessageEntity pushMessage = pushMessageService.queryObject(id);
 		
 		return R.ok().put("pushMessage", pushMessage);
-	}
-	
-	/**
-	 * 保存
-	 */
-	@RequestMapping("/save")
-	public R save(@RequestBody PushMessageEntity pushMessage){
-		pushMessageService.save(pushMessage);
-		
-		return R.ok();
-	}
-	
-	/**
-	 * 修改
-	 */
-	@RequestMapping("/update")
-	public R update(@RequestBody PushMessageEntity pushMessage){
-		pushMessageService.update(pushMessage);
-		
-		return R.ok();
-	}
-	
-	/**
-	 * 删除
-	 */
-	@RequestMapping("/delete")
-	public R delete(@RequestBody String[] ids){
-		pushMessageService.deleteBatch(ids);
-		
-		return R.ok();
 	}
 	
 }

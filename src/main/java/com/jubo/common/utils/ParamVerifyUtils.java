@@ -53,18 +53,32 @@ public class ParamVerifyUtils {
 
     /**
      * 所有字符串均不为空时返回true
+     *
      * @param str
      * @return
      */
-    public static boolean checkAllValues(String... str){
-        for(String s : str){
-            if (StringUtils.isBlank(s)){
+    public static boolean checkAllValuesNotEmpty(String... str) {
+        for (String s : str) {
+            if (StringUtils.isBlank(s)) {
                 return false;
             }
         }
         return true;
     }
 
+    /**
+     * 所有字符串均为空时返回true
+     * @param str
+     * @return
+     */
+    public static boolean checkAllValuesEmpty(String... str) {
+        for (String s : str) {
+            if (StringUtils.isNotBlank(s)) {
+                return false;
+            }
+        }
+        return true;
+    }
 
     public static void main(String[] args) {
         System.out.println(isValidPassWord("12345"));
