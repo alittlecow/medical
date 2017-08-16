@@ -17,14 +17,7 @@
                 ANDs type = #{name}
             </if>
         </where>
-        <choose>
-            <when test="sidx != null and sidx.trim() != ''">
-                order by ${sidx} ${order}
-            </when>
-            <otherwise>
-                order by id desc
-            </otherwise>
-        </choose>
+        ORDER BY `type`
         <if test="offset != null and limit != null">
             limit #{offset}, #{limit}
         </if>
@@ -43,7 +36,7 @@
     </select>
 
     <insert id="save" parameterType="com.jubo.modules.sys.entity.GoodsEntity" useGeneratedKeys="true"
-            keyProperty="userId">
+            keyProperty="id">
 		insert into goods
 		(
 			`id`,

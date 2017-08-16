@@ -45,20 +45,8 @@ $(function () {
                     }
                 }
             },
-            {
-                label: '订单类型', name: 'orderType', index: 'order_type', width: 80,
-                formatter: function (value, options, row) {
-                    if (value === 0) {
-                        return '<span">账户充值</span>';
-                    }
-                    if (value === 1) {
-                        return '<span">ID卡充值</span>';
-                    }
-
-                }
-            },
             {label: '商品ID', name: 'goodsId', index: 'goods_id', width: 80},
-            {label: '充值对象编号', name: 'objectId', index: 'object_id', width: 80},
+            {label: '账户ID', name: 'accountId', index: 'account_id', width: 80},
             {label: '支付完成时间', name: 'payTime', index: 'pay_time', width: 80},
             {label: '创建时间', name: 'createTime', index: 'create_time', width: 80}
         ],

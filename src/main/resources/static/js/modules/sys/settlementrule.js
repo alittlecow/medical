@@ -4,11 +4,11 @@ $(function () {
         datatype: "json",
         colModel: [			
 			{ label: 'id', name: 'id', index: 'id', width: 50, key: true, hidden:true },
-			{ label: '钜柏分成', name: 'admin', index: 'admin', width: 80 }, 			
-			{ label: '商户分成', name: 'merchant', index: 'merchant', width: 80 }, 			
-			{ label: '备用金', name: 'prettyCash', index: 'pretty_cash', width: 80 }, 			
-			{ label: '省分销商分成', name: 'provinceDealer', index: 'province_dealer', width: 80 },
-			{ label: '市分销商分成', name: 'cityDealer', index: 'city_dealer', width: 80 }
+			{ label: '钜柏分成(%)', name: 'admin', index: 'admin', width: 80 },
+			{ label: '商户分成(%)', name: 'merchant', index: 'merchant', width: 80 },
+			{ label: '备用金(%)', name: 'prettyCash', index: 'pretty_cash', width: 80 },
+			{ label: '省分销商分成(%)', name: 'provinceDealer', index: 'province_dealer', width: 80 },
+			{ label: '市分销商分成(%)', name: 'cityDealer', index: 'city_dealer', width: 80 }
         ],
 		viewrecords: true,
         height: 385,

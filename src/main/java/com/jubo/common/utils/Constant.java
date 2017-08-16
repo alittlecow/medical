@@ -226,9 +226,9 @@ public class Constant {
         //消费订单表
         //ID卡充值
         ID_RECHARGE(new Byte("0")),
-        //在线支付
+        //APP消费
         USER_DEVICE_ONLINE(new Byte("1")),
-        //刷卡支付
+        //ID卡消费
         USER_DEVICE_BY_CARD(new Byte("2"));
 
         private Byte value;

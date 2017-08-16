@@ -75,7 +75,7 @@ public class AppAccountController {
     @ApiImplicitParams({
             @ApiImplicitParam(paramType = "query", name = "token", value = "token", required = true, dataType = "String"),
     })
-    @RequestMapping(value = "/info", method = RequestMethod.POST)
+    @RequestMapping(value = "/info", method = RequestMethod.GET)
     public R info(@LoginUser SysUserEntity user) {
 
         AccountInfoEntity accountInfo = accountInfoService.queryObjectByUserId(user.getUserId());

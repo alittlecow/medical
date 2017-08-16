@@ -55,10 +55,10 @@ $(function () {
                         return '<span">ID卡充值</span>';
                     }
                     if (value === 1) {
-                        return '<span">在线支付</span>';
+                        return '<span">APP消费</span>';
                     }
                     if (value === 2) {
-                        return '<span">刷卡支付</span>';
+                        return '<span">ID卡消费</span>';
                     }
                 }
             },

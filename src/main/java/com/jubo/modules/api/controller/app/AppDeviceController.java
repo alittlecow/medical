@@ -86,4 +86,16 @@ public class AppDeviceController {
 //        deviceService.useDevice(device);
 //        return R.ok();
 //    }
+
+    /**
+     * 设备
+     * @param device
+     * @return
+     */
+    @RequestMapping("/history")
+    public R history (@RequestBody DeviceEntity device) {
+        deviceService.update(device);
+
+        return R.ok();
+    }
 }

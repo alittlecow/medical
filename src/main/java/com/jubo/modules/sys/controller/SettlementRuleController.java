@@ -64,8 +64,8 @@ public class SettlementRuleController {
 	/**
 	 * 保存
 	 */
-	@RequestMapping("/save")
-	@RequiresPermissions("settlementrule:save")
+//	@RequestMapping("/save")
+//	@RequiresPermissions("settlementrule:save")
 	public R save(@RequestBody SettlementRuleEntity settlementRule){
 		settlementRuleService.save(settlementRule);
 		
@@ -86,8 +86,8 @@ public class SettlementRuleController {
 	/**
 	 * 删除
 	 */
-	@RequestMapping("/delete")
-	@RequiresPermissions("settlementrule:delete")
+//	@RequestMapping("/delete")
+//	@RequiresPermissions("settlementrule:delete")
 	public R delete(@RequestBody String[] ids){
 		settlementRuleService.deleteBatch(ids);
 		
