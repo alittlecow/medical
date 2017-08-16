@@ -1,5 +1,6 @@
 package com.jubo.modules.sys.service;
 
+import com.jubo.common.utils.R;
 import com.jubo.modules.sys.entity.OrderEntity;
 
 import java.math.BigDecimal;
@@ -22,12 +23,18 @@ public interface OrderService {
     String buildConsumeOrder(Long userId, String deviceId);
 
     /**
+     *
+     * @param userId
+     * @param cardCode
+     * @return
+     */
+    String buildCardRechargeOrder(Long userId, String cardCode, Long goodsId);
+
+    /**
      * 刷卡消费订单
      *
-     * @param code
-     * @param deviceId
      */
-    void buildCardOrder(String code, String deviceId);
+    R buildCardOrder(Map<String,String> params);
 
     OrderEntity queryObject(String id);
 

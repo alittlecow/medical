@@ -17,7 +17,7 @@ public interface RechargeOrderService {
      * 构建充值订单
      */
 
-    String buildIdRechargeOrder(Byte rechargeOrderType, String objectId, Long userId, String goodsId, BigDecimal orderMoney);
+    String buildIdRechargeOrder(Long userId, Long goodsId);
 
     RechargeOrderEntity queryObject(String id);
 

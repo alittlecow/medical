@@ -25,34 +25,32 @@ public class RechargeOrderEntity implements Serializable {
     //支付类型（0支付宝 1微信 2银联 3个人账户）
     private Integer payType;
     //一次交易的商品id
-    private String goodsId;
+    private Long goodsId;
     //订单金额
     private BigDecimal orderMoney;
     //订单状态（0待支付 1支付中 20 支付成功 21支付失败）
     private Integer payStatus;
 
-    //订单类型 0 账户充值 1ID卡充值
-    private Byte orderType;
+    //充值账户id
+    private String accountId;
 
-    //订单类型对应的账户id或则ID卡id
-    private String objectId;
-
-
-    public Byte getOrderType() {
-        return orderType;
+    public Long getGoodsId() {
+        return goodsId;
     }
 
-    public void setOrderType(Byte orderType) {
-        this.orderType = orderType;
+    public void setGoodsId(Long goodsId) {
+        this.goodsId = goodsId;
     }
 
-    public String getObjectId() {
-        return objectId;
+
+    public String getAccountId() {
+        return accountId;
     }
 
-    public void setObjectId(String objectId) {
-        this.objectId = objectId;
+    public void setAccountId(String accountId) {
+        this.accountId = accountId;
     }
+
 
     /**
      * 设置：
@@ -118,19 +116,6 @@ public class RechargeOrderEntity implements Serializable {
         return payType;
     }
 
-    /**
-     * 设置：一次交易的商品id
-     */
-    public void setGoodsId(String goodsId) {
-        this.goodsId = goodsId;
-    }
-
-    /**
-     * 获取：一次交易的商品id
-     */
-    public String getGoodsId() {
-        return goodsId;
-    }
 
     /**
      * 设置：订单金额

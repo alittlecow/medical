@@ -126,6 +126,7 @@ public class AppUserController {
     @ApiImplicitParams({
             @ApiImplicitParam(paramType = "query", name = "token", value = "token", required = true, dataType = "String"),
     })
+    @AuthIgnore
     @RequestMapping(value = "/getBackPassword", method = RequestMethod.POST)
     public R getBackPassword(@RequestBody Map<String, Object> params) {
         String password = MapUtils.getString(params, "password");

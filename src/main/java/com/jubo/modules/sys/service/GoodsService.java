@@ -14,7 +14,7 @@ import java.util.Map;
  */
 public interface GoodsService {
 	
-	GoodsEntity queryObject(String id);
+	GoodsEntity queryObject(Long id);
 	
 	List<GoodsEntity> queryList(Map<String, Object> map);
 	

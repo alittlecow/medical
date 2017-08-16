@@ -3,8 +3,13 @@ package com.jubo.modules.sys.service.impl;
 import com.jubo.common.utils.Constant;
 import com.jubo.common.utils.DateUtils;
 import com.jubo.common.utils.UUIDUtil;
+import com.jubo.common.validator.Assert;
 import com.jubo.modules.sys.dao.RechargeOrderDao;
+import com.jubo.modules.sys.entity.AccountInfoEntity;
+import com.jubo.modules.sys.entity.GoodsEntity;
 import com.jubo.modules.sys.entity.RechargeOrderEntity;
+import com.jubo.modules.sys.service.AccountInfoService;
+import com.jubo.modules.sys.service.GoodsService;
 import com.jubo.modules.sys.service.RechargeOrderService;
 import org.apache.commons.lang.time.DateFormatUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,10 +33,22 @@ public class RechargeOrderServiceImpl implements RechargeOrderService {
     @Autowired
     private RechargeOrderDao rechargeOrderDao;
 
+    @Autowired
+    private GoodsService goodsService;
+
+    @Autowired
+    private AccountInfoService accountInfoService;
 
     @Override
-    public String buildIdRechargeOrder(Byte rechargeOrderType, String objectId,
-                                       Long userId, String goodsId, BigDecimal orderMoney) {
+    public String buildIdRechargeOrder(
+            Long userId, Long goodsId) {
+
+        AccountInfoEntity account = accountInfoService.queryObjectByUserId(userId);
+        Assert.isNull(account, "账户不存在");
+
+        GoodsEntity goods = goodsService.queryObject(goodsId);
+        Assert.isNull(goods, "商品不存在");
+
         RechargeOrderEntity order = new RechargeOrderEntity();
 
         //生成充值订单id
@@ -41,10 +58,9 @@ public class RechargeOrderServiceImpl implements RechargeOrderService {
         order.setUserId(userId);
         order.setCreateTime(new Date());
         order.setGoodsId(goodsId);
-        order.setOrderMoney(orderMoney);
+        order.setOrderMoney(goods.getMoney());
         order.setPayStatus(Constant.PayStatus.NEED_PAY.getValue());
-        order.setObjectId(objectId);
-        order.setOrderType(rechargeOrderType);
+        order.setAccountId(account.getId());
         rechargeOrderDao.save(order);
 
         return id;
@@ -96,7 +112,7 @@ public class RechargeOrderServiceImpl implements RechargeOrderService {
             orderNum.set(0);
         }
         String dateString = DateFormatUtils.format(new Date(), "yyyyMMddHHmmss");
-        String idString = (orderNum + "000000").substring(0, 6);
+        String idString = ("000000" + orderNum).substring(("000000" + orderNum).length() - 6);
 
         return PRE_RECHARGE_ORDER + dateString + idString;
     }

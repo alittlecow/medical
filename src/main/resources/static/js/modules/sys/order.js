@@ -51,11 +51,14 @@ $(function () {
             {
                 label: '订单类型', name: 'orderType', index: 'order_type', width: 80,
                 formatter: function (value, options, row) {
-                    if (value === 10) {
-                        return '<span">扫码使用</span>';
+                    if (value === 0) {
+                        return '<span">ID卡充值</span>';
                     }
-                    if (value === 11) {
-                        return '<span">刷卡使用</span>';
+                    if (value === 1) {
+                        return '<span">在线支付</span>';
+                    }
+                    if (value === 2) {
+                        return '<span">刷卡支付</span>';
                     }
                 }
             },

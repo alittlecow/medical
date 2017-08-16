@@ -223,14 +223,13 @@ public class Constant {
 
 
     public enum OrderType {
-        //0 账户充值
-        ACCOUNT_RECHARGE(new Byte("0")),
+        //消费订单表
         //ID卡充值
-        ID_RECHARGE(new Byte("1")),
+        ID_RECHARGE(new Byte("0")),
         //在线支付
-        USER_DEVICE(new Byte("2"));
+        USER_DEVICE_ONLINE(new Byte("1")),
         //刷卡支付
-//        USER_DEVICE_BY_CARD(new Byte("11"));
+        USER_DEVICE_BY_CARD(new Byte("2"));
 
         private Byte value;
 

@@ -20,7 +20,7 @@ public class GoodsServiceImpl implements GoodsService {
     private GoodsDao goodsDao;
 
     @Override
-    public GoodsEntity queryObject(String id) {
+    public GoodsEntity queryObject(Long id) {
         return goodsDao.queryObject(id);
     }
 
@@ -36,7 +36,6 @@ public class GoodsServiceImpl implements GoodsService {
 
     @Override
     public void save(GoodsEntity goods) {
-        goods.setId(UUIDUtil.getUUId());
         goods.setCreateTime(new Date());
         goods.setStatus(Constant.ENABLE);
 

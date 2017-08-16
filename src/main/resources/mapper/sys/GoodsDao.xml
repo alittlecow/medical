@@ -3,17 +3,6 @@
 
 <mapper namespace="com.jubo.modules.sys.dao.GoodsDao">
 
-    <!-- 可根据自己的需求，是否要使用 -->
-    <resultMap type="com.jubo.modules.sys.entity.GoodsEntity" id="goodsMap">
-        <result property="id" column="id"/>
-        <result property="name" column="name"/>
-        <result property="type" column="type"/>
-        <result property="value" column="value"/>
-        <result property="money" column="money"/>
-        <result property="createTime" column="create_time"/>
-        <result property="status" column="status"/>
-    </resultMap>
-
     <select id="queryObject" resultType="com.jubo.modules.sys.entity.GoodsEntity">
 		select * from goods where id = #{value}
 	</select>
@@ -53,11 +42,12 @@
         </where>
     </select>
 
-    <insert id="save" parameterType="com.jubo.modules.sys.entity.GoodsEntity">
+    <insert id="save" parameterType="com.jubo.modules.sys.entity.GoodsEntity" useGeneratedKeys="true"
+            keyProperty="userId">
 		insert into goods
 		(
-			`id`, 
-			`name`, 
+			`id`,
+			`name`,
 			`type`, 
 			`value`, 
 			`money`, 
@@ -66,8 +56,8 @@
 		)
 		values
 		(
-			#{id}, 
-			#{name}, 
+			#{id},
+			#{name},
 			#{type}, 
 			#{value}, 
 			#{money}, 

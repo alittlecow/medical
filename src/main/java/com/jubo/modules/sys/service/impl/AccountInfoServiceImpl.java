@@ -73,7 +73,16 @@ public class AccountInfoServiceImpl implements AccountInfoService {
         //账户更新 生成流水
         accountMoneyChangeRec(orderId, orderMoney, account, oldBalance, newBalance,
                 Constant.AccountAdjustType.USER_CONSUME.getValue());
+
+
+        //更新订单状态
+        order.setPayType(Constant.PayType.ACCOUNT.getValue());
+        order.setPayTime(new Date());
+        order.setPayStatus(Constant.PayStatus.SUCCESS.getValue());
+        orderService.update(order);
         // TODO: 2017/7/23 支付成功回调业务
+
+
         return R.ok();
     }
 

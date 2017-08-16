@@ -34,7 +34,7 @@
             <if test="payType != null">
                 AND `pay_type` = #{payType}
             </if>
-            <if test="goodsId != null and goodsId !=''">
+            <if test="goodsId != null">
                 AND `goods_id` = #{goodsId}
             </if>
             <if test="orderMoney != null">
@@ -85,7 +85,7 @@
             <if test="payType != null">
                 AND `pay_type` = #{payType}
             </if>
-            <if test="goodsId != null and goodsId !=''">
+            <if test="goodsId != null">
                 AND `goods_id` = #{goodsId}
             </if>
             <if test="orderMoney != null">

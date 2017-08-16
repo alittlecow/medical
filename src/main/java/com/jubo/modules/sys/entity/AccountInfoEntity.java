@@ -23,8 +23,6 @@ public class AccountInfoEntity implements Serializable {
     //允许提现标准位 1允许0 不允许
     private String allowEncashment;
 
-    //分成比例
-    private BigDecimal proportion;
 
     //账户创建时间
     private Date createTime;
@@ -40,13 +38,6 @@ public class AccountInfoEntity implements Serializable {
         this.allowEncashment = allowEncashment;
     }
 
-    public BigDecimal getProportion() {
-        return proportion;
-    }
-
-    public void setProportion(BigDecimal proportion) {
-        this.proportion = proportion;
-    }
 
     /**
      * 设置：id

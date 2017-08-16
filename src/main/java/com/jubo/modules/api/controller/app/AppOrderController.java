@@ -37,12 +37,6 @@ public class AppOrderController {
     private OrderService orderService;
 
     @Autowired
-    private CardService cardService;
-
-    @Autowired
-    private GoodsService goodsService;
-
-    @Autowired
     private RechargeOrderService rechargeOrderService;
 
     @Autowired
@@ -60,7 +54,9 @@ public class AppOrderController {
         String deviceId = MapUtils.getString(params, "deviceId");
         Assert.isBlank(deviceId, "设备ID不能为空");
 
-        String orderId = orderService.buildConsumeOrder(user.getUserId(), deviceId );
+        // TODO: 2017/8/16 设备可使用校验
+
+        String orderId = orderService.buildConsumeOrder(user.getUserId(), deviceId);
         Map map = new HashMap();
         map.put("orderId", orderId);
 
@@ -69,63 +65,41 @@ public class AppOrderController {
 
 
     /**
-     * ID卡刷卡消费订单
-     */
-    @AuthIgnore
-    @RequestMapping(value = "/cardorder", method = RequestMethod.POST)
-    public R cardOrder(@RequestBody Map<String, Object> params) {
-        String deviceId = MapUtils.getString(params, "deviceId");
-        String code = MapUtils.getString(params, "code");
-
-        if (StringUtils.isBlank(deviceId)) {
-            return R.error("设备ID不能为空");
-        }
-        if (StringUtils.isBlank(code)) {
-            return R.error("ID卡号不能为空");
-        }
-
-        orderService.buildCardOrder(code, deviceId);
-
-        // TODO: 2017/7/27 开启设备
-        return R.ok();
-    }
-
-    /**
-     * 充值订单接口
+     * ID卡充值订单接口
      */
     @ApiImplicitParams({
             @ApiImplicitParam(paramType = "query", name = "token", value = "token", required = true, dataType = "String"),
     })
-    @RequestMapping(value = "/rechargeorder", method = RequestMethod.POST)
-    public R recharge(@LoginUser SysUserEntity user, @RequestBody Map<String, Object> params) {
-        Byte orderType = MapUtils.getByte(params, "orderType");
+    @RequestMapping(value = "/cardrecharge", method = RequestMethod.POST)
+    public R cardRecharge(@LoginUser SysUserEntity user, @RequestBody Map<String, Object> params) {
 
-        String objectId = null;
         //ID卡充值订单
-        if (Constant.OrderType.ID_RECHARGE.getValue().compareTo(orderType) == 0) {
-            String code = MapUtils.getString(params, "code");
-            Assert.isBlank(code, "充值卡号不能为空");
-            CardEntity card = cardService.queryObjectByCode(code);
-            Assert.isNull(card, "ID卡号错误");
-            objectId = code;
-        }
+        String code = MapUtils.getString(params, "code");
+        Assert.isBlank(code, "充值卡号不能为空");
 
+        Long goodsId = MapUtils.getLong(params, "goodsId");
+        Assert.isNull(goodsId,"商品号不能为空");
+
+        String orderId = orderService.buildCardRechargeOrder(user.getUserId(), code, goodsId);
+
+        Map map = new HashMap();
+        map.put("orderId", orderId);
+        return R.ok().putData(map);
+    }
+
+    /**
+     * 账户充值订单接口
+     */
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType = "query", name = "token", value = "token", required = true, dataType = "String"),
+    })
+    @RequestMapping(value = "/accountrecharge", method = RequestMethod.POST)
+    public R accountRecharge(@LoginUser SysUserEntity user, @RequestBody Map<String, Object> params) {
         //账户充值
-        if (Constant.OrderType.ACCOUNT_RECHARGE.getValue().compareTo(orderType) == 0) {
-            AccountInfoEntity account = accountInfoService.queryObjectByUserId(user.getUserId());
-            objectId = account.getId();
-        }
+        Long goodsId = MapUtils.getLong(params, "goodsId");
+        Assert.isNull(goodsId,"商品号不能为空");
 
-        if (StringUtils.isBlank(objectId)) {
-            return R.error("充值类型错误");
-        }
-
-        String goodsId = MapUtils.getString(params, "goodsId");
-        GoodsEntity goods = goodsService.queryObject(goodsId);
-        Assert.isNull(goodsId, "商品不存在");
-
-        String orderId = rechargeOrderService.buildIdRechargeOrder(orderType, objectId, user.getUserId(),
-                goodsId, goods.getMoney());
+        String orderId = rechargeOrderService.buildIdRechargeOrder(user.getUserId(), goodsId);
 
         Map map = new HashMap();
         map.put("orderId", orderId);

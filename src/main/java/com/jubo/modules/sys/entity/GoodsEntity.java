@@ -19,12 +19,12 @@ import java.util.Date;
 public class GoodsEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    private String id;
+    private Long id;
     @NotBlank(message = "商品名不能为空", groups = {AddGroup.class, UpdateGroup.class})
     private String name;
     //设备使用次数（单位：次）2账户充值（单位：元）
     @NotNull(message = "商品类型不能为空", groups = {AddGroup.class, UpdateGroup.class})
-    private Integer type;
+    private Byte type;
     //商品值
     @NotNull(message = "商品数值不能为空", groups = {AddGroup.class, UpdateGroup.class})
     private Integer value;
@@ -36,18 +36,12 @@ public class GoodsEntity implements Serializable {
     //状态 1生效 0失效
     private Integer status;
 
-    /**
-     * 设置：
-     */
-    public void setId(String id) {
-        this.id = id;
+    public Long getId() {
+        return id;
     }
 
-    /**
-     * 获取：
-     */
-    public String getId() {
-        return id;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     /**
@@ -67,14 +61,14 @@ public class GoodsEntity implements Serializable {
     /**
      * 设置：1设备使用次数（单位：次）2账户充值（单位：元）
      */
-    public void setType(Integer type) {
+    public void setType(Byte type) {
         this.type = type;
     }
 
     /**
      * 获取：1设备使用次数（单位：次）2账户充值（单位：元）
      */
-    public Integer getType() {
+    public Byte getType() {
         return type;
     }
 

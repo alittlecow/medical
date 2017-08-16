@@ -24,7 +24,7 @@ public class OrderEntity implements Serializable {
     //支付类型（0支付宝 1微信 2银联 3个人账户）
     private Byte payType;
     //一次交易的商品id
-    private String goodsId;
+    private Long goodsId;
     //订单金额
     private BigDecimal orderMoney;
     //订单状态（0待支付 1支付中 20 支付成功 21支付失败）
@@ -61,6 +61,14 @@ public class OrderEntity implements Serializable {
         this.deviceId = deviceId;
     }
 
+
+    public Long getGoodsId() {
+        return goodsId;
+    }
+
+    public void setGoodsId(Long goodsId) {
+        this.goodsId = goodsId;
+    }
 
     public Byte getPayType() {
         return payType;
@@ -122,19 +130,7 @@ public class OrderEntity implements Serializable {
 
 
 
-    /**
-     * 设置：一次交易的商品id
-     */
-    public void setGoodsId(String goodsId) {
-        this.goodsId = goodsId;
-    }
 
-    /**
-     * 获取：一次交易的商品id
-     */
-    public String getGoodsId() {
-        return goodsId;
-    }
 
     /**
      * 设置：订单金额
