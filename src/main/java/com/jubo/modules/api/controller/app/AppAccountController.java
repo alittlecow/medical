@@ -63,7 +63,7 @@ public class AppAccountController {
         }
 
         //支付订单
-        R r = accountInfoService.pay(orderId);
+        R r = accountInfoService.pay(orderId );
 
         return r;
     }

@@ -38,6 +38,11 @@ public class CardServiceImpl implements CardService {
         cardDao.save(card);
     }
 
+    /**
+     * 使用卡 times 次
+     * @param code
+     * @param times
+     */
     @Override
     public void useCard(String code, int times) {
         CardEntity card = cardDao.queryObjectByCode(code);

@@ -18,7 +18,7 @@ public class SettlementRuleServiceImpl implements SettlementRuleService {
 	private SettlementRuleDao settlementRuleDao;
 	
 	@Override
-	public SettlementRuleEntity queryObject(String id){
+	public SettlementRuleEntity queryObject(Long id){
 		return settlementRuleDao.queryObject(id);
 	}
 	

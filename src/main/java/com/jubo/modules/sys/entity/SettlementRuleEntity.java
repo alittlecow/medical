@@ -16,7 +16,7 @@ public class SettlementRuleEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	//
-	private String id;
+	private Long id;
 	//钜柏分成
 	private BigDecimal admin;
 	//商户分成
@@ -28,13 +28,12 @@ public class SettlementRuleEntity implements Serializable {
 	//市分销商
 	private BigDecimal cityDealer;
 
-
-	public void setId(String id) {
-		this.id = id;
+	public Long getId() {
+		return id;
 	}
 
-	public String getId() {
-		return id;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public void setAdmin(BigDecimal admin) {

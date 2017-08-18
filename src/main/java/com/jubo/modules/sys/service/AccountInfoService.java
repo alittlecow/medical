@@ -23,6 +23,25 @@ public interface AccountInfoService {
      */
     R pay(String orderId);
 
+    /**
+     * 账户金额调整
+     *
+     * @param userId
+     * @param adjustType
+     * @param adjustMoney
+     * @param orderId
+     */
+    void changeAccount(Long userId, Byte adjustType, double adjustMoney, String orderId);
+
+
+    /**
+     * 商户分成
+     *
+     * @param merchantId 商户id
+     * @param money      分成金额
+     */
+    void settlement(Long merchantId, double money, String orderId);
+
     AccountInfoEntity queryObjectByUserId(Long userId);
 
     AccountInfoEntity queryObject(String id);

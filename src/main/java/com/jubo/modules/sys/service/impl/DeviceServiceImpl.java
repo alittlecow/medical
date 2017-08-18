@@ -66,6 +66,11 @@ public class DeviceServiceImpl implements DeviceService {
         deviceDao.deleteBatch(ids);
     }
 
+
+    /**
+     * 使用设备接口
+     * @param device
+     */
     @Override
     public void useDevice(DeviceEntity device) {
         String code = device.getCode();

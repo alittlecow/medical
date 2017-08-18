@@ -180,26 +180,7 @@ public class Constant {
     }
 
 
-    public enum AccountAdjustType {
-        //用户充值
-        USER_RECHARGE(new Byte("0")),
-        //用户消费
-        USER_CONSUME(new Byte("1")),
-        //分成结算
-        DEALER_SETTLEMENT(new Byte("2")),
-        //提现
-        ENCASHMENT(new Byte("3"));
 
-        private Byte value;
-
-        private AccountAdjustType(Byte value) {
-            this.value = value;
-        }
-
-        public Byte getValue() {
-            return value;
-        }
-    }
 
 
     public enum ApplyCardStatus {
@@ -221,6 +202,32 @@ public class Constant {
         }
     }
 
+
+    public enum AccountAdjustType {
+        //用户充值
+        USER_RECHARGE(new Byte("10")),
+        //分成结算
+        DEALER_SETTLEMENT(new Byte("11")),
+
+        //ID卡充值
+        CARD_RECHARGE(new Byte("20")),
+
+        //使用设备
+        USE_DEVICE(new Byte("21")),
+
+        //提现
+        ENCASHMENT(new Byte("22"));
+
+        private Byte value;
+
+        private AccountAdjustType(Byte value) {
+            this.value = value;
+        }
+
+        public Byte getValue() {
+            return value;
+        }
+    }
 
     public enum OrderType {
         //消费订单表

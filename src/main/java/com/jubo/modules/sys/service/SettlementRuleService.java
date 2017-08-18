@@ -13,7 +13,7 @@ import java.util.Map;
  */
 public interface SettlementRuleService {
 	
-	SettlementRuleEntity queryObject(String id);
+	SettlementRuleEntity queryObject(Long id);
 	
 	List<SettlementRuleEntity> queryList(Map<String, Object> map);
 	

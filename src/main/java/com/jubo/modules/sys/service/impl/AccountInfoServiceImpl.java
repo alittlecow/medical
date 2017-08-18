@@ -10,28 +10,25 @@ import com.jubo.common.utils.R;
 import com.jubo.common.utils.UUIDUtil;
 import com.jubo.modules.sys.dao.AccountInfoDao;
 import com.jubo.modules.sys.dao.SysUserDao;
-import com.jubo.modules.sys.entity.AccountInfoEntity;
-import com.jubo.modules.sys.entity.AccountTransactionHistoryEntity;
-import com.jubo.modules.sys.entity.OrderEntity;
-import com.jubo.modules.sys.entity.SysUserEntity;
-import com.jubo.modules.sys.service.AccountInfoService;
-import com.jubo.modules.sys.service.AccountTransactionHistoryService;
-import com.jubo.modules.sys.service.OrderService;
+import com.jubo.modules.sys.entity.*;
+import com.jubo.modules.sys.service.*;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 
+@Transactional
 @Service("accountInfoService")
 public class AccountInfoServiceImpl implements AccountInfoService {
     @Autowired
     private AccountInfoDao accountInfoDao;
+
+    @Autowired
+    private SysDeptService sysDeptService;
 
     @Autowired
     private OrderService orderService;
@@ -42,9 +39,15 @@ public class AccountInfoServiceImpl implements AccountInfoService {
     @Autowired
     private AccountTransactionHistoryService historyService;
 
+    @Autowired
+    private SettlementRuleService settlementRuleService;
+
+
+    private static final String MERCHANT = "merchant";
+    private static final String PROVINCE_DEALER = "provinceDealer";
+    private static final String CITY_DEALER = "cityDealer";
 
     @Override
-    @Transactional
     public R pay(String orderId) {
         if (StringUtils.isBlank(orderId)) {
             return R.error(ErrorMessage.ORDER_NOT_BLANK);
@@ -60,31 +63,94 @@ public class AccountInfoServiceImpl implements AccountInfoService {
             return R.error(ErrorMessage.ORDER_ALREADY_PAY);
         }
 
-        //检查余额
-        AccountInfoEntity account = accountInfoDao.queryObjectByUserId(order.getUserId());
-        double orderMoney = order.getOrderMoney().doubleValue();
-        double oldBalance = account.getBalance().doubleValue();
-        double newBalance = oldBalance - orderMoney;
-        if (newBalance < 0) {
-            return R.error(ErrorMessage.MONEY_NOT_ENOUGH);
-        }
-
-
-        //账户更新 生成流水
-        accountMoneyChangeRec(orderId, orderMoney, account, oldBalance, newBalance,
-                Constant.AccountAdjustType.USER_CONSUME.getValue());
-
-
         //更新订单状态
         order.setPayType(Constant.PayType.ACCOUNT.getValue());
         order.setPayTime(new Date());
         order.setPayStatus(Constant.PayStatus.SUCCESS.getValue());
         orderService.update(order);
+
+        //获取调整类型
+        Byte adjustType = getAdjustType(order.getOrderType());
+
+        changeAccount(order.getUserId(), adjustType, order.getOrderMoney().doubleValue(), orderId);
+
         // TODO: 2017/7/23 支付成功回调业务
 
 
         return R.ok();
     }
+
+    @Override
+    public void settlement(Long merchantId, double money, String orderId) {
+
+        Map<String, Long> userMap = getAllDealerAccount(merchantId);
+
+        SettlementRuleEntity rule = settlementRuleService.queryObject(new Long("0"));
+        double city = rule.getCityDealer() == null ? rule.getCityDealer().doubleValue() / 100 : 0;
+        double province = rule.getProvinceDealer() == null ? rule.getProvinceDealer().doubleValue() / 100 : 0;
+        double merchant = rule.getMerchant() == null ? rule.getMerchant().doubleValue() / 100 : 0;
+        //商户账户
+        changeAccount(userMap.get(MERCHANT), Constant.AccountAdjustType.DEALER_SETTLEMENT.getValue(),
+                money * merchant,
+                orderId);
+
+        //市级分销商
+        changeAccount(userMap.get(CITY_DEALER), Constant.AccountAdjustType.DEALER_SETTLEMENT.getValue(),
+                money * city,
+                orderId);
+        //省级分销商
+        changeAccount(userMap.get(PROVINCE_DEALER), Constant.AccountAdjustType.DEALER_SETTLEMENT.getValue(),
+                money * province,
+                orderId);
+    }
+
+    /**
+     * 根据商户ID获取分成账户
+     *
+     * @param merchantId
+     * @return
+     */
+    private Map<String, Long> getAllDealerAccount(Long merchantId) {
+        Map<String, Long> dealerAccountMap = new HashMap<>();
+
+        //商户
+        SysDeptEntity dealer = sysDeptService.queryObject(merchantId);
+        dealerAccountMap.put(MERCHANT, dealer.getUserId());
+
+        //市级分销商
+        dealer = sysDeptService.queryObject(dealer.getParentId());
+        dealerAccountMap.put(CITY_DEALER, dealer.getUserId());
+
+        //省级分销商
+        dealer = sysDeptService.queryObject(dealer.getParentId());
+        dealerAccountMap.put(PROVINCE_DEALER, dealer.getUserId());
+
+        return dealerAccountMap;
+    }
+
+    /**
+     * 账户变动方法
+     *
+     * @param userId
+     * @param adjustType  调整类型（10 用户充值   11分成  20 ID卡充值 21使用设备 22 商户提现）
+     * @param adjustMoney >0 表示扣款 <0 表示收钱
+     * @param orderId
+     */
+    @Override
+    public void changeAccount(Long userId, Byte adjustType, double adjustMoney, String orderId) {
+
+        //检查余额
+        AccountInfoEntity account = accountInfoDao.queryObjectByUserId(userId);
+
+        double oldBalance = account.getBalance().doubleValue();
+        double newBalance = oldBalance - adjustMoney;
+        if (newBalance < 0) {
+            throw new RRException("账户余额不足");
+        }
+        //账户更新 生成流水
+        accountMoneyChangeRec(orderId, adjustMoney, account, oldBalance, newBalance, adjustType);
+    }
+
 
     // 通用方法 记录 账户资金变动
     private void accountMoneyChangeRec(String orderId, double adjustMoney, AccountInfoEntity account, double oldBalance, double newBalance, Byte adjustType) {
@@ -94,8 +160,6 @@ public class AccountInfoServiceImpl implements AccountInfoService {
         accountTransactionHistoryRec(orderId, adjustMoney, account, oldBalance, newBalance, adjustType);
 
     }
-
-
 
 
     private void accountTransactionHistoryRec(String orderId, Double adjustMoney, AccountInfoEntity account, Double oldBalance, Double newBalance, Byte adjustType) {
@@ -117,6 +181,21 @@ public class AccountInfoServiceImpl implements AccountInfoService {
         accountInfoDao.update(account);
     }
 
+    /**
+     * 根据订单类型 生成账户调整类型
+     *
+     * @param orderType
+     * @return
+     */
+    private Byte getAdjustType(Byte orderType) {
+        //ID卡充值订单
+        if (Constant.OrderType.ID_RECHARGE.getValue().compareTo(orderType) == 0) {
+            return Constant.AccountAdjustType.CARD_RECHARGE.getValue();
+        } else {
+            //设备使用订单
+            return Constant.AccountAdjustType.USE_DEVICE.getValue();
+        }
+    }
 
     @Override
     public AccountInfoEntity queryObjectByUserId(Long userId) {
@@ -160,7 +239,7 @@ public class AccountInfoServiceImpl implements AccountInfoService {
 
     @Override
     public void auth(Map<String, String> params, SysUserEntity userEntity) {
-        if(new Byte("1").equals(userEntity.getIsAuth())){
+        if (new Byte("1").equals(userEntity.getIsAuth())) {
             throw new RRException("帐号已通过实名认证");
         }
         String name = params.get("name");
@@ -171,16 +250,16 @@ public class AccountInfoServiceImpl implements AccountInfoService {
         auth.setMobile(mobile);
         try {
             auth = BCPay.startBCAuth(auth);
-            if(auth.isAuthResult()){
+            if (auth.isAuthResult()) {
                 userEntity.setRealName(name);
                 userEntity.setIdCard(idNo);
                 userEntity.setIsAuth(new Byte("1"));
                 sysUserDao.update(userEntity);
-            }else{
-                throw new RRException("认证信息不匹配",500);
+            } else {
+                throw new RRException("认证信息不匹配", 500);
             }
         } catch (BCException e) {
-           throw new RRException("实名认证接口调用失败",e);
+            throw new RRException("实名认证接口调用失败", e);
         }
     }
 
