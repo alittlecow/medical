@@ -13,20 +13,13 @@
     </select>
 
     <select id="queryList" resultType="com.jubo.modules.sys.entity.SysUserEntity">
-        select u.*, (select d.name from sys_dept d where d.dept_id = u.dept_id) deptName from sys_user u
+        select u.*, (select d.role_name from sys_role d where d.role_id = u.role_id) roleName from sys_user u
         <where>
             <if test="username != null and username.trim() != ''">
                 and u.`username` like concat('%',#{username},'%')
             </if>
         </where>
-        <choose>
-            <when test="sidx != null and sidx.trim() != ''">
-                order by u.${sidx} ${order}
-            </when>
-            <otherwise>
-                order by u.user_id desc
-            </otherwise>
-        </choose>
+
         <if test="offset != null and limit != null">
             limit #{offset}, #{limit}
         </if>
@@ -71,7 +64,7 @@
         `email`,
         `mobile`,
         `status`,
-        `dept_id`,
+        `role_id`,
         `create_time`
         )
         values
@@ -83,7 +76,7 @@
         #{email},
         #{mobile},
         #{status},
-        #{deptId},
+        #{roleId},
         #{createTime}
         )
     </insert>
@@ -96,7 +89,7 @@
             <if test="email != null">`email` = #{email},</if>
             <if test="mobile != null">`mobile` = #{mobile},</if>
             <if test="status != null">`status` = #{status},</if>
-            <if test="deptId != null">`dept_id` = #{deptId},</if>
+            <if test="roleId != null">`role_id` = #{roleId},</if>
         </set>
         where user_id = #{userId}
     </update>
@@ -126,11 +119,6 @@
 
     <delete id="deleteBatch">
         delete from sys_user where user_id in
-        <foreach item="userId" collection="array" open="(" separator="," close=")">
-            #{userId}
-        </foreach>
-        ;
-        delete from sys_user_role where user_id in
         <foreach item="userId" collection="array" open="(" separator="," close=")">
             #{userId}
         </foreach>

@@ -91,11 +91,8 @@ public class SysUserController extends AbstractController {
     @RequestMapping("/info/{userId}")
     @RequiresPermissions("sys:user:info")
     public R info(@PathVariable("userId") Long userId) {
-        SysUserEntity user = sysUserService.queryObject(userId);
 
-        //获取用户所属的角色列表
-        List<Long> roleIdList = sysUserRoleService.queryRoleIdList(userId);
-        user.setRoleIdList(roleIdList);
+        SysUserEntity user = sysUserService.queryObject(userId);
 
         return R.ok().put("user", user);
     }
@@ -117,7 +114,6 @@ public class SysUserController extends AbstractController {
         if (existUser != null) {
             return R.error(ErrorMessage.PHONE_IS_EXIST);
         }
-
 
         sysUserService.save(user);
         return R.ok();

@@ -25,6 +25,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import static com.jubo.common.utils.ErrorMessage.EMAIL_FORMAT_ERROR;
+
 /**
  * @author pengxiao
  * @date 2017/7/23
@@ -195,7 +197,6 @@ public class AppUserController {
      */
     @ApiImplicitParams({
             @ApiImplicitParam(paramType = "query", name = "token", value = "token", required = true, dataType = "String"),
-            @ApiImplicitParam(paramType = "query", name = "password", value = "password", required = false, dataType = "String")
     })
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     public R update(@LoginUser SysUserEntity user, @RequestBody Map<String, Object> params) {
@@ -204,14 +205,18 @@ public class AppUserController {
         String email = MapUtils.getString(params, "email");
         String birthday = MapUtils.getString(params, "birthday");
 
-        if (ParamVerifyUtils.checkAllValuesNotEmpty(username, sex, email, birthday)) {
+        if (ParamVerifyUtils.checkAllValuesEmpty(username, sex, email, birthday)) {
             return R.ok();
         }
 
-        if (StringUtils.isNotBlank(birthday)) {
-            Date b = DateUtils.getDate(birthday);
+        //日期格式校验
+        if (StringUtils.isNotBlank(birthday) && !ParamVerifyUtils.isDate(birthday)) {
+            return R.error("日期格式错误");
         }
 
+        if (StringUtils.isNotBlank(email) && !ParamVerifyUtils.isEmail(email)) {
+            return R.error(EMAIL_FORMAT_ERROR);
+        }
 
         params.put("userId", user.getUserId());
         sysUserService.updateAppUser(params);

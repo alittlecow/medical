@@ -67,16 +67,11 @@ public class SysUserEntity implements Serializable {
 
     private Integer status;
 
-    private Long deptId;
-    /**
-     * 部门名称
-     */
-    private String deptName;
+    //角色id
+    @NotBlank(message = "角色ID不能为空", groups = {AddGroup.class})
+    private Long roleId;
 
-    /**
-     * 角色ID列表
-     */
-    private List<Long> roleIdList;
+    private String roleName;
 
     /**
      * 创建者ID
@@ -93,21 +88,21 @@ public class SysUserEntity implements Serializable {
     private String idCard;
     private Byte isAuth;
 
-
-    public String getDeptName() {
-        return deptName;
+    public Long getRoleId() {
+        return roleId;
     }
 
-    public void setDeptName(String deptName) {
-        this.deptName = deptName;
+    public void setRoleId(Long roleId) {
+        this.roleId = roleId;
     }
 
-    public Long getDeptId() {
-        return deptId;
+
+    public String getRoleName() {
+        return roleName;
     }
 
-    public void setDeptId(Long deptId) {
-        this.deptId = deptId;
+    public void setRoleName(String roleName) {
+        this.roleName = roleName;
     }
 
     public String getRealName() {
@@ -276,13 +271,6 @@ public class SysUserEntity implements Serializable {
         return createTime;
     }
 
-    public List<Long> getRoleIdList() {
-        return roleIdList;
-    }
-
-    public void setRoleIdList(List<Long> roleIdList) {
-        this.roleIdList = roleIdList;
-    }
 
     public Long getCreateUserId() {
         return createUserId;

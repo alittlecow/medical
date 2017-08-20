@@ -1,7 +1,10 @@
 package com.jubo.common.utils;
 
+import com.jubo.common.exception.RRException;
 import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang.time.*;
 
+import java.text.ParseException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -79,6 +82,18 @@ public class ParamVerifyUtils {
         }
         return true;
     }
+
+    public static boolean isDate(String str){
+        try {
+            org.apache.commons.lang.time.DateUtils.parseDate(str,
+                    new String[]{"yyyy-MM-dd", "yyyy-MM-dd HH:mm:ss"});
+        } catch (ParseException e) {
+            return false;
+        }
+        return true;
+
+    }
+
 
     public static void main(String[] args) {
         System.out.println(isValidPassWord("12345"));

@@ -95,7 +95,7 @@ public class SysDeptServiceImpl implements SysDeptService {
         user.setPassword(deptVo.getPassword());
         user.setUsername(deptVo.getUsername());
         user.setMobile(deptVo.getMobile());
-        user.setRoleIdList(Arrays.asList(new Long[]{roleId}));
+        user.setRoleId(roleId);
         user.setEmail(deptVo.getEmail());
 
         Long userId = sysUserService.save(user);
