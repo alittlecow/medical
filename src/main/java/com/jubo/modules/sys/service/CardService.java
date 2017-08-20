@@ -15,7 +15,14 @@ public interface CardService {
     /**
      * 绑卡
      */
-    void bind(String code, Long userId);
+    void bind(Map map);
+
+    /**
+     * 激活卡
+     *
+     * @param map
+     */
+    void active(Map map);
 
     /**
      * 使用ID卡 times次
@@ -23,7 +30,7 @@ public interface CardService {
      * @param code
      * @param times
      */
-    void useCard(String code, int times);
+    void changeCardTimes(String code, int times);
 
     CardEntity queryObjectByUserId(Long userId);
 

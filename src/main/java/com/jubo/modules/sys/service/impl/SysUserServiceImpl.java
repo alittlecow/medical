@@ -65,7 +65,7 @@ public class SysUserServiceImpl implements SysUserService {
 
         //用户角色
         sysUserRoleService.saveOrUpdate(user.getUserId(),
-                Arrays.asList(new Long[]{Constant.Role.ROLE_ORDINARY_USER.getValue()}));
+                Arrays.asList(new Long[]{Constant.Role.ROLE_APP_USER.getValue()}));
         //新建账户
         AccountInfoEntity account = new AccountInfoEntity();
         account.setBalance(new BigDecimal("0"));

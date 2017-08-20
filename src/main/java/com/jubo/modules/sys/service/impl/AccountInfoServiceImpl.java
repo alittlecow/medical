@@ -18,7 +18,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
-import java.util.*;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
 @Transactional
@@ -42,6 +45,8 @@ public class AccountInfoServiceImpl implements AccountInfoService {
     @Autowired
     private SettlementRuleService settlementRuleService;
 
+    @Autowired
+    private OrderCallBackService orderCallBackService;
 
     private static final String MERCHANT = "merchant";
     private static final String PROVINCE_DEALER = "provinceDealer";
@@ -63,18 +68,14 @@ public class AccountInfoServiceImpl implements AccountInfoService {
             return R.error(ErrorMessage.ORDER_ALREADY_PAY);
         }
 
-        //更新订单状态
-        order.setPayType(Constant.PayType.ACCOUNT.getValue());
-        order.setPayTime(new Date());
-        order.setPayStatus(Constant.PayStatus.SUCCESS.getValue());
-        orderService.update(order);
-
         //获取调整类型
         Byte adjustType = getAdjustType(order.getOrderType());
 
+        //支付
         changeAccount(order.getUserId(), adjustType, order.getOrderMoney().doubleValue(), orderId);
 
-        // TODO: 2017/7/23 支付成功回调业务
+        //支付成功回调
+        orderCallBackService.doHandle(orderId, Constant.PayType.ACCOUNT.getValue());
 
 
         return R.ok();
@@ -82,25 +83,26 @@ public class AccountInfoServiceImpl implements AccountInfoService {
 
     @Override
     public void settlement(Long merchantId, double money, String orderId) {
+        if (merchantId == null) return;
 
         Map<String, Long> userMap = getAllDealerAccount(merchantId);
 
         SettlementRuleEntity rule = settlementRuleService.queryObject(new Long("0"));
-        double city = rule.getCityDealer() == null ? rule.getCityDealer().doubleValue() / 100 : 0;
-        double province = rule.getProvinceDealer() == null ? rule.getProvinceDealer().doubleValue() / 100 : 0;
-        double merchant = rule.getMerchant() == null ? rule.getMerchant().doubleValue() / 100 : 0;
+        double city = rule.getCityDealer() != null ? rule.getCityDealer().doubleValue() / 100 : 0;
+        double province = rule.getProvinceDealer() != null ? rule.getProvinceDealer().doubleValue() / 100 : 0;
+        double merchant = rule.getMerchant() != null ? rule.getMerchant().doubleValue() / 100 : 0;
         //商户账户
         changeAccount(userMap.get(MERCHANT), Constant.AccountAdjustType.DEALER_SETTLEMENT.getValue(),
-                money * merchant,
+                -money * merchant,
                 orderId);
 
         //市级分销商
         changeAccount(userMap.get(CITY_DEALER), Constant.AccountAdjustType.DEALER_SETTLEMENT.getValue(),
-                money * city,
+                -money * city,
                 orderId);
         //省级分销商
         changeAccount(userMap.get(PROVINCE_DEALER), Constant.AccountAdjustType.DEALER_SETTLEMENT.getValue(),
-                money * province,
+                -money * province,
                 orderId);
     }
 

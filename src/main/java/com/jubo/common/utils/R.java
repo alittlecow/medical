@@ -15,8 +15,6 @@ import java.util.Map;
 public class R extends HashMap<String, Object> {
     private static final long serialVersionUID = 1L;
 
-    //状态码 token过期
-    public static final int TOKEN_EXPIRE = 203;
 
     public R() {
         put("code", 0);

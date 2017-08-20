@@ -4,11 +4,24 @@ $(function () {
         datatype: "json",
         colModel: [
             {label: 'id', name: 'id', index: 'id', width: 50, key: true, hidden: true},
-            {label: '用户id', name: 'userId', index: 'user_id', width: 80},
+            {label: '商户ID', name: 'merchantId', index: 'user_id', width: 80},
             {label: 'ID卡号', name: 'code', index: 'code', width: 80},
+            {label: '持卡人姓名', name: 'cardHoldName', index: 'cardHoldName', width: 80},
+            {label: '持卡人电话', name: 'cardHoldPhone', index: 'cardHoldPhone', width: 80},
             {label: '剩余使用次数', name: 'count', index: 'count', width: 80},
             {
-                label: '是否被绑定', name: 'isBind', index: 'is_bind', width: 80,
+                label: '是否激活', name: 'isActive', index: 'is_active', width: 80,
+                formatter: function (value, options, row) {
+                    if (value === 1) {
+                        return '<span">是</span>';
+                    }
+                    if (value === 0) {
+                        return '<span">否</span>';
+                    }
+                }
+            },
+            {
+                label: '是否绑定', name: 'isBind', index: 'is_bind', width: 80,
                 formatter: function (value, options, row) {
                     if (value === 1) {
                         return '<span">是</span>';
@@ -19,7 +32,7 @@ $(function () {
                 }
             },
             {label: '创建时间', name: 'createTime', index: 'create_time', width: 80},
-            {label: '上次使用时间', name: 'lastUseTime', index: 'last_use_time', width: 80}
+            {label: '上次使用时间', name: 'lastUseTime', index: ' ', width: 80}
         ],
         viewrecords: true,
         height: 385,
@@ -52,13 +65,58 @@ var vm = new Vue({
     el: '#rrapp',
     data: {
         q: {
-            userId: null
+            code: null
         },
         showList: true,
         title: null,
-        card: {}
+        card: {},
+        merchantList: [],
+        merchantName: "",
+        layerIndex: null
     },
     methods: {
+        selectMerchant: function () {
+            layer.open({
+                type: 1,
+                skin: 'layui-layer-demo',
+                title: "绑定设备",
+                area: ['400px', '450px'],
+                shadeClose: false,
+                content: jQuery("#selectPage"),
+                btn: ['取消'],
+                success: function (layero, index) {
+                    vm.layerIndex = index;
+                },
+                btn1: function (index) {
+                    layer.close(index);
+                }
+            });
+        },
+        searchMerchant: function () {
+            var url = "sys/dept/getMerchantList";
+            var data = {"merchantName": vm.merchantName}
+            $.ajax({
+                type: "POST",
+                url: baseURL + url,
+                contentType: "application/json",
+                data: JSON.stringify(data),
+                success: function (r) {
+                    if (r.code === 0) {
+                        vm.merchantList = r.data;
+                    } else {
+                        alert(r.msg);
+                    }
+                }
+            })
+        },
+        select: function (merchant) {
+            vm.card.merchantId = merchant.deptId;
+            vm.card.merchantName = merchant.name;
+            //不能正常显示....
+            $("#merchantName").val(merchant.name);
+            layer.close(vm.layerIndex);
+
+        },
         query: function () {
             vm.reload();
         },
@@ -129,7 +187,7 @@ var vm = new Vue({
             var page = $("#jqGrid").jqGrid('getGridParam', 'page');
             $("#jqGrid").jqGrid('setGridParam', {
                 postData: {
-                    'userId': vm.q.userId
+                    'code': vm.q.code
                 },
                 page: page
             }).trigger("reloadGrid");

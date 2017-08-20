@@ -3,16 +3,7 @@
 
 <mapper namespace="com.jubo.modules.sys.dao.CardHistoryDao">
 
-    <!-- 可根据自己的需求，是否要使用 -->
-    <resultMap type="com.jubo.modules.sys.entity.CardHistoryEntity" id="cardHistoryMap">
-        <result property="id" column="id"/>
-        <result property="code" column="code"/>
-        <result property="count" column="count"/>
-        <result property="adjustCount" column="adjust_count"/>
-        <result property="type" column="type"/>
-        <result property="payType" column="pay_type"/>
-        <result property="createTime" column="create_time"/>
-    </resultMap>
+
 
     <select id="queryObject" resultType="com.jubo.modules.sys.entity.CardHistoryEntity">
 		select * from card_history where id = #{value}
@@ -27,17 +18,17 @@
         select * from card_history
         <where>
             <if test="code != null">
-                code = #{code}
+              AND  code = #{code}
+            </if>
+
+            <if test="startTime != null">
+             AND   create_time <![CDATA[ >= ]]> #{startTime}
+            </if>
+            <if test="endTime != null">
+             AND   create_time <![CDATA[ < ]]> #{endTime}
             </if>
         </where>
-        <choose>
-            <when test="sidx != null and sidx.trim() != ''">
-                order by ${sidx} ${order}
-            </when>
-            <otherwise>
-                order by id desc
-            </otherwise>
-        </choose>
+
         <if test="offset != null and limit != null">
             limit #{offset}, #{limit}
         </if>
@@ -47,7 +38,14 @@
         select count(*) from card_history
         <where>
             <if test="code != null">
-                code = #{code}
+             AND   code = #{code}
+            </if>
+
+            <if test="startTime != null">
+             AND   create_time <![CDATA[ >= ]]> #{startTime}
+            </if>
+            <if test="endTime != null">
+              AND  create_time <![CDATA[ < ]]> #{endTime}
             </if>
         </where>
     </select>

@@ -3,20 +3,6 @@
 
 <mapper namespace="com.jubo.modules.sys.dao.OrderDao">
 
-    <!-- 可根据自己的需求，是否要使用 -->
-    <resultMap type="com.jubo.modules.sys.entity.OrderEntity" id="orderMap">
-        <result property="id" column="id"/>
-        <result property="userId" column="user_id"/>
-        <result property="createTime" column="create_time"/>
-        <result property="payTime" column="pay_time"/>
-        <result property="payType" column="pay_type"/>
-        <result property="goodsId" column="goods_id"/>
-        <result property="orderMoney" column="order_money"/>
-        <result property="payStatus" column="pay_status"/>
-        <result property="orderType" column="order_type"/>
-        <result property="deviceId" column="device_id"/>
-        <result property="cardCode" column="card_code"/>
-    </resultMap>
 
     <select id="queryObject" resultType="com.jubo.modules.sys.entity.OrderEntity">
 		select * from `order` where id = #{value}

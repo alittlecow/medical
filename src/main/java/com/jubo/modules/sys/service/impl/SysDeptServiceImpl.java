@@ -10,6 +10,7 @@ import com.jubo.modules.sys.entity.SysUserEntity;
 import com.jubo.modules.sys.service.SysDeptService;
 import com.jubo.modules.sys.service.SysUserService;
 import org.apache.commons.beanutils.BeanUtils;
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -103,7 +104,7 @@ public class SysDeptServiceImpl implements SysDeptService {
         //保存部门信息
         SysDeptEntity deptEntity = new SysDeptEntity();
 
-        BeanUtils.copyProperties(deptEntity,deptVo);
+        BeanUtils.copyProperties(deptEntity, deptVo);
         deptEntity.setLevel(parentLevel + 1);
         deptEntity.setUserId(userId);
         //用户和角色信息写入表中
@@ -144,6 +145,26 @@ public class SysDeptServiceImpl implements SysDeptService {
         return deptFilter;
     }
 
+    @Override
+    public List<Long> getAllMerchantByUserId(Long userId) {
+
+        List<Long> merchantList = new ArrayList<>();
+
+        SysDeptEntity deptEntity = sysDeptDao.queryObjectByUserId(userId);
+        //获取子部门ID
+        List<Long> subIdList = queryDetpIdList(deptEntity.getDeptId());
+        if (CollectionUtils.isNotEmpty(subIdList)) {
+
+            getSubMerchantList(subIdList, merchantList);
+        } else {
+            merchantList.add(deptEntity.getDeptId());
+        }
+
+
+        return merchantList;
+    }
+
+
     /**
      * 递归
      */
@@ -155,6 +176,24 @@ public class SysDeptServiceImpl implements SysDeptService {
             }
 
             deptIdList.add(deptId);
+        }
+    }
+
+
+    /**
+     * 递归
+     */
+    public void getSubMerchantList(List<Long> subIdList, List<Long> merchantList) {
+
+        for (Long deptId : subIdList) {
+            List<Long> list = queryDetpIdList(deptId);
+            if (list.size() > 0) {
+                getDeptTreeList(list, merchantList);
+            } else {
+
+                //目前商户为最后一层
+                merchantList.add(deptId);
+            }
         }
     }
 }

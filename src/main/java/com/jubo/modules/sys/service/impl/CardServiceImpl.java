@@ -26,35 +26,39 @@ public class CardServiceImpl implements CardService {
     private CardHistoryService cardHistoryService;
 
     @Override
-    public void bind(String code, Long userId) {
+    public void bind(Map map) {
 
-        CardEntity card = new CardEntity();
-        card.setId(UUIDUtil.getUUId());
-        card.setIsBind(Constant.CardBindStatus.TRUE.getValue());
-        card.setCode(code);
-        card.setUserId(userId);
-        card.setCount(0);
-        card.setCreateTime(new Date());
-        cardDao.save(card);
+        map.put("isBind", Constant.CommonStatus.TRUE.getValue());
+
+        cardDao.updateCardByCode(map);
+    }
+
+    @Override
+    public void active(Map map) {
+
+        map.put("isActive", Constant.CommonStatus.TRUE.getValue());
+
+        cardDao.updateCardByCode(map);
     }
 
     /**
      * 使用卡 times 次
+     *
      * @param code
      * @param times
      */
     @Override
-    public void useCard(String code, int times) {
+    public void changeCardTimes(String code, int times) {
         CardEntity card = cardDao.queryObjectByCode(code);
         Assert.isNull(card, "ID卡不存在");
 
-        int leftCount = card.getCount();
-        if (leftCount <= 0) {
+        int leftCount = card.getCount() - times;
+        if (leftCount < 0) {
             throw new RRException("消费次数不足");
         }
 
         //消费次数减一
-        card.setCount(leftCount - times);
+        card.setCount(leftCount);
         cardDao.update(card);
 
         CardHistoryEntity cardHistory = new CardHistoryEntity();
@@ -93,13 +97,17 @@ public class CardServiceImpl implements CardService {
         return cardDao.queryTotal(map);
     }
 
+    //ID卡入库
     @Override
     public void save(CardEntity card) {
         String id = UUIDUtil.getUUId();
         Date nowTime = new Date();
         card.setLastUseTime(nowTime);
         card.setCreateTime(nowTime);
+        card.setIsBind(Constant.CommonStatus.FALSE.getValue());
+        card.setIsActive(Constant.CommonStatus.FALSE.getValue());
         card.setId(id);
+        card.setCount(0);
         cardDao.save(card);
     }
 

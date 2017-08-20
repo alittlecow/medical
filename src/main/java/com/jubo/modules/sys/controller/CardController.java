@@ -68,6 +68,7 @@ public class CardController {
 	@RequestMapping("/save")
 	@RequiresPermissions("card:save")
 	public R save(@RequestBody CardEntity card){
+
 		cardService.save(card);
 		
 		return R.ok();

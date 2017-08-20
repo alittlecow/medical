@@ -23,7 +23,6 @@ public interface OrderService {
     String buildConsumeOrder(Long userId, String deviceId);
 
     /**
-     *
      * @param userId
      * @param cardCode
      * @return
@@ -31,10 +30,9 @@ public interface OrderService {
     String buildCardRechargeOrder(Long userId, String cardCode, Long goodsId);
 
     /**
-     * 刷卡消费订单
-     *
+     * 刷卡消费订单（分成修改为充值100%分成，现在不在订单表中生成订单）
      */
-    R buildCardOrder(Map<String,String> params);
+    R buildCardOrder(Map<String, String> params);
 
     OrderEntity queryObject(String id);
 

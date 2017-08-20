@@ -18,6 +18,7 @@ import java.util.Map;
  */
 public interface SysDeptService {
 
+
 	List<SysDeptEntity> getMerchantList(Map<String, String> map);
 
 
@@ -41,5 +42,8 @@ public interface SysDeptService {
 	 * 获取子部门ID(包含本部门ID)，用于数据过滤
 	 */
 	String getSubDeptIdList(Long deptId);
+
+	//根据用户id查询所有商户
+	List<Long> getAllMerchantByUserId(Long userId);
 
 }

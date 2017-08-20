@@ -3,18 +3,6 @@
 
 <mapper namespace="com.jubo.modules.sys.dao.DeviceDao">
 
-    <!-- 可根据自己的需求，是否要使用 -->
-    <resultMap type="com.jubo.modules.sys.entity.DeviceEntity" id="deviceMap">
-        <result property="id" column="id"/>
-        <result property="code" column="code"/>
-        <result property="useStatus" column="use_status"/>
-        <result property="merchant_id" column="merchantID"/>
-        <result property="operate_time" column="operateTime"/>
-        <result property="bind_status" column="bindStatus"/>
-        <result property="isBreakdown" column="is_breakdown"/>
-        <result property="totalMoney" column="total_money"/>
-        <result property="totalTime" column="total_time"/>
-    </resultMap>
 
     <select id="queryObject" resultType="com.jubo.modules.sys.entity.DeviceEntity">
 		 select a.*,b.name AS  merchantName

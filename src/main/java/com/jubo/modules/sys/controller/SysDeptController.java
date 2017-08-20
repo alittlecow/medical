@@ -103,7 +103,7 @@ public class SysDeptController extends AbstractController {
         if (getUserId() == Constant.SUPER_ADMIN) {
             SysDeptEntity root = new SysDeptEntity();
             root.setDeptId(0L);
-            root.setName("一级部门");
+            root.setName("钜栢健康");
             root.setParentId(-1L);
             root.setOpen(true);
             deptList.add(root);

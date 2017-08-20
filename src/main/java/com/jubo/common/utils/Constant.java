@@ -127,8 +127,12 @@ public class Constant {
 
     //角色类型
     public enum Role {
-        ROLE_ADMIN(new Long(1)), ROLE_ORDINARY_USER(new Long(2)),
-        ROLE_DEALER(new Long(3)), ROLE_SHOP_KEEPER(new Long(4)), ROLE_IDCARD_USER(new Long(5));
+
+        ROLE_ADMIN(new Long("0")),
+        ROLE_PROVINCE_DEALER(new Long("1")),
+        ROLE_CITY_DEALER(new Long("2")),
+        ROLE_MERCHANT(new Long("3")),
+        ROLE_APP_USER(new Long("6"));
         private Long value;
 
         private Role(Long value) {
@@ -234,7 +238,7 @@ public class Constant {
         //ID卡充值
         ID_RECHARGE(new Byte("0")),
         //APP消费
-        USER_DEVICE_ONLINE(new Byte("1")),
+        USE_DEVICE_ONLINE(new Byte("1")),
         //ID卡消费
         USER_DEVICE_BY_CARD(new Byte("2"));
 
@@ -250,7 +254,7 @@ public class Constant {
     }
 
 
-    public enum CardBindStatus {
+    public enum CommonStatus {
         //1 已经绑定
         TRUE(new Byte("1")),
         //0  没有绑定
@@ -258,7 +262,7 @@ public class Constant {
 
         private Byte value;
 
-        private CardBindStatus(Byte value) {
+        private CommonStatus(Byte value) {
             this.value = value;
         }
 

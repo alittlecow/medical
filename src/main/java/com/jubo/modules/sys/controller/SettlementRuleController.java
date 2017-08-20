@@ -55,7 +55,7 @@ public class SettlementRuleController {
 	 */
 	@RequestMapping("/info/{id}")
 	@RequiresPermissions("settlementrule:info")
-	public R info(@PathVariable("id") String id){
+	public R info(@PathVariable("id") Long id){
 		SettlementRuleEntity settlementRule = settlementRuleService.queryObject(id);
 		
 		return R.ok().put("settlementRule", settlementRule);

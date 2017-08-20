@@ -58,7 +58,6 @@
 			`id`, 
 			`user_id`, 
 			`balance`, 
-			`proportion`,
 			`allow_encashment`,
 			`create_time`,
 			`update_time`
@@ -68,7 +67,6 @@
 			#{id}, 
 			#{userId}, 
 			#{balance}, 
-			#{proportion},
 			#{allowEncashment},
 			#{createTime},
 			#{updateTime}

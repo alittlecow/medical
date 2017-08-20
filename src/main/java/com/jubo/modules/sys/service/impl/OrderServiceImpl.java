@@ -57,7 +57,7 @@ public class OrderServiceImpl implements OrderService {
         order.setId(id);
         order.setUserId(userId);
         order.setDeviceId(deviceId);
-        order.setOrderType(Constant.OrderType.USER_DEVICE_ONLINE.getValue());
+        order.setOrderType(Constant.OrderType.USE_DEVICE_ONLINE.getValue());
         order.setCreateTime(new Date());
         order.setGoodsId(goodsId);
         order.setOrderMoney(orderMoney);
@@ -82,29 +82,26 @@ public class OrderServiceImpl implements OrderService {
             return R.error("ID卡号不能为空");
         }
         //使用次数1
-        cardService.useCard(code, 1);
+        cardService.changeCardTimes(code, 1);
 
-        GoodsEntity goods = goodsService.queryObject(new Long("0"));
-        BigDecimal orderMoney = goods.getMoney();
+//        OrderEntity order = new OrderEntity();
 
-        OrderEntity order = new OrderEntity();
+//        //消费订单号
+//        String id = createOrderId();
+//        order.setId(id);
+//        order.setDeviceId(deviceId);
+//        order.setOrderType(Constant.OrderType.USER_DEVICE_BY_CARD.getValue());
+//        order.setCardCode(code);
+//        //ID卡充值的全部分成
+//        order.setOrderMoney(new BigDecimal("0"));
+//        order.setPayStatus(Constant.PayStatus.SUCCESS.getValue());
+//        order.setPayType(Constant.PayType.CARD.getValue());
+//        order.setCreateTime(new Date());
+//        order.setPayTime(new Date());
+//
+//        //保存为支付成功订单
+//        save(order);
 
-        //消费订单号
-        String id = createOrderId();
-        order.setId(id);
-        order.setDeviceId(deviceId);
-        order.setOrderType(Constant.OrderType.USER_DEVICE_BY_CARD.getValue());
-        order.setCardCode(code);
-        order.setOrderMoney(orderMoney);
-        order.setPayStatus(Constant.PayStatus.SUCCESS.getValue());
-        order.setPayType(Constant.PayType.CARD.getValue());
-        order.setCreateTime(new Date());
-        order.setPayTime(new Date());
-
-        //保存为支付成功订单
-        save(order);
-
-        // TODO: 2017/8/15 分成
         return R.ok();
     }
 

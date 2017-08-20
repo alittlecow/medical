@@ -14,8 +14,6 @@ public class CardHistoryEntity implements Serializable {
 
     //id
     private String id;
-    //持卡人id
-    private Long userId;
     //卡号
     private String code;
     //剩余次数
@@ -60,14 +58,6 @@ public class CardHistoryEntity implements Serializable {
         return id;
     }
 
-
-    public Long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
 
     /**
      * 设置：卡号

@@ -3,16 +3,6 @@
 
 <mapper namespace="com.jubo.modules.sys.dao.CardDao">
 
-    <!-- 可根据自己的需求，是否要使用 -->
-    <resultMap type="com.jubo.modules.sys.entity.CardEntity" id="cardMap">
-        <result property="id" column="id"/>
-        <result property="isBind" column="is_bind"/>
-        <result property="userId" column="user_id"/>
-        <result property="code" column="code"/>
-        <result property="count" column="count"/>
-        <result property="createTime" column="create_time"/>
-        <result property="lastUseTime" column="last_use_time"/>
-    </resultMap>
 
     <select id="queryObject" resultType="com.jubo.modules.sys.entity.CardEntity">
 		select * from card where id = #{value}
@@ -26,25 +16,37 @@
         select * from card where user_id = #{value}
     </select>
 
+    <update id="updateCardByCode" parameterType="java.util.Map">
+        update card
+        <set>
+            <if test="cardHoldPhone != null">`card_hold_phone` = #{cardHoldPhone},</if>
+            <if test="cardHoldName != null">`card_hold_name` = #{cardHoldName},</if>
+            <if test="isActive != null">`is_active` = #{isActive},</if>
+            <if test="isBind != null">`is_bind` = #{isBind},</if>
+            <if test="userId != null">`user_id` = #{userId},</if>
+        </set>
+        where code = #{code}
+    </update>
 
     <select id="queryList" resultType="com.jubo.modules.sys.entity.CardEntity">
         select * from card
         <where>
-            <if test="userId != null and userId != '' ">
-                AND user_id = #{userId}
+            <if test="code != null and code != '' ">
+                AND code = #{code}
             </if>
             <if test="isBind != null">
                 AND is_bind = #{isBind}
             </if>
+            <if test="userId != null">
+                AND user_id = #{userId}
+            </if>
+            <if test="merchantList != null">
+                AND merchant_id IN
+                <foreach collection="merchantList" item="item" separator="," open="(" close=")">
+                    #{item}
+                </foreach>
+            </if>
         </where>
-        <choose>
-            <when test="sidx != null and sidx.trim() != ''">
-                order by ${sidx} ${order}
-            </when>
-            <otherwise>
-                order by id desc
-            </otherwise>
-        </choose>
         <if test="offset != null and limit != null">
             limit #{offset}, #{limit}
         </if>
@@ -53,11 +55,20 @@
     <select id="queryTotal" resultType="int">
         select count(*) from card
         <where>
-            <if test="userId != null and userId != '' ">
-                AND user_id = #{userId}
+            <if test="code != null and code != '' ">
+                AND code = #{code}
             </if>
             <if test="isBind != null">
                 AND is_bind = #{isBind}
+            </if>
+            <if test="userId != null">
+                AND user_id = #{userId}
+            </if>
+            <if test="merchantList != null">
+                AND merchant_id IN
+                <foreach collection="merchantList" item="item" separator="," open="(" close=")">
+                    #{item}
+                </foreach>
             </if>
         </where>
     </select>
@@ -66,20 +77,20 @@
 		insert into card
 		(
 			`id`, 
-			`user_id`, 
 			`is_bind`,
 			`code`,
-			`count`, 
+			`merchant_id`,
+			`count`,
 			`create_time`, 
 			`last_use_time`
 		)
 		values
 		(
 			#{id}, 
-			#{userId}, 
 			#{isBind},
 			#{code},
-			#{count}, 
+			#{merchantId},
+			#{count},
 			#{createTime}, 
 			#{lastUseTime}
 		)
@@ -89,7 +100,8 @@
         update card
         <set>
             <if test="userId != null">`user_id` = #{userId},</if>
-            <if test="userId != null">`is_bind` = #{isBind},</if>
+            <if test="isBind != null">`is_bind` = #{isBind},</if>
+            <if test="isActive != null">`is_active` = #{isActive},</if>
             <if test="code != null">`code` = #{code},</if>
             <if test="count != null">`count` = #{count},</if>
             <if test="lastUseTime != null">`last_use_time` = #{lastUseTime}</if>

@@ -4,6 +4,8 @@ import com.jubo.modules.sys.entity.CardEntity;
 ;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.Map;
+
 /**
  * @author chenshun
  * @email sunlightcs@gmail.com
@@ -19,4 +21,6 @@ public interface CardDao extends BaseDao<CardEntity> {
     CardEntity queryObjectByCode(String code);
 
     CardEntity queryObjectByUserId(Long code);
+
+    int updateCardByCode(Map map);
 }

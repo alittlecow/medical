@@ -10,9 +10,12 @@ import com.jubo.modules.sys.entity.SysDeptEntity;
 import com.jubo.modules.sys.entity.SysUserEntity;
 import com.jubo.modules.sys.service.DeviceService;
 import com.jubo.modules.sys.service.SysDeptService;
+import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,7 +26,7 @@ import java.util.Map;
  * @date 2017-07-21 22:46:51
  */
 @RestController
-@RequestMapping("/app/device")
+@RequestMapping("/api/app/device")
 public class AppDeviceController {
     @Autowired
     private SysDeptService sysDeptService;
@@ -37,20 +40,18 @@ public class AppDeviceController {
     @RequestMapping("/list")
     public R list(@LoginUser SysUserEntity user, @RequestParam Map<String, Object> params) {
 
-        Map<String, Object> map = new HashMap<>();
-        //如果不是超级管理员，则只能查询本部门及子部门数据
-        if (user.getUserId() != Constant.SUPER_ADMIN) {
-            map.put("deptFilter", sysDeptService.getSubDeptIdList(user.getDeptId()));
-        }
-        List<SysDeptEntity> deptList = sysDeptService.queryList(map);
+        List<Long> merchantIdList = sysDeptService.getAllMerchantByUserId(user.getUserId());
 
-        params.put("merchantList", deptList);
-
-        //查询列表数据
+        List<DeviceEntity> deviceList = new ArrayList<>();
+        int total = 0;
         Query query = new Query(params);
 
-        List<DeviceEntity> deviceList = deviceService.queryList(query);
-        int total = deviceService.queryTotal(query);
+        if (CollectionUtils.isNotEmpty(merchantIdList)) {
+            params.put("merchantList", merchantIdList);
+            //查询列表数据
+            deviceList = deviceService.queryList(query);
+            total = deviceService.queryTotal(query);
+        }
 
         PageUtils pageUtil = new PageUtils(deviceList, total, query.getLimit(), query.getPage());
 
@@ -73,6 +74,7 @@ public class AppDeviceController {
      */
     @RequestMapping("/update")
     public R update(@RequestBody DeviceEntity device) {
+
         deviceService.update(device);
 
         return R.ok();
@@ -89,11 +91,12 @@ public class AppDeviceController {
 
     /**
      * 设备
+     *
      * @param device
      * @return
      */
     @RequestMapping("/history")
-    public R history (@RequestBody DeviceEntity device) {
+    public R history(@RequestBody DeviceEntity device) {
         deviceService.update(device);
 
         return R.ok();

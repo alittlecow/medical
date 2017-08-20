@@ -60,7 +60,7 @@ public class AuthorizationInterceptor extends HandlerInterceptorAdapter {
         SysUserTokenEntity tokenEntity = tokenService.queryByToken(token);
         if (tokenEntity == null || tokenEntity.getExpireTime().getTime() < System.currentTimeMillis()) {
 
-            throw new RRException("token失效，请重新登录", R.TOKEN_EXPIRE);
+            throw new RRException("token失效，请重新登录", HttpStatus.SC_UNAUTHORIZED);
         }
 
         //设置userId到request里，后续根据userId，获取用户信息

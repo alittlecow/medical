@@ -3,7 +3,7 @@ $(function () {
         url: baseURL + 'device/list',
         datatype: "json",
         colModel: [
-            {label: 'id', name: 'id', index: 'id', width: 50, key: true},
+            {label: 'id', name: 'id', index: 'id', width: 50, key: true, hidden: true},
             {label: '设备编码', name: 'code', index: 'code', width: 80},
             {label: 'SIM卡号', name: 'sim', index: 'sim', width: 80},
             {label: '所属商户', name: 'merchantName', index: 'merchant_name', width: 100},
@@ -59,7 +59,7 @@ $(function () {
             root: "page.list",
             page: "page.pageNo",
             total: "page.pages",
-            records: "page.totalRecordNum"
+            records: "page.totalCount"
         },
         prmNames: {
             page: "page",

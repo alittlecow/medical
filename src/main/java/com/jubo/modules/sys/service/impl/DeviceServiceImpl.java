@@ -69,32 +69,37 @@ public class DeviceServiceImpl implements DeviceService {
 
     /**
      * 使用设备接口
-     * @param device
+     *
+     * @param deviceId
      */
     @Override
-    public void useDevice(DeviceEntity device) {
-        String code = device.getCode();
+    public void useDevice(String deviceId) {
 
-        //发布使用设备请求
-        String publicTopic = "start";
-        Map<String, String> message = new HashMap<String, String>();
-        message.put("code", "20170001");
-        Mqttutils mqttutils = (Mqttutils) SpringContextUtils.getBean("Mqttutils");
-        mqttutils.publish(publicTopic, message);
 
-        //订阅设备采集数据主题
-        try {
-            Mqttutils.client.subscribe(code + "/subsd", 2);
-        } catch (MqttException e) {
-            e.printStackTrace();
-        }
-
-        //订阅设备停止使用主题
-        try {
-            Mqttutils.client.subscribe(code + "/stop", 2);
-        } catch (MqttException e) {
-            e.printStackTrace();
-        }
+//        DeviceEntity deviceEntity = deviceDao.queryObject(deviceId);
+//
+//        String code = deviceEntity.getCode();
+//
+//        //发布使用设备请求
+//        String publicTopic = "start";
+//        Map<String, String> message = new HashMap<String, String>();
+//        message.put("code", "20170001");
+//        Mqttutils mqttutils = (Mqttutils) SpringContextUtils.getBean("Mqttutils");
+//        mqttutils.publish(publicTopic, message);
+//
+//        //订阅设备采集数据主题
+//        try {
+//            Mqttutils.client.subscribe(code + "/subsd", 2);
+//        } catch (MqttException e) {
+//            e.printStackTrace();
+//        }
+//
+//        //订阅设备停止使用主题
+//        try {
+//            Mqttutils.client.subscribe(code + "/stop", 2);
+//        } catch (MqttException e) {
+//            e.printStackTrace();
+//        }
     }
 
 }

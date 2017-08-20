@@ -7,10 +7,8 @@ import com.jubo.common.utils.SMSUtils;
 import com.jubo.common.validator.Assert;
 import com.jubo.modules.api.annotation.AuthIgnore;
 import com.jubo.modules.api.annotation.LoginUser;
-import com.jubo.modules.sys.entity.SysUserEntity;
-import com.jubo.modules.sys.entity.SysUserTokenEntity;
-import com.jubo.modules.sys.service.SysUserService;
-import com.jubo.modules.sys.service.SysUserTokenService;
+import com.jubo.modules.sys.entity.*;
+import com.jubo.modules.sys.service.*;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -22,7 +20,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.text.ParseException;
+import java.util.Collections;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -38,6 +38,15 @@ public class AppUserController {
     private SysUserService sysUserService;
     @Autowired
     private SysUserTokenService sysUserTokenService;
+
+    @Autowired
+    private SysUserRoleService sysUserRoleService;
+
+    @Autowired
+    private AccountInfoService accountInfoService;
+
+    @Autowired
+    private CardService cardService;
 
     /**
      * 注册
@@ -90,7 +99,19 @@ public class AppUserController {
 
         //生成token，并保存到数据库
         R r = sysUserTokenService.createToken(user.getUserId());
-        return r;
+
+        List<Long> roleList = sysUserRoleService.queryRoleIdList(user.getUserId());
+
+        Collections.sort(roleList);
+
+        //账户余额，ID卡数量
+        AccountInfoEntity account = accountInfoService.queryObjectByUserId(user.getUserId());
+        r.put("balance", account.getBalance());
+
+        CardEntity card = cardService.queryObjectByUserId(user.getUserId());
+        r.put("cardNum", card == null ? 0 : 1);
+
+        return r.put("role", roleList.get(0));
     }
 
     /**
