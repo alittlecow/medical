@@ -7,7 +7,13 @@ package com.jubo.modules.sys.service;
  */
 public interface OrderCallBackService {
 
-    //处理订单
-    void doHandle(String order, Byte payType);
+    //分成订单处理 : id卡充值  扫码支付
+    void handleSettlementOrder(String orderId, Byte payType);
+
+
+    //账户充值订单
+
+    void handleRechargeOrder(String orderId, Byte payType);
+
 
 }

@@ -23,7 +23,7 @@ public class RechargeOrderEntity implements Serializable {
     //订单支付完成时间
     private Date payTime;
     //支付类型（0支付宝 1微信 2银联 3个人账户）
-    private Integer payType;
+    private Byte payType;
     //一次交易的商品id
     private Long goodsId;
     //订单金额
@@ -102,20 +102,13 @@ public class RechargeOrderEntity implements Serializable {
         return payTime;
     }
 
-    /**
-     * 设置：支付类型（0支付宝 1微信 2银联 3个人账户）
-     */
-    public void setPayType(Integer payType) {
-        this.payType = payType;
-    }
-
-    /**
-     * 获取：支付类型（0支付宝 1微信 2银联 3个人账户）
-     */
-    public Integer getPayType() {
+    public Byte getPayType() {
         return payType;
     }
 
+    public void setPayType(Byte payType) {
+        this.payType = payType;
+    }
 
     /**
      * 设置：订单金额

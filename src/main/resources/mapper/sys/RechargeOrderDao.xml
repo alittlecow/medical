@@ -114,9 +114,9 @@
 	</insert>
 
     <update id="update" parameterType="com.jubo.modules.sys.entity.RechargeOrderEntity">
-        update `order`
+        update `recharge_order`
         <set>
-            <if test="userId != null userId !=''">`user_id` = #{userId},</if>
+            <if test="userId != null and userId != ''">`user_id` = #{userId},</if>
             <if test="payTime != null">`pay_time` = #{payTime},</if>
             <if test="payType != null">`pay_type` = #{payType},</if>
             <if test="orderMoney != null">`order_money` = #{orderMoney},</if>

@@ -75,7 +75,7 @@ public class AccountInfoServiceImpl implements AccountInfoService {
         changeAccount(order.getUserId(), adjustType, order.getOrderMoney().doubleValue(), orderId);
 
         //支付成功回调
-        orderCallBackService.doHandle(orderId, Constant.PayType.ACCOUNT.getValue());
+        orderCallBackService.handleSettlementOrder(orderId, Constant.PayType.ACCOUNT.getValue());
 
 
         return R.ok();

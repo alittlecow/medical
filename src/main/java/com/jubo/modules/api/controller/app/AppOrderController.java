@@ -42,6 +42,9 @@ public class AppOrderController {
     @Autowired
     private AccountInfoService accountInfoService;
 
+    @Autowired
+    private OrderCallBackService orderCallBackService;
+
 
     /**
      * 门店消费订单接口
@@ -78,7 +81,7 @@ public class AppOrderController {
         Assert.isBlank(code, "充值卡号不能为空");
 
         Long goodsId = MapUtils.getLong(params, "goodsId");
-        Assert.isNull(goodsId,"商品号不能为空");
+        Assert.isNull(goodsId, "商品号不能为空");
 
         String orderId = orderService.buildCardRechargeOrder(user.getUserId(), code, goodsId);
 
@@ -97,7 +100,7 @@ public class AppOrderController {
     public R accountRecharge(@LoginUser SysUserEntity user, @RequestBody Map<String, Object> params) {
         //账户充值
         Long goodsId = MapUtils.getLong(params, "goodsId");
-        Assert.isNull(goodsId,"商品号不能为空");
+        Assert.isNull(goodsId, "商品号不能为空");
 
         String orderId = rechargeOrderService.buildIdRechargeOrder(user.getUserId(), goodsId);
 
@@ -105,5 +108,25 @@ public class AppOrderController {
         map.put("orderId", orderId);
 
         return R.ok().putData(map);
+    }
+
+    @AuthIgnore
+    @RequestMapping(value = "h1")
+    public R handleRechargeOrder(@LoginUser SysUserEntity user, @RequestBody Map<String, Object> params) {
+        String orderId = MapUtils.getString(params, "orderId");
+        Byte payType = MapUtils.getByte(params, "payType");
+
+        orderCallBackService.handleRechargeOrder(orderId, payType);
+        return R.ok();
+    }
+
+    @AuthIgnore
+    @RequestMapping(value = "h2")
+    public R handleSettlementOrder(@LoginUser SysUserEntity user, @RequestBody Map<String, Object> params) {
+        String orderId = MapUtils.getString(params, "orderId");
+        Byte payType = MapUtils.getByte(params, "payType");
+
+        orderCallBackService.handleSettlementOrder(orderId, payType);
+        return R.ok();
     }
 }

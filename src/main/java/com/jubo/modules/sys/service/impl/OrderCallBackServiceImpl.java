@@ -2,8 +2,10 @@ package com.jubo.modules.sys.service.impl;
 
 import com.jubo.common.exception.RRException;
 import com.jubo.common.utils.Constant;
+import com.jubo.modules.api.annotation.AuthIgnore;
 import com.jubo.modules.sys.entity.GoodsEntity;
 import com.jubo.modules.sys.entity.OrderEntity;
+import com.jubo.modules.sys.entity.RechargeOrderEntity;
 import com.jubo.modules.sys.service.*;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
+
+import static com.jubo.common.utils.Constant.PRE_RECHARGE_ORDER;
 
 /**
  * @author pengxiao
@@ -35,15 +39,50 @@ public class OrderCallBackServiceImpl implements OrderCallBackService {
     @Autowired
     private AccountInfoService accountInfoService;
 
+    @Autowired
+    private RechargeOrderService rechargeOrderService;
+
+
+    //充值订单
     @Override
-    public void doHandle(String orderId, Byte payType) {
+    public void handleRechargeOrder(String orderId, Byte payType) {
+        if (StringUtils.isBlank(orderId)) {
+            return;
+        }
+
+        RechargeOrderEntity order = rechargeOrderService.queryObject(orderId);
+        if (order == null || Constant.PayStatus.SUCCESS.getValue().compareTo(order.getPayStatus()) == 0) {
+            return;
+        }
+
+        GoodsEntity goods = goodsService.queryObject(order.getGoodsId());
+        if (goods == null) {
+            throw new RRException("充值套餐不存在");
+        }
+        if (Constant.GoodsType.ACCOUNT_RECHARGE_TIME.getValue().compareTo(goods.getType()) != 0) {
+            throw new RRException("充值类型错误");
+        }
+        //更改账户余额
+        accountInfoService.changeAccount(order.getUserId(), Constant.AccountAdjustType.USER_RECHARGE.getValue(),
+                -goods.getValue().doubleValue(), orderId);
+
+        //更改订单状态
+        order.setPayStatus(Constant.PayStatus.SUCCESS.getValue());
+        order.setPayTime(new Date());
+        order.setPayType(payType);
+        rechargeOrderService.update(order);
+
+    }
+
+    @Override
+    public void handleSettlementOrder(String orderId, Byte payType) {
 
         if (StringUtils.isBlank(orderId)) {
             return;
         }
 
         OrderEntity order = orderService.queryObject(orderId);
-        if (order == null) {
+        if (order == null || Constant.PayStatus.SUCCESS.getValue().compareTo(order.getPayStatus()) == 0) {
             return;
         }
 

@@ -31,9 +31,9 @@ public class Constant {
 
 
     //充值订单和消费订单前缀
-    public static final int PRE_RECHARGE_ORDER = 1;
+    public static final String PRE_RECHARGE_ORDER = "1";
 
-    public static final int PRE_CONSUMER_ORDER = 2;
+    public static final String PRE_CONSUMER_ORDER = "2";
 
 
     /**
