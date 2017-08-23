@@ -2,8 +2,11 @@ package com.jubo.modules.sys.service.impl;
 
 import com.jubo.common.mtqq.Mqttutils;
 import com.jubo.common.utils.Constant;
+import com.jubo.common.utils.R;
 import com.jubo.common.utils.SpringContextUtils;
 import com.jubo.common.utils.UUIDUtil;
+import com.jubo.modules.sys.entity.SysUserEntity;
+import com.jubo.modules.sys.service.SysUserService;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,9 +26,34 @@ public class DeviceServiceImpl implements DeviceService {
     @Autowired
     private DeviceDao deviceDao;
 
+    @Autowired
+    private SysUserService sysUserService;
+
+
+    @Override
+    public R freeUse(String code, SysUserEntity user) {
+        int freeCount = user.getFreeCount();
+        if (freeCount == 0) {
+            return R.error("免费体验次数已经用完");
+        }
+        user.setFreeCount(freeCount - 1);
+
+        sysUserService.update(user);
+
+        useDevice(code);
+
+        return R.ok();
+
+    }
+
     @Override
     public DeviceEntity queryObject(String id) {
         return deviceDao.queryObject(id);
+    }
+
+    @Override
+    public DeviceEntity queryObjectByCode(String code) {
+        return deviceDao.queryObjectByCode(code);
     }
 
     @Override
@@ -70,11 +98,13 @@ public class DeviceServiceImpl implements DeviceService {
     /**
      * 使用设备接口
      *
-     * @param deviceId
+     * @param code
      */
     @Override
-    public void useDevice(String deviceId) {
+    public void useDevice(String code) {
 
+        System.out.println("设备编码是:  " + code);
+        System.out.println("请求mqtt,开始使用设备······");
 
 //        DeviceEntity deviceEntity = deviceDao.queryObject(deviceId);
 //
@@ -101,5 +131,6 @@ public class DeviceServiceImpl implements DeviceService {
 //            e.printStackTrace();
 //        }
     }
+
 
 }

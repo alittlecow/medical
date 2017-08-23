@@ -65,6 +65,7 @@
         `mobile`,
         `status`,
         `role_id`,
+        `free_count`,
         `create_time`
         )
         values
@@ -77,6 +78,7 @@
         #{mobile},
         #{status},
         #{roleId},
+        #{freeCount},
         #{createTime}
         )
     </insert>
@@ -85,11 +87,14 @@
         update sys_user
         <set>
             <if test="username != null">`username` = #{username},</if>
-            <if test="password != null">`password` = #{password},</if>
             <if test="email != null">`email` = #{email},</if>
             <if test="mobile != null">`mobile` = #{mobile},</if>
             <if test="status != null">`status` = #{status},</if>
             <if test="roleId != null">`role_id` = #{roleId},</if>
+            <if test="isAuth != null">`is_auth` = #{isAuth},</if>
+            <if test="realName != null and realName!= '' ">`real_name` = #{realName},</if>
+            <if test="idCard != null and idCard != '' ">`id_card` = #{idCard},</if>
+            <if test="freeCount != null ">`free_count` = #{freeCount},</if>
         </set>
         where user_id = #{userId}
     </update>

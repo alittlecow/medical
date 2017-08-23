@@ -10,6 +10,13 @@
          where id = #{value}
 	</select>
 
+    <select id="queryObjectByCode" resultType="com.jubo.modules.sys.entity.DeviceEntity">
+        select a.*,b.name AS  merchantName
+        from device a LEFT JOIN sys_dept b on a.merchant_id = b.dept_id AND  b.level = 2
+        where code = #{value}
+    </select>
+
+
     <select id="queryList" resultType="com.jubo.modules.sys.entity.DeviceEntity">
         select a.*,b.name AS merchantName
         from device a LEFT JOIN sys_dept b on a.merchant_id = b.dept_id AND b.level = 2

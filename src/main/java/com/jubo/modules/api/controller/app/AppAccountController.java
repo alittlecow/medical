@@ -33,7 +33,7 @@ import java.util.Map;
  */
 @RestController
 @Api("app账户接口")
-@RequestMapping(value = "/api/app/account",method = RequestMethod.GET)
+@RequestMapping(value = "/api/app/account", method = RequestMethod.GET)
 public class AppAccountController {
 
     @Autowired
@@ -63,7 +63,7 @@ public class AppAccountController {
         }
 
         //支付订单
-        R r = accountInfoService.pay(orderId );
+        R r = accountInfoService.pay(orderId);
 
         return r;
     }

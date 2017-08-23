@@ -58,5 +58,4 @@ public interface AccountInfoService {
 
     void deleteBatch(String[] ids);
 
-    void auth(Map<String, String> params, SysUserEntity userEntity);
 }

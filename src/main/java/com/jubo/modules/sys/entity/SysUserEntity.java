@@ -88,6 +88,18 @@ public class SysUserEntity implements Serializable {
     private String idCard;
     private Byte isAuth;
 
+    //免费使用次数
+    private Integer freeCount;
+
+
+    public Integer getFreeCount() {
+        return freeCount;
+    }
+
+    public void setFreeCount(Integer freeCount) {
+        this.freeCount = freeCount;
+    }
+
     public Long getRoleId() {
         return roleId;
     }

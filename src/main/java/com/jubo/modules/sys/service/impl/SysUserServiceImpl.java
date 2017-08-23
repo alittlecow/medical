@@ -1,5 +1,8 @@
 package com.jubo.modules.sys.service.impl;
 
+import cn.beecloud.BCPay;
+import cn.beecloud.bean.BCAuth;
+import cn.beecloud.bean.BCException;
 import com.jubo.common.exception.RRException;
 import com.jubo.common.utils.UUIDUtil;
 import com.jubo.modules.sys.dao.SysUserDao;
@@ -31,6 +34,7 @@ import java.util.*;
  * @email sunlightcs@gmail.com
  * @date 2016年9月18日 上午9:46:09
  */
+@Transactional
 @Service("sysUserService")
 public class SysUserServiceImpl implements SysUserService {
     @Autowired
@@ -49,7 +53,6 @@ public class SysUserServiceImpl implements SysUserService {
     }
 
     @Override
-    @Transactional
     public void register(String mobile, String password) {
         SysUserEntity user = new SysUserEntity();
         //sha256加密
@@ -61,6 +64,8 @@ public class SysUserServiceImpl implements SysUserService {
         user.setMobile(mobile);
         user.setUsername(mobile);
         user.setStatus(Constant.ENABLE);
+        //新注册用户免费体验1次
+        user.setFreeCount(1);
         sysUserDao.save(user);
 
         //用户角色
@@ -175,6 +180,37 @@ public class SysUserServiceImpl implements SysUserService {
         map.put("userId", userId);
         map.put("password", password);
         return sysUserDao.updatePasswordByUserId(map);
+    }
+
+    @Override
+    public void auth(Map<String, String> params, SysUserEntity userEntity) {
+        if (new Byte("1").equals(userEntity.getIsAuth())) {
+            throw new RRException("用户已通过实名认证");
+        }
+        String name = params.get("realName");
+        String idNo = params.get("idCard");
+        String cardNo = params.get("cardNo");
+//        String mobile = params.get("mobile");
+        BCAuth auth = new BCAuth(name, idNo, cardNo);
+
+//        auth.setMobile(mobile);
+//        try {
+//            auth = BCPay.startBCAuth(auth);
+//            if (auth.isAuthResult()) {
+//                userEntity.setRealName(name);
+//                userEntity.setIdCard(idNo);
+//                userEntity.setIsAuth(new Byte("1"));
+//                sysUserDao.update(userEntity);
+//            } else {
+//                throw new RRException("认证信息不匹配");
+//            }
+//        } catch (BCException e) {
+//            throw new RRException("实名认证接口调用失败");
+//        }
+        userEntity.setRealName(name);
+        userEntity.setIdCard(idNo);
+        userEntity.setIsAuth(new Byte("1"));
+        sysUserDao.update(userEntity);
     }
 
 }

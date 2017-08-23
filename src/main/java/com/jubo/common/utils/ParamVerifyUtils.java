@@ -18,6 +18,24 @@ public class ParamVerifyUtils {
 
     public static final String EMAIL_REG = "^\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$";
 
+
+    private final static String IDCARD_REG = "(^[1-9]\\d{7}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}$)|(^[1-9]\\d{5}[1-9]\\d{3}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])((\\d{4})|\\d{3}[Xx])$)";
+
+
+    /**
+     * 身份证号码校验
+     *
+     * @param idCard
+     * @return
+     */
+    public static boolean isIdCard(String idCard) {
+        if (StringUtils.isBlank(idCard))
+            return false;
+        Pattern p = Pattern.compile(IDCARD_REG);
+        Matcher matcher = p.matcher(idCard);
+        return matcher.matches();
+    }
+
     /**
      * 手机号码校验
      *
@@ -71,6 +89,7 @@ public class ParamVerifyUtils {
 
     /**
      * 所有字符串均为空时返回true
+     *
      * @param str
      * @return
      */
@@ -83,7 +102,7 @@ public class ParamVerifyUtils {
         return true;
     }
 
-    public static boolean isDate(String str){
+    public static boolean isDate(String str) {
         try {
             org.apache.commons.lang.time.DateUtils.parseDate(str,
                     new String[]{"yyyy-MM-dd", "yyyy-MM-dd HH:mm:ss"});

@@ -92,14 +92,4 @@ public class AccountInfoController {
 		return R.ok();
 	}
 
-	/**
-	 * 实名认证
-	 */
-	@RequestMapping("/auth")
-	public R auth(@RequestBody  Map<String, String> params, @LoginUser SysUserEntity userEntity){
-		accountInfoService.auth(params,userEntity);
-
-		return R.ok();
-	}
-	
 }

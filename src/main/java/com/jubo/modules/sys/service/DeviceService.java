@@ -1,6 +1,8 @@
 package com.jubo.modules.sys.service;
 
+import com.jubo.common.utils.R;
 import com.jubo.modules.sys.entity.DeviceEntity;
+import com.jubo.modules.sys.entity.SysUserEntity;
 
 import java.util.List;
 import java.util.Map;
@@ -11,7 +13,11 @@ import java.util.Map;
  */
 public interface DeviceService {
 
+    R freeUse(String code, SysUserEntity user);
+
     DeviceEntity queryObject(String id);
+
+    DeviceEntity queryObjectByCode(String code);
 
     List<DeviceEntity> queryList(Map<String, Object> map);
 

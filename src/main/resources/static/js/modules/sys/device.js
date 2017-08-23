@@ -5,30 +5,7 @@ $(function () {
         colModel: [
             {label: 'id', name: 'id', index: 'id', width: 50, key: true, hidden: true},
             {label: '设备编码', name: 'code', index: 'code', width: 80},
-            {label: 'SIM卡号', name: 'sim', index: 'sim', width: 80},
             {label: '所属商户', name: 'merchantName', index: 'merchant_name', width: 100},
-            {
-                label: '设备使用状态', name: 'useStatus', index: 'use_status', width: 80,
-                formatter: function (value, options, row) {
-                    if (value === 0) {
-                        return '<span">未使用</span>';
-                    }
-                    if (value === 1) {
-                        return '<span">使用中</span>';
-                    }
-                }
-            },
-            {
-                label: '是否故障', name: 'isBreakdown', index: 'is_breakdown', width: 80,
-                formatter: function (value, options, row) {
-                    if (value === 0) {
-                        return '<span">正常</span>';
-                    }
-                    if (value === 1) {
-                        return '<span">故障</span>';
-                    }
-                }
-            },
             {
                 label: '绑定状态', name: 'bindStatus', index: 'bind_status', width: 80,
                 formatter: function (value, options, row) {
@@ -40,11 +17,38 @@ $(function () {
                     }
                     if (value === 2) {
                         return '<span">已解绑</span>';
+                    } else {
+                        return '<span>未知</span>'
+                    }
+                }
+            },
+            {
+                label: '设备使用状态', name: 'useStatus', index: 'use_status', width: 80,
+                formatter: function (value, options, row) {
+                    if (value === 0) {
+                        return '<span">未使用</span>';
+                    }
+                    if (value === 1) {
+                        return '<span">使用中</span>';
+                    } else {
+                        return '<span>未知</span>'
+                    }
+                }
+            },
+            {
+                label: '是否故障', name: 'isBreakdown', index: 'is_breakdown', width: 80,
+                formatter: function (value, options, row) {
+                    if (value === 0) {
+                        return '<span class="label label-success">正常</span>';
+                    }
+                    if (value === 1) {
+                        return '<span class="label label-danger">故障</span>';
+                    } else {
+                        return '<span class="label label-info">未知</span>'
                     }
                 }
             },
             {label: '操作时间', name: 'operateTime', index: 'operate_time', width: 80}
-            // {label: '设备使用的总时间', name: 'totalTime', index: 'total_time', width: 80}
         ],
         viewrecords: true,
         height: 385,
@@ -75,13 +79,16 @@ $(function () {
 
 var vm = new Vue({
     el: '#rrapp',
+
     data: {
         showList: true,
         title: null,
         device: {},
         merchantList: [],
         merchantName: "",
-        layerIndex: null
+        layerIndex: null,
+
+        q: {},
     },
     methods: {
         selectMerchant: function () {
@@ -89,7 +96,7 @@ var vm = new Vue({
                 type: 1,
                 skin: 'layui-layer-demo',
                 title: "绑定设备",
-                area: ['400px', '450px'],
+                area: ['600px', '450px'],
                 shadeClose: false,
                 content: jQuery("#selectPage"),
                 btn: ['取消'],
@@ -195,6 +202,7 @@ var vm = new Vue({
             vm.showList = true;
             var page = $("#jqGrid").jqGrid('getGridParam', 'page');
             $("#jqGrid").jqGrid('setGridParam', {
+                postData: {'code': vm.q.code},
                 page: page
             }).trigger("reloadGrid");
         }

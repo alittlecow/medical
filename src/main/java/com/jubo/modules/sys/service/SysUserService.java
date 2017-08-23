@@ -103,4 +103,8 @@ public interface SysUserService {
      * @return
      */
     int getBackPassword(Long userId, String password);
+
+
+    void auth(Map<String,String> params, SysUserEntity userEntity);
+
 }

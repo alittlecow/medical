@@ -3,21 +3,9 @@ $(function () {
         url: baseURL + 'accountinfo/list',
         datatype: "json",
         colModel: [
-            {label: '账户ID', name: 'id', index: 'id', width: 50, key: true},
             {label: '用户ID', name: 'userId', index: 'user_id', width: 80},
-            {label: '分成比例', name: 'proportion', index: 'proportion', width: 80},
+            {label: '账户ID', name: 'id', index: 'id', width: 100, key: true},
             {label: '账户余额', name: 'balance', index: 'balance', width: 80},
-            { label: '是否允许提现', name: 'allowEncashment', index: 'allow_encashment', width: 80,
-                formatter: function (value, options, row) {
-                    if (value == 0) {
-                        return '<span">禁止</span>';
-                    }
-                    if (value == 1) {
-                        return '<span">允许</span>';
-                    }
-                }
-            },
-
             {label: '创建时间', name: 'createTime', index: 'create_time', width: 80},
             {label: '更新时间', name: 'updateTime', index: 'update_time', width: 80}
         ],

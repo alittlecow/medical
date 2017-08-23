@@ -3,29 +3,13 @@ $(function () {
         url: baseURL + 'rechargeorder/list',
         datatype: "json",
         colModel: [
-            {label: 'id', name: 'id', index: 'id', width: 50, key: true, hidden: true},
-            {label: '用户ID', name: 'userId', index: 'user_id', width: 80},
+            {label: '订单ID', name: 'id', index: 'id', width: 100, key: true},
+            {label: '用户ID', name: 'userId', index: 'user_id', width: 40},
+            {label: '账户ID', name: 'accountId', index: 'account_id', width: 80},
 
-            {
-                label: '支付类型', name: 'payType', index: 'pay_type', width: 80,
-                formatter: function (value, options, row) {
-                    if (value === 0) {
-                        return '<span">支付宝</span>';
-                    }
-                    if (value === 1) {
-                        return '<span">微信</span>';
-                    }
-                    if (value === 2) {
-                        return '<span">银联</span>';
-                    }
-                    if (value === 3) {
-                        return '<span">个人账户</span>';
-                    } else {
-                        return '<span"></span>';
-                    }
-                }
-            },
             {label: '订单金额', name: 'orderMoney', index: 'order_money', width: 80},
+            {label: '商品ID', name: 'goodsId', index: 'goods_id', width: 80},
+
             {
                 label: '订单状态', name: 'payStatus', index: 'pay_status', width: 80,
                 formatter: function (value, options, row) {
@@ -45,8 +29,25 @@ $(function () {
                     }
                 }
             },
-            {label: '商品ID', name: 'goodsId', index: 'goods_id', width: 80},
-            {label: '账户ID', name: 'accountId', index: 'account_id', width: 80},
+            {
+                label: '支付类型', name: 'payType', index: 'pay_type', width: 80,
+                formatter: function (value, options, row) {
+                    if (value === 0) {
+                        return '<span">支付宝</span>';
+                    }
+                    if (value === 1) {
+                        return '<span">微信</span>';
+                    }
+                    if (value === 2) {
+                        return '<span">银联</span>';
+                    }
+                    if (value === 3) {
+                        return '<span">个人账户</span>';
+                    } else {
+                        return '<span"></span>';
+                    }
+                }
+            },
             {label: '支付完成时间', name: 'payTime', index: 'pay_time', width: 80},
             {label: '创建时间', name: 'createTime', index: 'create_time', width: 80}
         ],

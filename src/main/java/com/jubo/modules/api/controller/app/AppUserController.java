@@ -238,4 +238,27 @@ public class AppUserController {
         return R.ok().putData(user);
     }
 
+    /**
+     * 实名认证
+     */
+    @RequestMapping("/auth")
+    public R auth(@RequestBody Map<String, String> params, @LoginUser SysUserEntity userEntity) {
+
+        String name = params.get("realName");
+        if (StringUtils.isBlank(name)) {
+            return R.error("真实姓名不能为空");
+        }
+        String idCard = params.get("idCard");
+        if (!ParamVerifyUtils.isIdCard(idCard)) {
+            return R.error("身份证号码格式错误");
+        }
+//        String cardNo = params.get("cardNo");
+//        if (StringUtils.isBlank(cardNo)) {
+//            return R.error("银行卡不能为空");
+//        }
+
+        sysUserService.auth(params, userEntity);
+        return R.ok();
+    }
+
 }

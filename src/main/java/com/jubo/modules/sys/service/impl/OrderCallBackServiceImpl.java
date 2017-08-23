@@ -137,6 +137,5 @@ public class OrderCallBackServiceImpl implements OrderCallBackService {
         //使用设备
         deviceService.useDevice(order.getDeviceId());
 
-        System.out.println("请求mqtt,开始使用设备······");
     }
 }

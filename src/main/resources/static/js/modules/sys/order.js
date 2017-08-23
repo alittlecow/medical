@@ -3,10 +3,47 @@ $(function () {
         url: baseURL + 'order/list',
         datatype: "json",
         colModel: [
-            {label: '订单ID', name: 'id', index: 'id', width: 50, key: true},
-            {label: '用户ID', name: 'userId', index: 'user_id', width: 80},
+            {label: '订单ID', name: 'id', index: 'id', width: 100, key: true},
+            {label: '用户ID', name: 'userId', index: 'user_id', width: 40},
             {label: '设备ID', name: 'deviceId', index: 'device_id', width: 80},
+            {label: '充值/消费卡号', name: 'cardCode', index: 'card_code', width: 80},
             {label: '订单金额', name: 'orderMoney', index: 'order_money', width: 80},
+            {label: '商品ID', name: 'goodsId', index: 'goods_id', width: 80},
+            {
+                label: '订单类型', name: 'orderType', index: 'order_type', width: 80,
+                formatter: function (value, options, row) {
+                    if (value === 0) {
+                        return '<span">ID卡充值</span>';
+                    }
+                    if (value === 1) {
+                        return '<span">APP消费</span>';
+                    }
+                    if (value === 2) {
+                        return '<span">ID卡消费</span>';
+                    }
+                }
+            },
+
+            {
+                label: '订单状态', name: 'payStatus', index: 'pay_status', width: 80,
+                formatter: function (value, options, row) {
+                    if (value === 0) {
+                        return '<span">待支付</span>';
+                    }
+                    if (value === 1) {
+                        return '<span">支付中</span>';
+                    }
+                    if (value === 20) {
+                        return '<span">支付成功</span>';
+                    }
+                    if (value === 21) {
+                        return '<span">支付失败</span>';
+                    } else {
+                        return '<span"></span>';
+                    }
+                }
+            },
+
             {
                 label: '支付类型', name: 'payType', index: 'pay_type', width: 80,
                 formatter: function (value, options, row) {
@@ -29,41 +66,9 @@ $(function () {
                     }
                 }
             },
-            {
-                label: '订单状态', name: 'payStatus', index: 'pay_status', width: 80,
-                formatter: function (value, options, row) {
-                    if (value === 0) {
-                        return '<span">待支付</span>';
-                    }
-                    if (value === 1) {
-                        return '<span">支付中</span>';
-                    }
-                    if (value === 20) {
-                        return '<span">支付成功</span>';
-                    }
-                    if (value === 21) {
-                        return '<span">支付失败</span>';
-                    } else {
-                        return '<span"></span>';
-                    }
-                }
-            },
-            {
-                label: '订单类型', name: 'orderType', index: 'order_type', width: 80,
-                formatter: function (value, options, row) {
-                    if (value === 0) {
-                        return '<span">ID卡充值</span>';
-                    }
-                    if (value === 1) {
-                        return '<span">APP消费</span>';
-                    }
-                    if (value === 2) {
-                        return '<span">ID卡消费</span>';
-                    }
-                }
-            },
-            {label: '创建时间', name: 'createTime', index: 'create_time', width: 80},
-            {label: '完成时间', name: 'payTime', index: 'pay_time', width: 80},
+            {label: '支付完成时间', name: 'payTime', index: 'pay_time', width: 80},
+            {label: '创建时间', name: 'createTime', index: 'create_time', width: 80}
+
         ],
         viewrecords: true,
         height: 385,

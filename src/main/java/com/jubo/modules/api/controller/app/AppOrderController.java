@@ -5,10 +5,7 @@ import com.jubo.common.utils.R;
 import com.jubo.common.validator.Assert;
 import com.jubo.modules.api.annotation.AuthIgnore;
 import com.jubo.modules.api.annotation.LoginUser;
-import com.jubo.modules.sys.entity.AccountInfoEntity;
-import com.jubo.modules.sys.entity.CardEntity;
-import com.jubo.modules.sys.entity.GoodsEntity;
-import com.jubo.modules.sys.entity.SysUserEntity;
+import com.jubo.modules.sys.entity.*;
 import com.jubo.modules.sys.service.*;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -45,6 +42,9 @@ public class AppOrderController {
     @Autowired
     private OrderCallBackService orderCallBackService;
 
+    @Autowired
+    private DeviceService deviceService;
+
 
     /**
      * 门店消费订单接口
@@ -54,12 +54,23 @@ public class AppOrderController {
     })
     @RequestMapping(value = "/consumeorder", method = RequestMethod.POST)
     public R consumeOrder(@LoginUser SysUserEntity user, @RequestBody Map<String, Object> params) {
-        String deviceId = MapUtils.getString(params, "deviceId");
-        Assert.isBlank(deviceId, "设备ID不能为空");
 
-        // TODO: 2017/8/16 设备可使用校验
+        if (new Byte("0").equals(user.getIsAuth())) {
+            return R.error("请先进行实名认证");
+        }
+        String code = MapUtils.getString(params, "code");
+        if (StringUtils.isBlank(code)) {
+            return R.error("设备编码不能为空");
+        }
 
-        String orderId = orderService.buildConsumeOrder(user.getUserId(), deviceId);
+        DeviceEntity device = deviceService.queryObjectByCode(code);
+        if (device == null) {
+            return R.error("设备不存在");
+        }
+        device.checkValid();
+
+        String orderId = orderService.buildConsumeOrder(user.getUserId(), device.getId());
+
         Map map = new HashMap();
         map.put("orderId", orderId);
 
@@ -108,6 +119,30 @@ public class AppOrderController {
         map.put("orderId", orderId);
 
         return R.ok().putData(map);
+    }
+
+
+    //用户免费体验订单
+    @RequestMapping("/freeuse")
+    public R freeUse(@LoginUser SysUserEntity user, @RequestBody Map<String, String> params) {
+        //是否需要先进行实名认证
+//        if (new Byte("0").equals(user.getIsAuth())) {
+//            return R.error("请先进行实名认证");
+//        }
+        String code = MapUtils.getString(params, "code");
+        if (StringUtils.isBlank(code)) {
+            return R.error("设备编码不能为空");
+        }
+
+        DeviceEntity device = deviceService.queryObjectByCode(code);
+        if (device == null) {
+            return R.error("设备不存在");
+        }
+        device.checkValid();
+
+        deviceService.freeUse(code, user);
+
+        return R.ok();
     }
 
     @AuthIgnore

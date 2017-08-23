@@ -88,6 +88,7 @@ public class AccountInfoServiceImpl implements AccountInfoService {
         Map<String, Long> userMap = getAllDealerAccount(merchantId);
 
         SettlementRuleEntity rule = settlementRuleService.queryObject(new Long("0"));
+
         double city = rule.getCityDealer() != null ? rule.getCityDealer().doubleValue() / 100 : 0;
         double province = rule.getProvinceDealer() != null ? rule.getProvinceDealer().doubleValue() / 100 : 0;
         double merchant = rule.getMerchant() != null ? rule.getMerchant().doubleValue() / 100 : 0;
@@ -239,30 +240,6 @@ public class AccountInfoServiceImpl implements AccountInfoService {
         accountInfoDao.deleteBatch(ids);
     }
 
-    @Override
-    public void auth(Map<String, String> params, SysUserEntity userEntity) {
-        if (new Byte("1").equals(userEntity.getIsAuth())) {
-            throw new RRException("帐号已通过实名认证");
-        }
-        String name = params.get("name");
-        String idNo = params.get("idNo");
-        String cardNo = params.get("cardNo");
-        BCAuth auth = new BCAuth(name, idNo, cardNo);
-        String mobile = params.get("mobile");
-        auth.setMobile(mobile);
-        try {
-            auth = BCPay.startBCAuth(auth);
-            if (auth.isAuthResult()) {
-                userEntity.setRealName(name);
-                userEntity.setIdCard(idNo);
-                userEntity.setIsAuth(new Byte("1"));
-                sysUserDao.update(userEntity);
-            } else {
-                throw new RRException("认证信息不匹配", 500);
-            }
-        } catch (BCException e) {
-            throw new RRException("实名认证接口调用失败", e);
-        }
-    }
+
 
 }

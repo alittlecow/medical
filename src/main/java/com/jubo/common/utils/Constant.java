@@ -184,9 +184,6 @@ public class Constant {
     }
 
 
-
-
-
     public enum ApplyCardStatus {
         //提交申请
         INIT(new Integer("0")),
@@ -313,12 +310,11 @@ public class Constant {
     }
 
     public enum DeviceBindType {
-        //0 未使用 1已经绑定 2解绑
+        //0 未使用 1已经绑定
         NEVER_USE(new Byte("0")),
 
-        IS_BIND(new Byte("1")),
+        IS_BIND(new Byte("1"));
 
-        IS_NOT_BIND(new Byte("2"));
 
         private Byte value;
 
