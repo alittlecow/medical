@@ -95,6 +95,7 @@
 			`pay_time`,
 			`pay_type`,
 			`goods_id`,
+			`order_type`,
 			`order_money`,
 			`pay_status`,
 			`account_id`
@@ -107,6 +108,7 @@
 			#{payTime},
 			#{payType},
 			#{goodsId},
+			#{orderType},
 			#{orderMoney},
 			#{payStatus},
 			#{accountId}

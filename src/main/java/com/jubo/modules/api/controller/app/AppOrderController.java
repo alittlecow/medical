@@ -121,6 +121,27 @@ public class AppOrderController {
         return R.ok().putData(map);
     }
 
+    /**
+     * 缴纳押金订单接口
+     */
+    @RequestMapping(value = "/deposit", method = RequestMethod.POST)
+    public R deposit(@LoginUser SysUserEntity user, @RequestBody Map<String, Object> params) {
+
+        //设备数量
+        int num = MapUtils.getIntValue(params, "num");
+
+        if (num <= 0) {
+            return R.error("至少缴纳一台设备的押金");
+        }
+
+        String orderId = rechargeOrderService.buildDepositOrder(user.getUserId(), num);
+
+        Map map = new HashMap();
+        map.put("orderId", orderId);
+
+        return R.ok().putData(map);
+    }
+
 
     //用户免费体验订单
     @RequestMapping("/freeuse")

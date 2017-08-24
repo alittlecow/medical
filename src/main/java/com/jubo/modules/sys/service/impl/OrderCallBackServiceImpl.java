@@ -3,6 +3,7 @@ package com.jubo.modules.sys.service.impl;
 import com.jubo.common.exception.RRException;
 import com.jubo.common.utils.Constant;
 import com.jubo.modules.api.annotation.AuthIgnore;
+import com.jubo.modules.sys.entity.AccountInfoEntity;
 import com.jubo.modules.sys.entity.GoodsEntity;
 import com.jubo.modules.sys.entity.OrderEntity;
 import com.jubo.modules.sys.entity.RechargeOrderEntity;
@@ -12,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 import static com.jubo.common.utils.Constant.PRE_RECHARGE_ORDER;
@@ -54,17 +56,14 @@ public class OrderCallBackServiceImpl implements OrderCallBackService {
         if (order == null || Constant.PayStatus.SUCCESS.getValue().compareTo(order.getPayStatus()) == 0) {
             return;
         }
-
-        GoodsEntity goods = goodsService.queryObject(order.getGoodsId());
-        if (goods == null) {
-            throw new RRException("充值套餐不存在");
+        //账户充值
+        if (new Byte("1").equals(order.getOrderType())) {
+            handleAccountRecharge(order);
         }
-        if (Constant.GoodsType.ACCOUNT_RECHARGE_TIME.getValue().compareTo(goods.getType()) != 0) {
-            throw new RRException("充值类型错误");
+        //押金缴纳
+        if (new Byte("2").equals(order.getOrderType())) {
+            handleDeposit(order);
         }
-        //更改账户余额
-        accountInfoService.changeAccount(order.getUserId(), Constant.AccountAdjustType.USER_RECHARGE.getValue(),
-                -goods.getValue().doubleValue(), orderId);
 
         //更改订单状态
         order.setPayStatus(Constant.PayStatus.SUCCESS.getValue());
@@ -137,5 +136,42 @@ public class OrderCallBackServiceImpl implements OrderCallBackService {
         //使用设备
         deviceService.useDevice(order.getDeviceId());
 
+    }
+
+
+    //用户充值订单处理
+    private void handleAccountRecharge(RechargeOrderEntity order) {
+        GoodsEntity goods = goodsService.queryObject(order.getGoodsId());
+        if (goods == null) {
+            throw new RRException("充值套餐不存在");
+        }
+        if (Constant.GoodsType.ACCOUNT_RECHARGE_TIME.getValue().compareTo(goods.getType()) != 0) {
+            throw new RRException("充值类型错误");
+        }
+        //更改账户余额
+        accountInfoService.changeAccount(order.getUserId(), Constant.AccountAdjustType.USER_RECHARGE.getValue(),
+                -goods.getValue().doubleValue(), order.getId());
+    }
+
+    //押金缴纳订单
+    private void handleDeposit(RechargeOrderEntity order) {
+        GoodsEntity goods = goodsService.queryObject(order.getGoodsId());
+        if (goods == null) {
+            throw new RRException("充值套餐不存在");
+        }
+        if (!Constant.GoodsType.DEPOSIT.getValue().equals(goods.getType())) {
+            throw new RRException("充值类型错误");
+        }
+
+        AccountInfoEntity account = accountInfoService.queryObject(order.getAccountId());
+
+        BigDecimal deposit = new BigDecimal("0");
+
+        if (account.getDeposit() != null) {
+            deposit = account.getDeposit();
+        }
+        account.setDeposit(deposit.add(order.getOrderMoney()));
+
+        accountInfoService.update(account);
     }
 }

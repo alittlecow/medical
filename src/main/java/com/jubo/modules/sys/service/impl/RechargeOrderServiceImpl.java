@@ -1,5 +1,6 @@
 package com.jubo.modules.sys.service.impl;
 
+import com.jubo.common.exception.RRException;
 import com.jubo.common.utils.Constant;
 import com.jubo.common.utils.DateUtils;
 import com.jubo.common.utils.UUIDUtil;
@@ -11,6 +12,7 @@ import com.jubo.modules.sys.entity.RechargeOrderEntity;
 import com.jubo.modules.sys.service.AccountInfoService;
 import com.jubo.modules.sys.service.GoodsService;
 import com.jubo.modules.sys.service.RechargeOrderService;
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.time.DateFormatUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +20,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -58,12 +61,51 @@ public class RechargeOrderServiceImpl implements RechargeOrderService {
         order.setUserId(userId);
         order.setCreateTime(new Date());
         order.setGoodsId(goodsId);
+        order.setOrderType(new Byte("1"));
         order.setOrderMoney(goods.getMoney());
         order.setPayStatus(Constant.PayStatus.NEED_PAY.getValue());
         order.setAccountId(account.getId());
         rechargeOrderDao.save(order);
 
         return id;
+    }
+
+
+    @Override
+    public String buildDepositOrder(Long userId, int num) {
+
+        AccountInfoEntity account = accountInfoService.queryObjectByUserId(userId);
+        Assert.isNull(account, "账户不存在");
+
+        Map map = new HashMap();
+        map.put("type", Constant.GoodsType.DEPOSIT.getValue());
+        List<GoodsEntity> goodsList = goodsService.queryList(map);
+
+        if (CollectionUtils.isEmpty(goodsList)) {
+            throw new RRException("押金商品不存在");
+        }
+        GoodsEntity goods = goodsList.get(0);
+
+        RechargeOrderEntity order = new RechargeOrderEntity();
+
+        //生成缴纳押金订单id
+        String id = createOrderId();
+
+        order.setId(id);
+        order.setUserId(userId);
+        order.setCreateTime(new Date());
+        order.setGoodsId(goods.getId());
+        order.setOrderType(new Byte("2"));
+
+        //单价 * 数量
+        order.setOrderMoney(goods.getMoney().multiply(new BigDecimal(num)));
+        order.setPayStatus(Constant.PayStatus.NEED_PAY.getValue());
+        order.setAccountId(account.getId());
+        rechargeOrderDao.save(order);
+
+        return id;
+
+
     }
 
     @Override

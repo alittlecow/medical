@@ -19,6 +19,9 @@ public interface RechargeOrderService {
 
     String buildIdRechargeOrder(Long userId, Long goodsId);
 
+    //构建设备缴纳押金
+    String buildDepositOrder(Long userId, int num);
+
     RechargeOrderEntity queryObject(String id);
 
     List<RechargeOrderEntity> queryList(Map<String, Object> map);

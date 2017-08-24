@@ -34,6 +34,17 @@ public class RechargeOrderEntity implements Serializable {
     //充值账户id
     private String accountId;
 
+    //1 账户充值 2缴纳押金
+    private Byte orderType;
+
+    public Byte getOrderType() {
+        return orderType;
+    }
+
+    public void setOrderType(Byte orderType) {
+        this.orderType = orderType;
+    }
+
     public Long getGoodsId() {
         return goodsId;
     }

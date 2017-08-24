@@ -148,7 +148,10 @@ public class Constant {
         //设备使用类型
         DEVICE_USE_COUNT(new Byte("1")),
         //账户充值类型
-        ACCOUNT_RECHARGE_TIME(new Byte("2"));
+        ACCOUNT_RECHARGE_TIME(new Byte("2")),
+
+        //设备押金
+        DEPOSIT(new Byte("3"));
 
         private Byte value;
 

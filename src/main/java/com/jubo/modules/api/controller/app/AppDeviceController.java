@@ -82,15 +82,6 @@ public class AppDeviceController {
     }
 
     /**
-     * 使用设备
-     */
-//    @RequestMapping("/useDevice")
-//    public R useDevice(@RequestBody DeviceEntity device) {
-//        deviceService.useDevice(device);
-//        return R.ok();
-//    }
-
-    /**
      * 设备
      *
      * @param device

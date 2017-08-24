@@ -20,6 +20,9 @@ public class AccountInfoEntity implements Serializable {
     //账户余额
     private BigDecimal balance;
 
+    //已缴纳押金
+    private BigDecimal deposit;
+
     //允许提现标准位 1允许0 不允许
     private String allowEncashment;
 
@@ -29,6 +32,14 @@ public class AccountInfoEntity implements Serializable {
     //账户最后一次更新时间
     private Date updateTime;
 
+
+    public BigDecimal getDeposit() {
+        return deposit;
+    }
+
+    public void setDeposit(BigDecimal deposit) {
+        this.deposit = deposit;
+    }
 
     public String getAllowEncashment() {
         return allowEncashment;
