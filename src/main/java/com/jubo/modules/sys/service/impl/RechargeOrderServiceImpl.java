@@ -77,14 +77,7 @@ public class RechargeOrderServiceImpl implements RechargeOrderService {
         AccountInfoEntity account = accountInfoService.queryObjectByUserId(userId);
         Assert.isNull(account, "账户不存在");
 
-        Map map = new HashMap();
-        map.put("type", Constant.GoodsType.DEPOSIT.getValue());
-        List<GoodsEntity> goodsList = goodsService.queryList(map);
-
-        if (CollectionUtils.isEmpty(goodsList)) {
-            throw new RRException("押金商品不存在");
-        }
-        GoodsEntity goods = goodsList.get(0);
+        GoodsEntity goods = getDepositGoods();
 
         RechargeOrderEntity order = new RechargeOrderEntity();
 
@@ -106,6 +99,24 @@ public class RechargeOrderServiceImpl implements RechargeOrderService {
         return id;
 
 
+    }
+
+    /**
+     * 获取押金商品
+     *
+     * @return
+     */
+    public GoodsEntity getDepositGoods() {
+
+        Map map = new HashMap();
+        map.put("type", Constant.GoodsType.DEPOSIT.getValue());
+        List<GoodsEntity> goodsList = goodsService.queryList(map);
+
+        if (CollectionUtils.isEmpty(goodsList)) {
+            throw new RRException("押金商品不存在");
+        }
+        GoodsEntity goods = goodsList.get(0);
+        return goods;
     }
 
     @Override

@@ -75,7 +75,24 @@ $(function () {
             $("#jqGrid").closest(".ui-jqgrid-bdiv").css({"overflow-x": "hidden"});
         }
     });
+
+
 });
+
+var setting = {
+    data: {
+        simpleData: {
+            enable: true,
+            idKey: "deptId",
+            pIdKey: "parentId",
+            rootPId: -1
+        },
+        key: {
+            url: "nourl"
+        }
+    }
+};
+var ztree;
 
 var vm = new Vue({
     el: '#rrapp',
@@ -88,13 +105,22 @@ var vm = new Vue({
         merchantName: "",
         layerIndex: null,
 
-        q: {},
+        q: {
+            code: null,
+            merchantName: null,
+            merchantId: null
+        },
+        dept: {
+            parentName: null,
+            parentId: 0,
+            orderNum: 0
+        }
     },
     methods: {
         selectMerchant: function () {
             layer.open({
                 type: 1,
-                skin: 'layui-layer-demo',
+                skin: 'layui-layer-lan',
                 title: "绑定设备",
                 area: ['600px', '450px'],
                 shadeClose: false,
@@ -202,9 +228,45 @@ var vm = new Vue({
             vm.showList = true;
             var page = $("#jqGrid").jqGrid('getGridParam', 'page');
             $("#jqGrid").jqGrid('setGridParam', {
-                postData: {'code': vm.q.code},
+                postData: vm.q,
                 page: page
             }).trigger("reloadGrid");
+        },
+        deptTree: function () {
+            this.getDept();
+            layer.open({
+                type: 1,
+                offset: '50px',
+                skin: 'layui-layer-lan',
+                title: "选择部门",
+                area: ['360px', '400px'],
+                shade: 0,
+                shadeClose: false,
+                content: jQuery("#deptLayer"),
+                btn: ['确定', '取消'],
+                btn1: function (index) {
+                    var node = ztree.getSelectedNodes();
+                    //选择上级部门
+                    vm.q.merchantId = node[0].deptId;
+                    vm.q.merchantName = node[0].name;
+
+                    layer.close(index);
+                }
+            });
+        },
+        getDept: function () {
+            //加载部门树
+            $.get(baseURL + "sys/dept/select", function (r) {
+                ztree = $.fn.zTree.init($("#deptTree"), setting, r.deptList);
+                var node = ztree.getNodeByParam("deptId", vm.dept.parentId);
+                ztree.selectNode(node);
+
+                vm.dept.parentName = node.name;
+            })
         }
     }
 });
+
+
+
+

@@ -100,14 +100,14 @@ public class SysDeptController extends AbstractController {
         List<SysDeptEntity> deptList = sysDeptService.queryList(map);
 
         //添加一级部门
-        if (getUserId() == Constant.SUPER_ADMIN) {
-            SysDeptEntity root = new SysDeptEntity();
-            root.setDeptId(0L);
-            root.setName("钜栢健康");
-            root.setParentId(-1L);
-            root.setOpen(true);
-            deptList.add(root);
-        }
+//        if (getUserId() == Constant.SUPER_ADMIN) {
+        SysDeptEntity root = new SysDeptEntity();
+        root.setDeptId(0L);
+        root.setName("钜栢健康");
+        root.setParentId(-1L);
+        root.setOpen(true);
+        deptList.add(root);
+//        }
 
         return R.ok().put("deptList", deptList);
     }

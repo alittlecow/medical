@@ -1,23 +1,18 @@
 package com.jubo.modules.api.controller.app;
 
-import com.jubo.common.utils.Constant;
 import com.jubo.common.utils.PageUtils;
 import com.jubo.common.utils.Query;
 import com.jubo.common.utils.R;
 import com.jubo.modules.api.annotation.LoginUser;
 import com.jubo.modules.sys.entity.DeviceEntity;
-import com.jubo.modules.sys.entity.SysDeptEntity;
 import com.jubo.modules.sys.entity.SysUserEntity;
 import com.jubo.modules.sys.service.DeviceService;
 import com.jubo.modules.sys.service.SysDeptService;
 import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.collections.MapUtils;
-import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
