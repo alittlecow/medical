@@ -147,9 +147,9 @@ public class AppOrderController {
     @RequestMapping("/freeuse")
     public R freeUse(@LoginUser SysUserEntity user, @RequestBody Map<String, String> params) {
         //是否需要先进行实名认证
-//        if (new Byte("0").equals(user.getIsAuth())) {
-//            return R.error("请先进行实名认证");
-//        }
+        if (new Byte("0").equals(user.getIsAuth())) {
+            return R.error("请先进行实名认证");
+        }
         String code = MapUtils.getString(params, "code");
         if (StringUtils.isBlank(code)) {
             return R.error("设备编码不能为空");

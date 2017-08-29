@@ -13,6 +13,9 @@ $(function () {
                 if (value === 2) {
                     return '<span">账户充值</span>';
                 }
+                if (value === 3) {
+                    return '<span">设备押金</span>';
+                }
             }
             },
             {label: '商品值', name: 'value', index: 'value', width: 80},
