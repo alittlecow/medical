@@ -11,6 +11,7 @@ import com.jubo.modules.sys.entity.SysUserEntity;
 import com.jubo.modules.sys.service.SysUserRoleService;
 import com.jubo.modules.sys.service.SysUserService;
 import org.apache.commons.lang.ArrayUtils;
+import org.apache.commons.lang.StringUtils;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.apache.shiro.crypto.hash.Sha256Hash;
 import org.springframework.beans.factory.annotation.Autowired;

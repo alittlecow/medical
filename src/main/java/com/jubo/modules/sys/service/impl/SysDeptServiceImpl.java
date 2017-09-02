@@ -1,5 +1,6 @@
 package com.jubo.modules.sys.service.impl;
 
+import com.jubo.common.utils.Constant;
 import com.jubo.common.utils.ErrorMessage;
 import com.jubo.common.utils.R;
 import com.jubo.common.validator.Assert;
@@ -97,7 +98,7 @@ public class SysDeptServiceImpl implements SysDeptService {
         user.setMobile(deptVo.getMobile());
         user.setRoleId(roleId);
         user.setEmail(deptVo.getEmail());
-
+        user.setStatus(Constant.ENABLE);
         Long userId = sysUserService.save(user);
 
 

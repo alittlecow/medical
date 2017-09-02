@@ -18,12 +18,8 @@ public class DeviceDataHistoryEntity implements Serializable {
 	
 	//
 	private String id;
-	//用户类型（0app用户 1ID卡用户）
-	private Integer userType;
-	//用户id
-	private String userId;
-	//设备id
-	private String deviceId;
+	//设备编码
+	private String deviceCode;
 	//上报时间
 	private Date reportTime;
 	//数值
@@ -43,42 +39,16 @@ public class DeviceDataHistoryEntity implements Serializable {
 	public String getId() {
 		return id;
 	}
-	/**
-	 * 设置：用户类型（0app用户 1ID卡用户）
-	 */
-	public void setUserType(Integer userType) {
-		this.userType = userType;
+
+
+	public String getDeviceCode() {
+		return deviceCode;
 	}
-	/**
-	 * 获取：用户类型（0app用户 1ID卡用户）
-	 */
-	public Integer getUserType() {
-		return userType;
+
+	public void setDeviceCode(String deviceCode) {
+		this.deviceCode = deviceCode;
 	}
-	/**
-	 * 设置：用户id
-	 */
-	public void setUserId(String userId) {
-		this.userId = userId;
-	}
-	/**
-	 * 获取：用户id
-	 */
-	public String getUserId() {
-		return userId;
-	}
-	/**
-	 * 设置：设备id
-	 */
-	public void setDeviceId(String deviceId) {
-		this.deviceId = deviceId;
-	}
-	/**
-	 * 获取：设备id
-	 */
-	public String getDeviceId() {
-		return deviceId;
-	}
+
 	/**
 	 * 设置：上报时间
 	 */

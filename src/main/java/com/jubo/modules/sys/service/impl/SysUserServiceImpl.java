@@ -154,7 +154,12 @@ public class SysUserServiceImpl implements SysUserService {
         if (StringUtils.isBlank(user.getPassword())) {
             user.setPassword(null);
         } else {
-            user.setPassword(new Sha256Hash(user.getPassword(), user.getSalt()).toHex());
+            SysUserEntity modUser = sysUserDao.queryObject(user.getUserId());
+            if (modUser == null) {
+                throw new RRException("用户不存在");
+            }
+
+            user.setPassword(new Sha256Hash(user.getPassword(), modUser.getSalt()).toHex());
         }
         sysUserDao.update(user);
     }

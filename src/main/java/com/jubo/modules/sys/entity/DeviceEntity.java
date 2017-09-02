@@ -42,11 +42,6 @@ public class DeviceEntity implements Serializable {
 
     private Date operateTime;
 
-    //设备使用产生的总金额
-    private BigDecimal totalMoney;
-
-    //设备使用的总时间
-    private Long totalTime;
 
 
     //是否可以使用
@@ -140,19 +135,5 @@ public class DeviceEntity implements Serializable {
         this.operateTime = operateTime;
     }
 
-    public BigDecimal getTotalMoney() {
-        return totalMoney;
-    }
 
-    public void setTotalMoney(BigDecimal totalMoney) {
-        this.totalMoney = totalMoney;
-    }
-
-    public Long getTotalTime() {
-        return totalTime;
-    }
-
-    public void setTotalTime(Long totalTime) {
-        this.totalTime = totalTime;
-    }
 }

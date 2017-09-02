@@ -4,8 +4,10 @@ import com.jubo.common.utils.PageUtils;
 import com.jubo.common.utils.Query;
 import com.jubo.common.utils.R;
 import com.jubo.modules.api.annotation.LoginUser;
+import com.jubo.modules.sys.entity.DeviceDataHistoryEntity;
 import com.jubo.modules.sys.entity.DeviceEntity;
 import com.jubo.modules.sys.entity.SysUserEntity;
+import com.jubo.modules.sys.service.DeviceDataHistoryService;
 import com.jubo.modules.sys.service.DeviceService;
 import com.jubo.modules.sys.service.SysDeptService;
 import org.apache.commons.collections.CollectionUtils;
@@ -15,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -31,6 +34,9 @@ public class AppDeviceController {
 
     @Autowired
     private DeviceService deviceService;
+
+    @Autowired
+    private DeviceDataHistoryService deviceDataHistoryService;
 
     /**
      * 列表
@@ -61,46 +67,97 @@ public class AppDeviceController {
      * 信息
      */
     @RequestMapping("/info")
-    public R info(@RequestBody Map<String, String> param) {
-        String code = MapUtils.getString(param, "code");
+    public R info(@LoginUser SysUserEntity user, @RequestBody Map<String, Object> params) {
+        String code = MapUtils.getString(params, "code");
         if (StringUtils.isBlank(code)) {
             return R.error("设备编码不能为空");
         }
 
-        DeviceEntity device = deviceService.queryObjectByCode(code);
-        if (device == null) {
+        List<Long> merchantIdList = sysDeptService.getAllMerchantByUserId(user.getUserId());
+
+        List<DeviceEntity> deviceList = new ArrayList<>();
+
+        if (CollectionUtils.isNotEmpty(merchantIdList)) {
+            Map<String, Object> map = new HashMap<>();
+
+            map.put("merchantList", merchantIdList);
+            map.put("code", code);
+            //查询列表数据
+            deviceList = deviceService.queryList(map);
+        }
+
+        if (CollectionUtils.isEmpty(deviceList)) {
             return R.error("设备不存在");
         }
 
-        return R.ok().putData(device);
+        return R.ok().putData(deviceList.get(0));
     }
 
     /**
      * 修改
      */
     @RequestMapping("/update")
-    public R update(@RequestBody Map<String, String> param) {
-        String code = MapUtils.getString(param, "code");
+    public R update(@LoginUser SysUserEntity user, @RequestBody Map<String, Object> params) {
+
+        String code = MapUtils.getString(params, "code");
         if (StringUtils.isBlank(code)) {
             return R.error("设备编码不能为空");
         }
 
-        deviceService.updateByCode(param);
+        List<Long> merchantIdList = sysDeptService.getAllMerchantByUserId(user.getUserId());
+
+        List<DeviceEntity> deviceList = new ArrayList<>();
+
+
+        if (CollectionUtils.isNotEmpty(merchantIdList)) {
+            Map<String, Object> map = new HashMap<>();
+
+            map.put("merchantList", merchantIdList);
+            //查询列表数据
+            deviceList = deviceService.queryList(map);
+        }
+
+        if (CollectionUtils.isEmpty(deviceList)) {
+            return R.error("设备不存在");
+        }
+
+        deviceService.updateByCode(params);
 
         return R.ok();
     }
 
     /**
      * 设备
-     *
-     * @param device
-     * @return
+     * code.startTime,endTime
      */
-    @RequestMapping("/history")
-    public R history(@RequestBody DeviceEntity device) {
-        deviceService.update(device);
+    @RequestMapping("/historydata")
+    public R history(@LoginUser SysUserEntity user, @RequestBody Map<String, Object> params) {
 
-        return R.ok();
+        List<Long> merchantIdList = sysDeptService.getAllMerchantByUserId(user.getUserId());
+
+        List<DeviceEntity> deviceList = new ArrayList<>();
+
+        if (CollectionUtils.isNotEmpty(merchantIdList)) {
+            Map<String, Object> map = new HashMap<>();
+
+            map.put("merchantList", merchantIdList);
+            //查询列表数据
+            deviceList = deviceService.queryList(map);
+        }
+
+        if (CollectionUtils.isEmpty(deviceList)) {
+            return R.error("设备不存在");
+        }
+
+        Query query = new Query(params);
+
+        List<DeviceDataHistoryEntity> deviceDataHistoryList = deviceDataHistoryService.queryList(query);
+
+        int total = deviceDataHistoryService.queryTotal(query);
+
+        PageUtils pageUtil = new PageUtils(deviceDataHistoryList, total, query.getLimit(), query.getPage());
+
+        return R.ok().putData(pageUtil);
     }
 
 
