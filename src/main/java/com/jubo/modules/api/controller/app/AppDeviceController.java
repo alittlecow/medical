@@ -9,6 +9,8 @@ import com.jubo.modules.sys.entity.SysUserEntity;
 import com.jubo.modules.sys.service.DeviceService;
 import com.jubo.modules.sys.service.SysDeptService;
 import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections.MapUtils;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -58,9 +60,17 @@ public class AppDeviceController {
     /**
      * 信息
      */
-    @RequestMapping("/info/{id}")
-    public R info(@PathVariable("id") String id) {
-        DeviceEntity device = deviceService.queryObject(id);
+    @RequestMapping("/info")
+    public R info(@RequestBody Map<String, String> param) {
+        String code = MapUtils.getString(param, "code");
+        if (StringUtils.isBlank(code)) {
+            return R.error("设备编码不能为空");
+        }
+
+        DeviceEntity device = deviceService.queryObjectByCode(code);
+        if (device == null) {
+            return R.error("设备不存在");
+        }
 
         return R.ok().putData(device);
     }
@@ -69,9 +79,13 @@ public class AppDeviceController {
      * 修改
      */
     @RequestMapping("/update")
-    public R update(@RequestBody DeviceEntity device) {
+    public R update(@RequestBody Map<String, String> param) {
+        String code = MapUtils.getString(param, "code");
+        if (StringUtils.isBlank(code)) {
+            return R.error("设备编码不能为空");
+        }
 
-        deviceService.update(device);
+        deviceService.updateByCode(param);
 
         return R.ok();
     }
@@ -88,7 +102,6 @@ public class AppDeviceController {
 
         return R.ok();
     }
-
 
 
 }

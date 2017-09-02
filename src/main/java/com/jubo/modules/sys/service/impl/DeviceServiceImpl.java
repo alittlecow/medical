@@ -33,7 +33,7 @@ public class DeviceServiceImpl implements DeviceService {
     @Override
     public R freeUse(String code, SysUserEntity user) {
         int freeCount = user.getFreeCount();
-        if (freeCount == 0) {
+        if (freeCount <= 0) {
             return R.error("免费体验次数已经用完");
         }
         user.setFreeCount(freeCount - 1);
@@ -82,6 +82,14 @@ public class DeviceServiceImpl implements DeviceService {
         //更新操作时间
         device.setOperateTime(new Date());
         deviceDao.update(device);
+    }
+
+    @Override
+    public void updateByCode(Map map) {
+
+        map.put("operateTime", new Date());
+
+        deviceDao.updateByCode(map);
     }
 
     @Override

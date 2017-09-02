@@ -27,6 +27,8 @@ public interface DeviceService {
 
     void update(DeviceEntity device);
 
+    void updateByCode(Map map);
+
     void delete(String id);
 
     void deleteBatch(String[] ids);

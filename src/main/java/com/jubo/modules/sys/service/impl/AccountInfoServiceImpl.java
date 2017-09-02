@@ -64,7 +64,7 @@ public class AccountInfoServiceImpl implements AccountInfoService {
         }
 
         //订单已支付
-        if (Constant.PayStatus.SUCCESS.getValue().compareTo(order.getPayStatus()) == 0) {
+        if (Constant.PayStatus.SUCCESS.getValue().equals(order.getPayStatus())) {
             return R.error(ErrorMessage.ORDER_ALREADY_PAY);
         }
 
@@ -239,7 +239,6 @@ public class AccountInfoServiceImpl implements AccountInfoService {
     public void deleteBatch(String[] ids) {
         accountInfoDao.deleteBatch(ids);
     }
-
 
 
 }

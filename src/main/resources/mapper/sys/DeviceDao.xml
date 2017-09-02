@@ -129,6 +129,16 @@
         where id = #{id}
     </update>
 
+    <update id="updateByCode" parameterType="java.util.Map">
+        update device
+        <set>
+            <if test="operateTime != null">`operate_time` = #{operateTime},</if>
+            <if test="useStatus != null">`use_status` = #{useStatus},</if>
+            <if test="isBreakdown != null">`is_breakdown` = #{isBreakdown},</if>
+        </set>
+        where `code` = #{code}
+    </update>
+
     <delete id="delete">
 		delete from device where id = #{value}
 	</delete>

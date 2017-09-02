@@ -81,6 +81,9 @@ $(function () {
 var vm = new Vue({
     el: '#rrapp',
     data: {
+        q: {
+            id:null
+        },
         showList: true,
         title: null,
         rechargeOrder: {}
@@ -155,7 +158,11 @@ var vm = new Vue({
             vm.showList = true;
             var page = $("#jqGrid").jqGrid('getGridParam', 'page');
             $("#jqGrid").jqGrid('setGridParam', {
-                page: page
+                postData: {
+                    'id': vm.q.id,
+                    "beginTime": $("#beginTime").val(),
+                    "endTime": $("#endTime").val()
+                },
             }).trigger("reloadGrid");
         }
     }

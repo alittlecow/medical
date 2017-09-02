@@ -4,6 +4,8 @@ import com.jubo.modules.sys.entity.DeviceEntity;
 ;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.Map;
+
 /**
  * @author chenshun
  * @email sunlightcs@gmail.com
@@ -13,4 +15,7 @@ import org.apache.ibatis.annotations.Mapper;
 public interface DeviceDao extends BaseDao<DeviceEntity> {
 
     DeviceEntity queryObjectByCode(String code);
+
+
+    void updateByCode(Map map);
 }

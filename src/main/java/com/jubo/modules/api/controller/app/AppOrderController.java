@@ -160,10 +160,8 @@ public class AppOrderController {
             return R.error("设备不存在");
         }
         device.checkValid();
-
-        deviceService.freeUse(code, user);
-
-        return R.ok();
+        
+        return deviceService.freeUse(code, user);
     }
 
     @AuthIgnore

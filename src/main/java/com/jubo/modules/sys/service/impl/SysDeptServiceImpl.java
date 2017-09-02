@@ -151,6 +151,10 @@ public class SysDeptServiceImpl implements SysDeptService {
         List<Long> merchantList = new ArrayList<>();
 
         SysDeptEntity deptEntity = sysDeptDao.queryObjectByUserId(userId);
+
+        if (deptEntity == null) {
+            return merchantList;
+        }
         //获取子部门ID
         List<Long> subIdList = queryDetpIdList(deptEntity.getDeptId());
         if (CollectionUtils.isNotEmpty(subIdList)) {
